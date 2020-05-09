@@ -57,6 +57,8 @@
             this.groupBox27 = new System.Windows.Forms.GroupBox();
             this.textBoxThongTinSach = new System.Windows.Forms.TextBox();
             this.buttonTimKiemSach = new System.Windows.Forms.Button();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox5.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -71,10 +73,12 @@
             this.groupBox28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSach)).BeginInit();
             this.groupBox27.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.groupBox10);
             this.groupBox5.Controls.Add(this.groupBox9);
             this.groupBox5.Controls.Add(this.groupBox4);
             this.groupBox5.Controls.Add(this.groupBox6);
@@ -233,7 +237,7 @@
             this.groupBox7.Controls.Add(this.textBoxThongTinPhieuMuon);
             this.groupBox7.Location = new System.Drawing.Point(5, 26);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(429, 63);
+            this.groupBox7.Size = new System.Drawing.Size(260, 63);
             this.groupBox7.TabIndex = 48;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Thông Tin Phiếu Mượn";
@@ -243,7 +247,7 @@
             this.textBoxThongTinPhieuMuon.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxThongTinPhieuMuon.Location = new System.Drawing.Point(6, 21);
             this.textBoxThongTinPhieuMuon.Name = "textBoxThongTinPhieuMuon";
-            this.textBoxThongTinPhieuMuon.Size = new System.Drawing.Size(417, 27);
+            this.textBoxThongTinPhieuMuon.Size = new System.Drawing.Size(248, 27);
             this.textBoxThongTinPhieuMuon.TabIndex = 1;
             // 
             // buttonTimKiemPhieuMuon
@@ -361,6 +365,31 @@
             this.buttonTimKiemSach.Text = "Tìm Kiếm";
             this.buttonTimKiemSach.UseVisualStyleBackColor = true;
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.comboBox1);
+            this.groupBox10.Location = new System.Drawing.Point(271, 26);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(180, 63);
+            this.groupBox10.TabIndex = 60;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Loại Thông Tin";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Mã Phiếu Mượn",
+            "Mã Nhân Viên",
+            "Mã Độc Giả",
+            "Tên Độc Giả",
+            "Ngày Mượn ",
+            "Ngày Trả"});
+            this.comboBox1.Location = new System.Drawing.Point(7, 21);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(167, 27);
+            this.comboBox1.TabIndex = 0;
+            // 
             // QuanLyPhieuMuon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -392,6 +421,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSach)).EndInit();
             this.groupBox27.ResumeLayout(false);
             this.groupBox27.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -427,5 +457,7 @@
         private System.Windows.Forms.Button buttonXoaSach;
         private System.Windows.Forms.TextBox textBoxNgayTra;
         private System.Windows.Forms.TextBox textBoxNgayMuon;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

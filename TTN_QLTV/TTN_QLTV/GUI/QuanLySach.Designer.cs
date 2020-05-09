@@ -109,6 +109,7 @@
             this.groupBox31 = new System.Windows.Forms.GroupBox();
             this.dataGridViewTacGia_TacGia = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBoxNgaySinh_TacGia = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBoxTenTacGia_TacGia = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -181,7 +182,6 @@
             this.textBoxTenKeSach_KeSach = new System.Windows.Forms.TextBox();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.textBoxMaKeSach_KeSach = new System.Windows.Forms.TextBox();
-            this.textBoxNgaySinh_TacGia = new System.Windows.Forms.TextBox();
             this.tabControlQuanLySach.SuspendLayout();
             this.tabPageDauSach.SuspendLayout();
             this.groupBox19.SuspendLayout();
@@ -311,9 +311,9 @@
             // buttonSachThuoc_DauSach
             // 
             this.buttonSachThuoc_DauSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSachThuoc_DauSach.Location = new System.Drawing.Point(428, 630);
+            this.buttonSachThuoc_DauSach.Location = new System.Drawing.Point(406, 630);
             this.buttonSachThuoc_DauSach.Name = "buttonSachThuoc_DauSach";
-            this.buttonSachThuoc_DauSach.Size = new System.Drawing.Size(112, 63);
+            this.buttonSachThuoc_DauSach.Size = new System.Drawing.Size(134, 63);
             this.buttonSachThuoc_DauSach.TabIndex = 39;
             this.buttonSachThuoc_DauSach.Text = "Sách Thuộc Đầu Sách";
             this.buttonSachThuoc_DauSach.UseVisualStyleBackColor = true;
@@ -328,6 +328,7 @@
             this.buttonThemVao_DauSach.TabIndex = 38;
             this.buttonThemVao_DauSach.Text = "Thêm Vào";
             this.buttonThemVao_DauSach.UseVisualStyleBackColor = true;
+            this.buttonThemVao_DauSach.Click += new System.EventHandler(this.buttonThemVao_DauSach_Click);
             // 
             // buttonXoaTheLoai_DauSach
             // 
@@ -1125,6 +1126,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ngày Sinh";
             // 
+            // textBoxNgaySinh_TacGia
+            // 
+            this.textBoxNgaySinh_TacGia.Location = new System.Drawing.Point(6, 26);
+            this.textBoxNgaySinh_TacGia.Name = "textBoxNgaySinh_TacGia";
+            this.textBoxNgaySinh_TacGia.Size = new System.Drawing.Size(274, 27);
+            this.textBoxNgaySinh_TacGia.TabIndex = 1;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.textBoxTenTacGia_TacGia);
@@ -1863,13 +1871,6 @@
             this.textBoxMaKeSach_KeSach.ReadOnly = true;
             this.textBoxMaKeSach_KeSach.Size = new System.Drawing.Size(274, 27);
             this.textBoxMaKeSach_KeSach.TabIndex = 0;
-            // 
-            // textBoxNgaySinh_TacGia
-            // 
-            this.textBoxNgaySinh_TacGia.Location = new System.Drawing.Point(6, 26);
-            this.textBoxNgaySinh_TacGia.Name = "textBoxNgaySinh_TacGia";
-            this.textBoxNgaySinh_TacGia.Size = new System.Drawing.Size(274, 27);
-            this.textBoxNgaySinh_TacGia.TabIndex = 1;
             // 
             // QuanLySach
             // 
