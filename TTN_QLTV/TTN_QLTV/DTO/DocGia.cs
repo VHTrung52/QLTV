@@ -14,6 +14,11 @@ namespace TTN_QLTV.DTO
         private string soDienThoai;
         private string cMND;
 
+        public DocGia()
+        {
+
+        }
+
         public DocGia(int maDocGia, string hoTen, DateTime ngaySinh, string soDienThoai, string cMND)
         {
             this.maDocGia = maDocGia;
