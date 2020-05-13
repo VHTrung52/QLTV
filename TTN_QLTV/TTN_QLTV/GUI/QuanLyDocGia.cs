@@ -24,5 +24,10 @@ namespace TTN_QLTV.GUI
             //datagird phiếu mượn chỉ có 1 phiếu mượn vừa chọn ở trên
             //datagrid sách là sách thuộc phiếu mượn
         }
+
+        private void groupBox46_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

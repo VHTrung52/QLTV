@@ -29,17 +29,22 @@
         private void InitializeComponent()
         {
             this.groupBox46 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.textBoxSoDienThoai_DocGia = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBoxCMNĐocGia = new System.Windows.Forms.TextBox();
             this.buttonHuy = new System.Windows.Forms.Button();
             this.buttonSuaDocGia = new System.Windows.Forms.Button();
             this.buttonThemDocGia = new System.Windows.Forms.Button();
             this.groupBox32 = new System.Windows.Forms.GroupBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBoxThongTinDocGia = new System.Windows.Forms.TextBox();
             this.buttonTimKiemDocGia = new System.Windows.Forms.Button();
             this.groupBox31 = new System.Windows.Forms.GroupBox();
             this.dataGridViewDocGia = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBoxNgaySinh_DocGia = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBoxTenDocGia = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -52,10 +57,13 @@
             this.buttonTimKiemPhieuMuon = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dataGridViewPhieuMuon = new System.Windows.Forms.DataGridView();
-            this.textBoxNgaySinh_DocGia = new System.Windows.Forms.TextBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.comboBoxLoaiThongTin_DocGia = new System.Windows.Forms.ComboBox();
             this.groupBox46.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox32.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.groupBox31.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocGia)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -65,10 +73,13 @@
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPhieuMuon)).BeginInit();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox46
             // 
+            this.groupBox46.Controls.Add(this.groupBox10);
+            this.groupBox46.Controls.Add(this.groupBox6);
             this.groupBox46.Controls.Add(this.groupBox4);
             this.groupBox46.Controls.Add(this.buttonHuy);
             this.groupBox46.Controls.Add(this.buttonSuaDocGia);
@@ -87,10 +98,27 @@
             this.groupBox46.TabStop = false;
             this.groupBox46.Text = "Độc Giả";
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.textBoxSoDienThoai_DocGia);
+            this.groupBox6.Location = new System.Drawing.Point(259, 172);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(236, 71);
+            this.groupBox6.TabIndex = 45;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Số điện thoại";
+            // 
+            // textBoxSoDienThoai_DocGia
+            // 
+            this.textBoxSoDienThoai_DocGia.Location = new System.Drawing.Point(7, 26);
+            this.textBoxSoDienThoai_DocGia.Name = "textBoxSoDienThoai_DocGia";
+            this.textBoxSoDienThoai_DocGia.Size = new System.Drawing.Size(221, 27);
+            this.textBoxSoDienThoai_DocGia.TabIndex = 1;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.textBoxCMNĐocGia);
-            this.groupBox4.Location = new System.Drawing.Point(308, 172);
+            this.groupBox4.Location = new System.Drawing.Point(5, 249);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(187, 71);
             this.groupBox4.TabIndex = 46;
@@ -136,28 +164,47 @@
             // 
             // groupBox32
             // 
+            this.groupBox32.Controls.Add(this.groupBox9);
             this.groupBox32.Controls.Add(this.textBoxThongTinDocGia);
             this.groupBox32.Location = new System.Drawing.Point(5, 26);
             this.groupBox32.Name = "groupBox32";
-            this.groupBox32.Size = new System.Drawing.Size(429, 63);
+            this.groupBox32.Size = new System.Drawing.Size(236, 63);
             this.groupBox32.TabIndex = 48;
             this.groupBox32.TabStop = false;
             this.groupBox32.Text = "Thông Tin Độc Giả";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.textBox1);
+            this.groupBox9.Location = new System.Drawing.Point(242, 0);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(197, 63);
+            this.groupBox9.TabIndex = 49;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Thông Tin Độc Giả";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(6, 21);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(222, 27);
+            this.textBox1.TabIndex = 1;
             // 
             // textBoxThongTinDocGia
             // 
             this.textBoxThongTinDocGia.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxThongTinDocGia.Location = new System.Drawing.Point(6, 21);
             this.textBoxThongTinDocGia.Name = "textBoxThongTinDocGia";
-            this.textBoxThongTinDocGia.Size = new System.Drawing.Size(417, 27);
+            this.textBoxThongTinDocGia.Size = new System.Drawing.Size(222, 27);
             this.textBoxThongTinDocGia.TabIndex = 1;
             // 
             // buttonTimKiemDocGia
             // 
-            this.buttonTimKiemDocGia.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTimKiemDocGia.Location = new System.Drawing.Point(455, 26);
+            this.buttonTimKiemDocGia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTimKiemDocGia.Location = new System.Drawing.Point(564, 26);
             this.buttonTimKiemDocGia.Name = "buttonTimKiemDocGia";
-            this.buttonTimKiemDocGia.Size = new System.Drawing.Size(213, 58);
+            this.buttonTimKiemDocGia.Size = new System.Drawing.Size(104, 58);
             this.buttonTimKiemDocGia.TabIndex = 47;
             this.buttonTimKiemDocGia.Text = "Tìm Kiếm";
             this.buttonTimKiemDocGia.UseVisualStyleBackColor = true;
@@ -166,9 +213,9 @@
             // 
             this.groupBox31.Controls.Add(this.dataGridViewDocGia);
             this.groupBox31.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox31.Location = new System.Drawing.Point(5, 249);
+            this.groupBox31.Location = new System.Drawing.Point(5, 331);
             this.groupBox31.Name = "groupBox31";
-            this.groupBox31.Size = new System.Drawing.Size(671, 435);
+            this.groupBox31.Size = new System.Drawing.Size(671, 353);
             this.groupBox31.TabIndex = 46;
             this.groupBox31.TabStop = false;
             this.groupBox31.Text = "Danh Sách Độc Giả";
@@ -180,7 +227,7 @@
             this.dataGridViewDocGia.Name = "dataGridViewDocGia";
             this.dataGridViewDocGia.RowHeadersWidth = 51;
             this.dataGridViewDocGia.RowTemplate.Height = 24;
-            this.dataGridViewDocGia.Size = new System.Drawing.Size(657, 403);
+            this.dataGridViewDocGia.Size = new System.Drawing.Size(657, 344);
             this.dataGridViewDocGia.TabIndex = 3;
             // 
             // groupBox3
@@ -188,10 +235,17 @@
             this.groupBox3.Controls.Add(this.textBoxNgaySinh_DocGia);
             this.groupBox3.Location = new System.Drawing.Point(5, 172);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(287, 71);
+            this.groupBox3.Size = new System.Drawing.Size(236, 71);
             this.groupBox3.TabIndex = 44;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ngày Sinh";
+            // 
+            // textBoxNgaySinh_DocGia
+            // 
+            this.textBoxNgaySinh_DocGia.Location = new System.Drawing.Point(7, 26);
+            this.textBoxNgaySinh_DocGia.Name = "textBoxNgaySinh_DocGia";
+            this.textBoxNgaySinh_DocGia.Size = new System.Drawing.Size(221, 27);
+            this.textBoxNgaySinh_DocGia.TabIndex = 1;
             // 
             // groupBox2
             // 
@@ -313,12 +367,28 @@
             this.dataGridViewPhieuMuon.Size = new System.Drawing.Size(657, 403);
             this.dataGridViewPhieuMuon.TabIndex = 3;
             // 
-            // textBoxNgaySinh_DocGia
+            // groupBox10
             // 
-            this.textBoxNgaySinh_DocGia.Location = new System.Drawing.Point(7, 26);
-            this.textBoxNgaySinh_DocGia.Name = "textBoxNgaySinh_DocGia";
-            this.textBoxNgaySinh_DocGia.Size = new System.Drawing.Size(274, 27);
-            this.textBoxNgaySinh_DocGia.TabIndex = 1;
+            this.groupBox10.Controls.Add(this.comboBoxLoaiThongTin_DocGia);
+            this.groupBox10.Location = new System.Drawing.Point(259, 26);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(236, 63);
+            this.groupBox10.TabIndex = 50;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Loại Thông Tin";
+            // 
+            // comboBoxLoaiThongTin_DocGia
+            // 
+            this.comboBoxLoaiThongTin_DocGia.FormattingEnabled = true;
+            this.comboBoxLoaiThongTin_DocGia.Items.AddRange(new object[] {
+            "Mã Độc Giả",
+            "Tên Độc Giả",
+            "Số Điện Thoại ",
+            "CMND"});
+            this.comboBoxLoaiThongTin_DocGia.Location = new System.Drawing.Point(7, 21);
+            this.comboBoxLoaiThongTin_DocGia.Name = "comboBoxLoaiThongTin_DocGia";
+            this.comboBoxLoaiThongTin_DocGia.Size = new System.Drawing.Size(221, 27);
+            this.comboBoxLoaiThongTin_DocGia.TabIndex = 0;
             // 
             // QuanLyDocGia
             // 
@@ -330,10 +400,14 @@
             this.Name = "QuanLyDocGia";
             this.Text = "Quản Lý Độc Giả";
             this.groupBox46.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox32.ResumeLayout(false);
             this.groupBox32.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.groupBox31.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocGia)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -347,6 +421,7 @@
             this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPhieuMuon)).EndInit();
+            this.groupBox10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -378,5 +453,11 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.DataGridView dataGridViewPhieuMuon;
         private System.Windows.Forms.TextBox textBoxNgaySinh_DocGia;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.TextBox textBoxSoDienThoai_DocGia;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.ComboBox comboBoxLoaiThongTin_DocGia;
     }
 }
