@@ -24,3 +24,16 @@ E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.csproj.CoreCompileInputs.cache
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.exe
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.pdb
+C:\Users\Welcome\Documents\GitHub\QLTV\TTN_QLTV\TTN_QLTV\bin\Debug\TTN_QLTV.exe.config
+C:\Users\Welcome\Documents\GitHub\QLTV\TTN_QLTV\TTN_QLTV\bin\Debug\TTN_QLTV.exe
+C:\Users\Welcome\Documents\GitHub\QLTV\TTN_QLTV\TTN_QLTV\bin\Debug\TTN_QLTV.pdb
+C:\Users\Welcome\Documents\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.csprojAssemblyReference.cache
+C:\Users\Welcome\Documents\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLyDocGia.resources
+C:\Users\Welcome\Documents\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLyPhieuMuon.resources
+C:\Users\Welcome\Documents\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.Form1.resources
+C:\Users\Welcome\Documents\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLySach.resources
+C:\Users\Welcome\Documents\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.Properties.Resources.resources
+C:\Users\Welcome\Documents\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.csproj.GenerateResource.cache
+C:\Users\Welcome\Documents\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.csproj.CoreCompileInputs.cache
+C:\Users\Welcome\Documents\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.exe
+C:\Users\Welcome\Documents\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.pdb

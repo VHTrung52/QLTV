@@ -938,6 +938,7 @@
             // 
             // buttonTimKiemDauSach_TacGia
             // 
+            this.buttonTimKiemDauSach_TacGia.Enabled = false;
             this.buttonTimKiemDauSach_TacGia.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTimKiemDauSach_TacGia.Location = new System.Drawing.Point(493, 28);
             this.buttonTimKiemDauSach_TacGia.Name = "buttonTimKiemDauSach_TacGia";
@@ -967,6 +968,7 @@
             // 
             // buttonThemDauSach_TacGia
             // 
+            this.buttonThemDauSach_TacGia.Enabled = false;
             this.buttonThemDauSach_TacGia.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThemDauSach_TacGia.Location = new System.Drawing.Point(493, 210);
             this.buttonThemDauSach_TacGia.Name = "buttonThemDauSach_TacGia";
@@ -978,6 +980,7 @@
             // 
             // buttonXoaDauSach_TacGia
             // 
+            this.buttonXoaDauSach_TacGia.Enabled = false;
             this.buttonXoaDauSach_TacGia.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXoaDauSach_TacGia.Location = new System.Drawing.Point(493, 271);
             this.buttonXoaDauSach_TacGia.Name = "buttonXoaDauSach_TacGia";
@@ -1007,6 +1010,7 @@
             this.dataGridViewDauSach_TacGia.RowTemplate.Height = 24;
             this.dataGridViewDauSach_TacGia.Size = new System.Drawing.Size(613, 329);
             this.dataGridViewDauSach_TacGia.TabIndex = 3;
+            this.dataGridViewDauSach_TacGia.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewDauSach_TacGia_RowHeaderMouseClick);
             // 
             // groupBox46
             // 
@@ -1039,6 +1043,7 @@
             // 
             // buttonHuyTacGia_TacGia
             // 
+            this.buttonHuyTacGia_TacGia.Enabled = false;
             this.buttonHuyTacGia_TacGia.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHuyTacGia_TacGia.Location = new System.Drawing.Point(451, 226);
             this.buttonHuyTacGia_TacGia.Name = "buttonHuyTacGia_TacGia";
@@ -1046,9 +1051,11 @@
             this.buttonHuyTacGia_TacGia.TabIndex = 51;
             this.buttonHuyTacGia_TacGia.Text = "Huỷ";
             this.buttonHuyTacGia_TacGia.UseVisualStyleBackColor = true;
+            this.buttonHuyTacGia_TacGia.Click += new System.EventHandler(this.buttonHuyTacGia_TacGia_Click);
             // 
             // buttonSuaTacGia_TacGia
             // 
+            this.buttonSuaTacGia_TacGia.Enabled = false;
             this.buttonSuaTacGia_TacGia.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSuaTacGia_TacGia.Location = new System.Drawing.Point(451, 177);
             this.buttonSuaTacGia_TacGia.Name = "buttonSuaTacGia_TacGia";
@@ -1066,6 +1073,7 @@
             this.buttonThemTacGia_TacGia.TabIndex = 49;
             this.buttonThemTacGia_TacGia.Text = "Thêm ";
             this.buttonThemTacGia_TacGia.UseVisualStyleBackColor = true;
+            this.buttonThemTacGia_TacGia.Click += new System.EventHandler(this.buttonThemTacGia_TacGia_Click);
             // 
             // groupBox32
             // 
@@ -1094,6 +1102,7 @@
             this.buttonTimKiemTacGia_TacGia.TabIndex = 47;
             this.buttonTimKiemTacGia_TacGia.Text = "Tìm Kiếm";
             this.buttonTimKiemTacGia_TacGia.UseVisualStyleBackColor = true;
+            this.buttonTimKiemTacGia_TacGia.Click += new System.EventHandler(this.buttonTimKiemTacGia_TacGia_Click);
             // 
             // groupBox31
             // 
@@ -1115,6 +1124,7 @@
             this.dataGridViewTacGia_TacGia.RowTemplate.Height = 24;
             this.dataGridViewTacGia_TacGia.Size = new System.Drawing.Size(544, 329);
             this.dataGridViewTacGia_TacGia.TabIndex = 3;
+            this.dataGridViewTacGia_TacGia.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewTacGia_TacGia_RowHeaderMouseClick);
             // 
             // groupBox3
             // 
@@ -1204,6 +1214,7 @@
             this.buttonTimKiemDauSach_NhaXuatBan.TabIndex = 52;
             this.buttonTimKiemDauSach_NhaXuatBan.Text = "Tìm Kiếm";
             this.buttonTimKiemDauSach_NhaXuatBan.UseVisualStyleBackColor = true;
+            this.buttonTimKiemDauSach_NhaXuatBan.Click += new System.EventHandler(this.buttonTimKiemDauSach_NhaXuatBan_Click);
             // 
             // groupBox45
             // 
@@ -1225,6 +1236,7 @@
             // 
             // buttonThemDauSach_NhaXuatBan
             // 
+            this.buttonThemDauSach_NhaXuatBan.Enabled = false;
             this.buttonThemDauSach_NhaXuatBan.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThemDauSach_NhaXuatBan.Location = new System.Drawing.Point(493, 145);
             this.buttonThemDauSach_NhaXuatBan.Name = "buttonThemDauSach_NhaXuatBan";
@@ -1235,6 +1247,7 @@
             // 
             // buttonXoaDauSach_NhaXuatBan
             // 
+            this.buttonXoaDauSach_NhaXuatBan.Enabled = false;
             this.buttonXoaDauSach_NhaXuatBan.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXoaDauSach_NhaXuatBan.Location = new System.Drawing.Point(493, 206);
             this.buttonXoaDauSach_NhaXuatBan.Name = "buttonXoaDauSach_NhaXuatBan";
@@ -1263,6 +1276,7 @@
             this.dataGridViewDauSach_NhaXuatBan.RowTemplate.Height = 24;
             this.dataGridViewDauSach_NhaXuatBan.Size = new System.Drawing.Size(613, 377);
             this.dataGridViewDauSach_NhaXuatBan.TabIndex = 3;
+            this.dataGridViewDauSach_NhaXuatBan.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewDauSach_NhaXuatBan_RowHeaderMouseClick);
             // 
             // groupBox40
             // 
@@ -1324,9 +1338,11 @@
             this.dataGridViewNhaXuatBan_NhaXuatBan.RowTemplate.Height = 24;
             this.dataGridViewNhaXuatBan_NhaXuatBan.Size = new System.Drawing.Size(544, 377);
             this.dataGridViewNhaXuatBan_NhaXuatBan.TabIndex = 3;
+            this.dataGridViewNhaXuatBan_NhaXuatBan.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewNhaXuatBan_NhaXuatBan_RowHeaderMouseClick);
             // 
             // buttonHuy_NhaXuatBan
             // 
+            this.buttonHuy_NhaXuatBan.Enabled = false;
             this.buttonHuy_NhaXuatBan.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHuy_NhaXuatBan.Location = new System.Drawing.Point(342, 150);
             this.buttonHuy_NhaXuatBan.Name = "buttonHuy_NhaXuatBan";
@@ -1334,9 +1350,11 @@
             this.buttonHuy_NhaXuatBan.TabIndex = 53;
             this.buttonHuy_NhaXuatBan.Text = "Huỷ";
             this.buttonHuy_NhaXuatBan.UseVisualStyleBackColor = true;
+            this.buttonHuy_NhaXuatBan.Click += new System.EventHandler(this.buttonHuy_NhaXuatBan_Click);
             // 
             // buttonSuaNhaXuatBan_NhaXuatBan
             // 
+            this.buttonSuaNhaXuatBan_NhaXuatBan.Enabled = false;
             this.buttonSuaNhaXuatBan_NhaXuatBan.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSuaNhaXuatBan_NhaXuatBan.Location = new System.Drawing.Point(452, 149);
             this.buttonSuaNhaXuatBan_NhaXuatBan.Name = "buttonSuaNhaXuatBan_NhaXuatBan";
@@ -1437,6 +1455,7 @@
             // 
             // buttonTimKiemDauSach_TheLoai
             // 
+            this.buttonTimKiemDauSach_TheLoai.Enabled = false;
             this.buttonTimKiemDauSach_TheLoai.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTimKiemDauSach_TheLoai.Location = new System.Drawing.Point(493, 28);
             this.buttonTimKiemDauSach_TheLoai.Name = "buttonTimKiemDauSach_TheLoai";
@@ -1444,6 +1463,7 @@
             this.buttonTimKiemDauSach_TheLoai.TabIndex = 52;
             this.buttonTimKiemDauSach_TheLoai.Text = "Tìm Kiếm";
             this.buttonTimKiemDauSach_TheLoai.UseVisualStyleBackColor = true;
+            this.buttonTimKiemDauSach_TheLoai.Click += new System.EventHandler(this.buttonTimKiemDauSach_TheLoai_Click);
             // 
             // groupBox49
             // 
@@ -1465,6 +1485,7 @@
             // 
             // buttonThemDauSach_TheLoai
             // 
+            this.buttonThemDauSach_TheLoai.Enabled = false;
             this.buttonThemDauSach_TheLoai.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThemDauSach_TheLoai.Location = new System.Drawing.Point(493, 145);
             this.buttonThemDauSach_TheLoai.Name = "buttonThemDauSach_TheLoai";
@@ -1475,6 +1496,7 @@
             // 
             // buttonXoaDauSach_TheLoai
             // 
+            this.buttonXoaDauSach_TheLoai.Enabled = false;
             this.buttonXoaDauSach_TheLoai.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXoaDauSach_TheLoai.Location = new System.Drawing.Point(493, 206);
             this.buttonXoaDauSach_TheLoai.Name = "buttonXoaDauSach_TheLoai";
@@ -1503,6 +1525,7 @@
             this.dataGridViewDauSach_TheLoai.RowTemplate.Height = 24;
             this.dataGridViewDauSach_TheLoai.Size = new System.Drawing.Size(613, 377);
             this.dataGridViewDauSach_TheLoai.TabIndex = 3;
+            this.dataGridViewDauSach_TheLoai.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewDauSach_TheLoai_RowHeaderMouseClick);
             // 
             // groupBox41
             // 
@@ -1534,6 +1557,7 @@
             // 
             // buttonHuy_TheLoai
             // 
+            this.buttonHuy_TheLoai.Enabled = false;
             this.buttonHuy_TheLoai.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHuy_TheLoai.Location = new System.Drawing.Point(341, 148);
             this.buttonHuy_TheLoai.Name = "buttonHuy_TheLoai";
@@ -1541,9 +1565,11 @@
             this.buttonHuy_TheLoai.TabIndex = 66;
             this.buttonHuy_TheLoai.Text = "Huỷ";
             this.buttonHuy_TheLoai.UseVisualStyleBackColor = true;
+            this.buttonHuy_TheLoai.Click += new System.EventHandler(this.buttonHuy_TheLoai_Click);
             // 
             // buttonSuaTheLoai_TheLoai
             // 
+            this.buttonSuaTheLoai_TheLoai.Enabled = false;
             this.buttonSuaTheLoai_TheLoai.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSuaTheLoai_TheLoai.Location = new System.Drawing.Point(451, 147);
             this.buttonSuaTheLoai_TheLoai.Name = "buttonSuaTheLoai_TheLoai";
@@ -1592,6 +1618,7 @@
             this.dataGridViewTheLoai_TheLoai.RowTemplate.Height = 24;
             this.dataGridViewTheLoai_TheLoai.Size = new System.Drawing.Size(544, 377);
             this.dataGridViewTheLoai_TheLoai.TabIndex = 3;
+            this.dataGridViewTheLoai_TheLoai.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewTheLoai_TheLoai_RowHeaderMouseClick);
             // 
             // groupBox36
             // 
@@ -2104,7 +2131,6 @@
         private System.Windows.Forms.Button buttonThemDauSach_TacGia;
         private System.Windows.Forms.Button buttonXoaDauSach_TacGia;
         private System.Windows.Forms.GroupBox groupBox39;
-        private System.Windows.Forms.DataGridView dataGridViewDauSach_TacGia;
         private System.Windows.Forms.GroupBox groupBox44;
         private System.Windows.Forms.Button buttonTimKiemDauSach_NhaXuatBan;
         private System.Windows.Forms.GroupBox groupBox45;
@@ -2146,5 +2172,6 @@
         private System.Windows.Forms.Button buttonSuaKeSach_KeSach;
         private System.Windows.Forms.Button buttonThemKeSach_KeSach;
         private System.Windows.Forms.TextBox textBoxNgaySinh_TacGia;
+        private System.Windows.Forms.DataGridView dataGridViewDauSach_TacGia;
     }
 }
