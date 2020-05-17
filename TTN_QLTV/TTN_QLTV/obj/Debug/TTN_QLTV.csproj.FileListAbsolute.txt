@@ -37,3 +37,16 @@ C:\Users\anhC\Desktop\ttn\ttnTrung\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.csp
 C:\Users\anhC\Desktop\ttn\ttnTrung\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.csproj.CoreCompileInputs.cache
 C:\Users\anhC\Desktop\ttn\ttnTrung\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.exe
 C:\Users\anhC\Desktop\ttn\ttnTrung\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.pdb
+D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.csprojAssemblyReference.cache
+D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLyDocGia.resources
+D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLyPhieuMuon.resources
+D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.Form1.resources
+D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLySach.resources
+D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.Properties.Resources.resources
+D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.csproj.GenerateResource.cache
+D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.csproj.CoreCompileInputs.cache
+D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.exe
+D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.pdb
+D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\bin\Debug\TTN_QLTV.exe.config
+D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\bin\Debug\TTN_QLTV.exe
+D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\bin\Debug\TTN_QLTV.pdb
