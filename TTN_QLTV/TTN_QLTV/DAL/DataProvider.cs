@@ -21,13 +21,13 @@ namespace TTN_QLTV.DAL
         private DataProvider() { }
 
         // Trung
-        private string str = @"Data Source=DESKTOP-LAOT6MD\GNOS02;Initial Catalog=TTN_QLTV;Integrated Security=True";
+        //private string str = @"Data Source=DESKTOP-LAOT6MD\GNOS02;Initial Catalog=TTN_QLTV;Integrated Security=True";
         // Nam
         //private string str = @"Data Source=;Initial Catalog=TTN_QLTV;Integrated Security=True";
         // Dung
         //private string str = @"Data Source=;Initial Catalog=TTN_QLTV;Integrated Security=True";
         // Vu
-        //private string str = @"Data Source=;Initial Catalog=TTN_QLTV;Integrated Security=True";
+        private string str = @"Data Source=nguyenvanvu563a\sqlexpress;Initial Catalog=TTN_QLTV;Integrated Security=True";
         public DataTable ExecuteQuery(string query)
         {
             DataTable data = new DataTable();
