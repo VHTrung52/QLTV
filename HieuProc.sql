@@ -1,4 +1,4 @@
-﻿﻿﻿create proc XemTatCaDocGia
+﻿create proc XemTatCaDocGia
 as
 begin
 	select * from DOCGIA
@@ -14,12 +14,12 @@ end
 go
 
 -------------------------------------------------------------------------------------
-create proc XemChiTietPhieuMuon(@maPhieu int)
-as
-begin
-	select * from CHITIETPHIEUMUON where MaPhieuMuon = @maPhieu
-end
-go
+--create proc XemChiTietPhieuMuon(@maPhieu int)
+--as
+--begin
+--	select * from CHITIETPHIEUMUON where MaPhieuMuon = @maPhieu
+--end
+--go
 
 -------------------------------------------------------------------------------------
 create proc ThemDocGia(@HoTen nvarchar(50), @NgaySinh datetime, @CMND nchar(20), @SDT nchar(20))
@@ -52,17 +52,53 @@ end
 go
 
 -------------------------------------------------------------------------------------
-Select * from DOCGIA where HoTen like N'%Tr%' and CMND like '%123%' and SoDienThoai like '%09%'
+--create proc TimKiemTTPM(@keywords int)
+--as
+--begin
+--	Select * from PHIEUMUON where MaDocGia like 1 and (MaPhieuMuon like 1 or MaNhanVien like 1)
+--	Select SACH.* 
+--	from CHITIETPHIEUMUON inner join SACH on CHITIETPHIEUMUON.MaSach = SACH.MaSach 
+--	where MaPhieuMuon like 1 and Sach.MaSach like 6 
+--end
 
 -------------------------------------------------------------------------------------
-create proc ThemPhieuMuon(@MaNV int, @MaDG int ,@ThoiGian int, @NgayMuon datetime, @NgayTra datetime, @ThanhTien money)
+create proc ThemPhieuMuon(@MaNV int, @MaDG int ,@ThoiGian int, @NgayMuon datetime )
 as
 begin
 	declare @x int
 	set @x = (select CAST((select MAX(MaPhieuMuon) from PHIEUMUON as MaPM) as int))
 
-	insert into PHIEUMUON(MaPhieuMuon, MaNhanVien, MaDocGia, ThoiGian, NgayMuon, NgayTra, ThanhTien) 
-	values(@x+1, @MaNV, @MaDG, @ThoiGian, @NgayMuon, @NgayTra, @ThanhTien)
+	insert into PHIEUMUON(MaPhieuMuon, MaNhanVien, MaDocGia, ThoiGian, NgayMuon ) 
+	values(@x+1, @MaNV, @MaDG, @ThoiGian, @NgayMuon )
+end
+go
+
+
+-------------------------------------------------------------------------------------
+create proc SuaPhieuMuon(@MaPhieuMuon int, @MaNhanVien int, @MaDocGia int, @ThoiGian int, @NgayMuon datetime, @NgayTra datetime)
+as
+begin
+	UPDATE PHIEUMUON
+	SET MaNhanVien = @MaNhanVien, MaDocGia = @MaDocGia ,ThoiGian = @ThoiGian, NgayMuon = @NgayMuon, NgayTra = @NgayTra
+	WHERE MaPhieuMuon = @MaPhieuMuon
+end
+go
+
+-------------------------------------------------------------------------------------
+create proc XemDSSachPhieuMuon(@maPM int)
+as
+begin
+	select SACH.* 
+	from CHITIETPHIEUMUON inner join SACH on CHITIETPHIEUMUON.MaSach = SACH.MaSach 
+	where MaPhieuMuon = @maPM
+end
+go
+
+-------------------------------------------------------------------------------------
+create proc XemTatCaPhieuMuon 
+as
+begin
+	select * from PHIEUMUON  
 end
 go
 
@@ -70,19 +106,57 @@ go
 create proc XemChiTietPhieuMuon(@maPM int)
 as
 begin
-	select * from PHIEUMUON where MaDocGia = @maPM
+	select * from PHIEUMUON where MaPhieuMuon = @maPM
 end
 go
 
 -------------------------------------------------------------------------------------
-create proc SuaPhieuMuon(@MaPhieuMuon int ,@ThoiGian int, @NgayMuon datetime, @NgayTra datetime)
+create proc XoaSachTrongPhieuMuon( @maPhieuMuon int, @maSach int)
 as
 begin
-	UPDATE 
-	SET ThoiGian = @ThoiGian, NgayMuon = @NgayMuon, NgayTra = @NgayTra
-	WHERE MaPhieuMuon = @MaPhieuMuon
+	delete from CHITIETPHIEUMUON where MaSach = @maSach and MaPhieuMuon = @maPhieuMuon
 end
 go
 
+-------------------------------------------------------------------------------------
+--create proc TimKiemTTPM(@keywords nvarchar(100), @loaiTT nvarchar(30))
+--as
+--begin
+--	select PHIEUMUON.*, 
+--	case
+--		when @loaiTT = 'Mã Phiếu Mượn' then ( 
+--			select PHIEUMUON.* from PHIEUMUON join DOCGIA on PHIEUMUON.MaDocGia = DOCGIA.MaDocGia 
+--			where @keywords like MaPhieuMuon
+--			)
+--		when @loaiTT = 'Mã Nhân Viên' then ( 
+--			select PHIEUMUON.* from PHIEUMUON join DOCGIA on PHIEUMUON.MaDocGia = DOCGIA.MaDocGia 
+--			where @keywords like MaNhanVien
+--			)
+--		when @loaiTT = 'Mã Độc Giả' then ( 
+--			select PHIEUMUON.* from PHIEUMUON join DOCGIA on PHIEUMUON.MaDocGia = DOCGIA.MaDocGia 
+--			where @keywords like PHIEUMUON.MaDocGia
+--			)
+--		when @loaiTT = 'Tên Độc Giả' then ( 
+--			select PHIEUMUON.* from PHIEUMUON join DOCGIA on PHIEUMUON.MaDocGia = DOCGIA.MaDocGia 
+--			where @keywords like HoTen
+--			)
+--		when @loaiTT = 'Ngày Mượn' then ( 
+--			select PHIEUMUON.* from PHIEUMUON join DOCGIA on PHIEUMUON.MaDocGia = DOCGIA.MaDocGia 
+--			where @keywords like NgayMuon
+--			)
+--		when @loaiTT = 'Ngày Trả' then ( 
+--			select PHIEUMUON.* from PHIEUMUON join DOCGIA on PHIEUMUON.MaDocGia = DOCGIA.MaDocGia 
+--			where @keywords like NgayTra
+--			)
+--	end
+--	from PHIEUMUON join DOCGIA on PHIEUMUON.MaDocGia = DOCGIA.MaDocGia
+--end
+
 
 exec ThemDocGia  N'Trần Thị H', '2020-01-10', '1111111'
+exec XemChiTietPhieuMuon 1
+exec  XemTatCaPhieuMuon
+exec XemPhieuMuonCuaDG 1
+exec XemDSSachPhieuMuon 1
+exec XemPhieuMuon 1
+exec XoaSachTrongPhieuMuon 1, 56
