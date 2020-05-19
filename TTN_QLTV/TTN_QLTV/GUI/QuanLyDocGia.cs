@@ -33,7 +33,7 @@ namespace TTN_QLTV.GUI
         {
             dataGridViewDocGia.DataSource = ctrlDocGia.XemTatCaDocGia();
             dataGridViewDocGia.Refresh();
-
+            textBoxCMNĐocGia.Text = "fuck";
             dataGridViewDocGia.Columns["MaDocGia"].HeaderText = "Mã";
             dataGridViewDocGia.Columns["HoTen"].HeaderText = "Họ tên";
             dataGridViewDocGia.Columns["NgaySinh"].HeaderText = "Ngày sinh";

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox46 = new System.Windows.Forms.GroupBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.comboBoxLoaiThongTin_DocGia = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.textBoxSoDienThoai_DocGia = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -57,9 +59,8 @@
             this.buttonTimKiemPhieuMuon = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dataGridViewPhieuMuon = new System.Windows.Forms.DataGridView();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.comboBoxLoaiThongTin_DocGia = new System.Windows.Forms.ComboBox();
             this.groupBox46.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox32.SuspendLayout();
@@ -73,7 +74,6 @@
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPhieuMuon)).BeginInit();
-            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox46
@@ -97,6 +97,29 @@
             this.groupBox46.TabIndex = 52;
             this.groupBox46.TabStop = false;
             this.groupBox46.Text = "Độc Giả";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.comboBoxLoaiThongTin_DocGia);
+            this.groupBox10.Location = new System.Drawing.Point(259, 26);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(236, 63);
+            this.groupBox10.TabIndex = 50;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Loại Thông Tin";
+            // 
+            // comboBoxLoaiThongTin_DocGia
+            // 
+            this.comboBoxLoaiThongTin_DocGia.FormattingEnabled = true;
+            this.comboBoxLoaiThongTin_DocGia.Items.AddRange(new object[] {
+            "Mã Độc Giả",
+            "Tên Độc Giả",
+            "Số Điện Thoại ",
+            "CMND"});
+            this.comboBoxLoaiThongTin_DocGia.Location = new System.Drawing.Point(7, 21);
+            this.comboBoxLoaiThongTin_DocGia.Name = "comboBoxLoaiThongTin_DocGia";
+            this.comboBoxLoaiThongTin_DocGia.Size = new System.Drawing.Size(221, 27);
+            this.comboBoxLoaiThongTin_DocGia.TabIndex = 0;
             // 
             // groupBox6
             // 
@@ -161,6 +184,7 @@
             this.buttonThemDocGia.TabIndex = 49;
             this.buttonThemDocGia.Text = "Thêm";
             this.buttonThemDocGia.UseVisualStyleBackColor = true;
+            this.buttonThemDocGia.Click += new System.EventHandler(this.ButtonThemDocGia_Click);
             // 
             // groupBox32
             // 
@@ -367,29 +391,6 @@
             this.dataGridViewPhieuMuon.Size = new System.Drawing.Size(657, 403);
             this.dataGridViewPhieuMuon.TabIndex = 3;
             // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.comboBoxLoaiThongTin_DocGia);
-            this.groupBox10.Location = new System.Drawing.Point(259, 26);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(236, 63);
-            this.groupBox10.TabIndex = 50;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Loại Thông Tin";
-            // 
-            // comboBoxLoaiThongTin_DocGia
-            // 
-            this.comboBoxLoaiThongTin_DocGia.FormattingEnabled = true;
-            this.comboBoxLoaiThongTin_DocGia.Items.AddRange(new object[] {
-            "Mã Độc Giả",
-            "Tên Độc Giả",
-            "Số Điện Thoại ",
-            "CMND"});
-            this.comboBoxLoaiThongTin_DocGia.Location = new System.Drawing.Point(7, 21);
-            this.comboBoxLoaiThongTin_DocGia.Name = "comboBoxLoaiThongTin_DocGia";
-            this.comboBoxLoaiThongTin_DocGia.Size = new System.Drawing.Size(221, 27);
-            this.comboBoxLoaiThongTin_DocGia.TabIndex = 0;
-            // 
             // QuanLyDocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -399,7 +400,9 @@
             this.Controls.Add(this.groupBox46);
             this.Name = "QuanLyDocGia";
             this.Text = "Quản Lý Độc Giả";
+            this.Load += new System.EventHandler(this.QuanLyDocGia_Load);
             this.groupBox46.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -421,7 +424,6 @@
             this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPhieuMuon)).EndInit();
-            this.groupBox10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
