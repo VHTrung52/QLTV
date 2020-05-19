@@ -12,40 +12,121 @@ namespace TTN_QLTV.BUS
 {
     class DauSachBUS
     {
-        public DataTable XemTatCaDauSach()
+            return DataProvider.Instance.ExecuteQuery("PROC_TimKiemDauSachTheoDauSach N'%" + tenDauSach + "%'");
+        }
+        
+        public DataTable TimKiemDauSachTheoNhaXuatBan(string tenNhaXuatBan)
         {
-            string query = string.Format("XemTatCaDauSach");
-            return DataProvider.Instance.ExecuteQuery(query);
+            return DataProvider.Instance.ExecuteQuery("PROC_TimKiemDauSachTheoNhaXuatBan N'%" + tenNhaXuatBan + "%'");
         }
 
-        public DataTable XemTatCaDauSachTacGia(string i)
+        public DataTable TimKiemDauSachTheoKeSach(string tenKeSach)
         {
-            string query = string.Format("XemTatCaDauSachTacGia N'{0}'",i);
-            return DataProvider.Instance.ExecuteQuery(query);
+            return DataProvider.Instance.ExecuteQuery("PROC_TimKiemDauSachTheoKeSach N'%" + tenKeSach + "%'");
         }
 
-        public DataTable XemTatCaDauSachDauSach(string i)
+
+        public DataTable TimKiemDauSachTheoTheLoai(string theLoai)
         {
-            string query = string.Format("XemTatCaDauSachDauSach N'{0}'",i);
-            return DataProvider.Instance.ExecuteQuery(query);
+            return DataProvider.Instance.ExecuteQuery("PROC_TimKiemDauSachTheoTheLoai N'%" + theLoai + "%'");
         }
 
-        public DataTable XemTatCaDauSachTheLoai(string i)
+        public DataTable GetTatCaSach()
         {
-            string query = string.Format("XemTatCaDauSachTheLoai N'{0}'", i);
-            return DataProvider.Instance.ExecuteQuery(query);
+            return DataProvider.Instance.ExecuteQuery("PROC_GetTatCaSach");
         }
 
-        public DataTable XemTatCaDauSachNXB(string i)
+        
+
+        public DataTable GetTacGia()
         {
-            string query = string.Format("XemTatCaDauSachNXB N'{0}'", i);
-            return DataProvider.Instance.ExecuteQuery(query);
+            return DataProvider.Instance.ExecuteQuery("select * from TACGIA ");
         }
 
-        public DataTable XemTatCaDauSachKeSach(string i)
+        public DataTable GetTheLoai()
         {
-            string query = string.Format("XemTatCaDauSachKeSach {0}", i);
-            return DataProvider.Instance.ExecuteQuery(query);
+            return DataProvider.Instance.ExecuteQuery("select * from THELOAI ");
         }
+
+        public DataTable GetNhaXuatBan()
+        {
+            return DataProvider.Instance.ExecuteQuery("select * from NHAXUATBAN ");
+        }
+
+        public void ThemTacGiaChoDauSach(int maDauSach , int maTacGia)
+        {
+            DataProvider.Instance.ExecuteNonQuery("PROC_ThemTacGiaChoDauSach '" + maDauSach + "','" + maTacGia + "'");
+        }
+
+        public void XoaTacGia_DauSach(int maDauSach, string tenTacGia)
+        {
+            DataProvider.Instance.ExecuteNonQuery("PROC_XoaTacGiaChoDauSach '" + maDauSach + "',N'" + tenTacGia + "'");
+        }
+
+        public void ThemTheLoaiChoDauSach(int maDauSach, int maTheLoai)
+        {
+            DataProvider.Instance.ExecuteNonQuery("PROC_ThemTheLoaiChoDauSach '" + maDauSach + "','" + maTheLoai + "'");
+        }
+
+        public void XoaTheLoai_DauSach(int maDauSach, string tenTheLoai)
+        {
+            DataProvider.Instance.ExecuteNonQuery("PROC_XoaTheLoaiChoDauSach '" + maDauSach + "',N'" + tenTheLoai + "'");
+        }
+
+
+        public void ThemNhaXuatBanChoDauSach(int maDauSach, int maNhaXuatban)
+        {
+            DataProvider.Instance.ExecuteNonQuery("PROC_ThemNhaXuatBanChoDauSach '" + maDauSach + "','" + maNhaXuatban + "'");
+        }
+
+        public void XoaNhaXuatBan_DauSach(int maDauSach, string tenNhaXuatBan)
+        {
+            DataProvider.Instance.ExecuteNonQuery("PROC_XoaNhaXuatBanChoDauSach '" + maDauSach + "',N'" + tenNhaXuatBan + "'");
+        }
+
+        public void ThemDauSach(string tenDauSach , int maKeSach , int soLuongHienTai , int tongSo)
+        {
+            DataProvider.Instance.ExecuteNonQuery("PROC_ThemDauSach N'" + tenDauSach + "','" + maKeSach + "','" + soLuongHienTai + "','" + tongSo + "'");
+        }
+
+
+        public void SuaDauSach(int maDauSach,string tenDauSach, int maKeSach, int soLuongHienTai, int tongSo)
+        {
+            DataProvider.Instance.ExecuteNonQuery("PROC_SuaDauSach '" + maDauSach + "',N'" + tenDauSach + "','" + maKeSach + "','" + soLuongHienTai + "','" + tongSo + "'");
+        }
+
+
+        public DataTable TimKiemSach(string tenSach)
+        {
+            return DataProvider.Instance.ExecuteQuery("PROC_TimKiemSach N'%" + tenSach + "%' ");
+        }
+
+        public void XoaSach_Sach(int maSach)
+        {
+            DataProvider.Instance.ExecuteNonQuery("PROC_XoaSach '" + maSach + "'");
+        }
+
+        public void ThemSach_Sach( int maDauSach, string tenSach, bool tinhTrang)
+        {
+            DataProvider.Instance.ExecuteNonQuery("PROC_ThemSach '" + maDauSach + "',N'" + tenSach + "','" + tinhTrang + "'");
+        }
+
+
+        public void SuaSach_Sach(int maSach, int maDauSach, string tenSach, bool tinhTrang)
+        {
+            DataProvider.Instance.ExecuteNonQuery("PROC_SuaThongTinSach '" + maSach + "','" + maDauSach + "',N'" + tenSach + "','" + tinhTrang +  "'");
+        }
+
+
+        public void ThemDauSachChoSach(int maSach , int maDauSach)
+        {
+            DataProvider.Instance.ExecuteNonQuery("PROC_ThemDauSachChoSach '" + maSach + "','" + maDauSach + "'");
+        }
+
+        public void XoaDauSachChoSach(int maSach)
+        {
+            DataProvider.Instance.ExecuteNonQuery("PROC_XoaDauSachChoSach '" + maSach + "'");
+        }
+
     }
 }
