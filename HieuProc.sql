@@ -1,4 +1,4 @@
-﻿﻿create proc XemTatCaDocGia
+﻿﻿﻿create proc XemTatCaDocGia
 as
 begin
 	select * from DOCGIA
