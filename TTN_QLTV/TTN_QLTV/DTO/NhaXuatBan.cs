@@ -11,6 +11,11 @@ namespace TTN_QLTV.DTO
         private int maNhaXuatBan;
         private string tenNhaXuatBan;
 
+        public NhaXuatBan()
+        {
+            this.maNhaXuatBan = 1;
+            this.tenNhaXuatBan = "";
+        }
         public NhaXuatBan(int maNhaXuatBan, string tenNhaXuatBan)
         {
             this.maNhaXuatBan = maNhaXuatBan;
