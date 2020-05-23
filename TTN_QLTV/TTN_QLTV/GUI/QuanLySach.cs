@@ -265,8 +265,9 @@ namespace TTN_QLTV.GUI
         private void dataGridViewNhaXuatBan_NhaXuatBan_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             buttonThemNhaXuatBan_NhaXuatBan.Enabled = true;
-            buttonSuaNhaXuatBan_NhaXuatBan.Enabled = true;
+            buttonSuaNhaXuatBan_NhaXuatBan.Enabled = false;
             buttonTimKiemDauSach_NhaXuatBan.Enabled = true;
+            buttonHuy_NhaXuatBan.Enabled = true;
             buttonThemNhaXuatBan_NhaXuatBan.Enabled = false;
             buttonThemDauSach_NhaXuatBan.Enabled = true;
             buttonTimKiemNhaXuatBan_NhaXuatBan.Enabled = false;
@@ -284,9 +285,10 @@ namespace TTN_QLTV.GUI
         private void buttonHuy_NhaXuatBan_Click(object sender, EventArgs e)
         {
             buttonThemNhaXuatBan_NhaXuatBan.Enabled = false;
-            buttonSuaNhaXuatBan_NhaXuatBan.Enabled = false;
+            buttonSuaNhaXuatBan_NhaXuatBan.Enabled = true;
             buttonTimKiemDauSach_NhaXuatBan.Enabled = false;
             buttonThemNhaXuatBan_NhaXuatBan.Enabled = true;
+            buttonHuy_NhaXuatBan.Enabled = false;
             buttonThemDauSach_NhaXuatBan.Enabled = false;
             buttonXoaDauSach_NhaXuatBan.Enabled = false;
             buttonTimKiemNhaXuatBan_NhaXuatBan.Enabled = true;
