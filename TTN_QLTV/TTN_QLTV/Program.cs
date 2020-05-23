@@ -17,7 +17,7 @@ namespace TTN_QLTV
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QuanLyPhieuMuon());
+            Application.Run(new QuanLyDocGia());
         }
     }
 }
