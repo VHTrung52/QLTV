@@ -25,7 +25,7 @@ namespace TTN_QLTV.BUS
         }
         public DataTable GetDanhSachTheLoai()
         {
-            return DataProvider.Instance.ExecuteQuery("select * from TheLoai");
+            return DataProvider.Instance.ExecuteQuery("GetDanhSachTheLoai");
         }
         public List<DauSach> ConvertDSTL(DataTable data)
         {
@@ -44,29 +44,27 @@ namespace TTN_QLTV.BUS
         }
         public DataTable GetDanhSachDSTheLoai(int matl)
         {
-            return DataProvider.Instance.ExecuteQuery("select * from TheLoai where MaTheLoai in (select MaTheLoai from DS_TheLoai where MaTheLoai = " + matl + ")");
+            return DataProvider.Instance.ExecuteQuery("GetDanhSachDSTheLoai " + matl);
         }
         public DataTable GetDanhSachDSTheLoaifilter(int matl, string str)
         {
-            return DataProvider.Instance.ExecuteQuery("select * from TheLoai where MaTheLoai in (select MaTheLoai from DS_TheLoai where MaTheLoai = " + matl + ") " +
-                "AND MaTheLoai LIKE '%" + str + "%' OR TenTheLoai LIKE '%" + str + "%'");
+            return DataProvider.Instance.ExecuteQuery("GetDanhSachDSTheLoaifilter "+matl+", '"+str+"'");
         }
         public DataTable GetDanhSachTheLoaifilter(string str)
         {
-            return DataProvider.Instance.ExecuteQuery("select * from TheLoai where MaTheLoai LIKE '%" + str + "%' OR TenTheLoai LIKE '%" + str + "%'");
+            return DataProvider.Instance.ExecuteQuery("GetDanhSachTheLoaifilter "+str);
         }
         public void AddTheLoai(string tenTL)
         {
-            int index = (int)DataProvider.Instance.ExecuteScalar("select MAX(MaTheLoai) from TheLoai");
-            DataProvider.Instance.ExecuteNonQuery("");
+            DataProvider.Instance.ExecuteNonQuery("AddTheLoai "+tenTL);
         }
         public void EditTheLoai(int matl, string tenTL)
         {
-            DataProvider.Instance.ExecuteNonQuery("");
+            DataProvider.Instance.ExecuteNonQuery("EditTheLoai "+matl+", '"+tenTL+"'");
         }
-        public void DelDauSach_TheLoai(int ma)
+        public void DelDauSach_TheLoai(int matl, int mads)
         {
-            DataProvider.Instance.ExecuteNonQuery("delete from DauSach where MaDauSach = '" + ma + "'");
+            DataProvider.Instance.ExecuteNonQuery("DelDauSach_THELOAI " + matl + ", " + mads);
         }
     }
 }

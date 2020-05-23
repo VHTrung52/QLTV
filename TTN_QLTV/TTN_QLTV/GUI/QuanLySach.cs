@@ -783,7 +783,7 @@ namespace TTN_QLTV.GUI
         private void buttonXoaDauSach_TacGia_Click(object sender, EventArgs e)
         {
             //chọn 1 đầu sách ở datagrid đầu sách và chọn xoá đầu sách để xoá khỏi ds_tacgia
-            busTG.DelDauSach_TacGia(lds[dataGridViewDauSach_TacGia.CurrentCell.RowIndex].MaDauSach);
+            busTG.DelDauSach_TacGia(ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].MaTacGia,lds[dataGridViewDauSach_TacGia.CurrentCell.RowIndex].MaDauSach);
         }
         private void buttonTimKiemDauSach_TacGia_Click(object sender, EventArgs e)
         {
@@ -961,7 +961,7 @@ namespace TTN_QLTV.GUI
         }
         private void buttonXoaDauSach_NhaXuatBan_Click(object sender, EventArgs e)
         {
-            busNXB.DelDauSach_NXB(lds[dataGridViewDauSach_NhaXuatBan.CurrentCell.RowIndex].MaDauSach);
+            busNXB.DelDauSach_NXB(lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].MaNhaXuatBan,lds[dataGridViewDauSach_NhaXuatBan.CurrentCell.RowIndex].MaDauSach);
         }
         private void buttonThemDauSach_NhaXuatBan_Click(object sender, EventArgs e)
         {
@@ -1060,7 +1060,7 @@ namespace TTN_QLTV.GUI
 
         private void buttonXoaDauSach_TheLoai_Click(object sender, EventArgs e)
         {
-            busTL.DelDauSach_TheLoai(lds[dataGridViewDauSach_TheLoai.CurrentCell.RowIndex].MaDauSach);
+            busTL.DelDauSach_TheLoai(ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].MaTheLoai,lds[dataGridViewDauSach_TheLoai.CurrentCell.RowIndex].MaDauSach);
         }
 
         private void buttonThemDauSach_TheLoai_Click(object sender, EventArgs e)

@@ -26,7 +26,7 @@ namespace TTN_QLTV.BUS
         }
         public DataTable GetDanhSachTacGia()
         {
-            return DataProvider.Instance.ExecuteQuery("select * from TACGIA");
+            return DataProvider.Instance.ExecuteQuery("GetDanhSachTacGia");
         }
         public List<DauSach> ConvertDSTG(DataTable data)
         {
@@ -45,28 +45,26 @@ namespace TTN_QLTV.BUS
         }
         public DataTable GetDanhSachDSTacGia(int matg)
         {
-            return DataProvider.Instance.ExecuteQuery("select * from DAUSACH where MaDauSach in (select MaDauSach from DS_TACGIA where MaTacGia = "+matg+")");
+            return DataProvider.Instance.ExecuteQuery("GetDanhSachDSTacGia " + matg);
         }
         public DataTable GetDanhSachDSTacGiafilter(int matg, string str)
         {
-            return DataProvider.Instance.ExecuteQuery("select * from DAUSACH where MaDauSach in (select MaDauSach from DS_TACGIA where MaTacGia = " + matg + ") " +
-                "AND MaDauSach LIKE '%"+str+"%' OR TenDauSach LIKE '%"+str+"%'");
+            return DataProvider.Instance.ExecuteQuery("GetDanhSachDSTacGiafilter "+matg+", '"+str+"'");
         }
-        public void DelDauSach_TacGia(int ma)
+        public void DelDauSach_TacGia(int matg, int mads)
         {
-            DataProvider.Instance.ExecuteNonQuery("delete from DauSach where MaDauSach = '"+ma+"'");
+            DataProvider.Instance.ExecuteNonQuery("DelDauSach_TacGia " + matg + ", " + mads);
         }
         public DataTable GetDanhSachTacGiafilter(string str)
         {
-            return DataProvider.Instance.ExecuteQuery("select * from TacGia where MaTacGia LIKE '%" + str + "%' OR TenTacGia LIKE '%" + str + "%'");
+            return DataProvider.Instance.ExecuteQuery("GetDanhSachTacGiafilter "+ str);
         }
         public void AddTacGia(string tenTG, string ngaysinh) {
-            int index = (int) DataProvider.Instance.ExecuteScalar("select MAX(MaTacGia) from TACGIA");
-            DataProvider.Instance.ExecuteNonQuery("");            
+            DataProvider.Instance.ExecuteNonQuery("AddTacGia "+tenTG+", '"+ngaysinh+"'");            
         }
         public void EditTacGia(int matg, string tenTG, string ngaysinh)
         {
-            DataProvider.Instance.ExecuteNonQuery("");
+            DataProvider.Instance.ExecuteNonQuery("EditTacGia "+matg+", '"+tenTG+"', '"+ngaysinh+"'");
         }
     }
 }
