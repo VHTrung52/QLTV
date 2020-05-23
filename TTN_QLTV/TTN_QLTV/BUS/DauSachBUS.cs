@@ -12,6 +12,8 @@ namespace TTN_QLTV.BUS
 {
     class DauSachBUS
     {
+        public DataTable TimKiemDauSachTheoDauSach(string tenDauSach)
+        { 
             return DataProvider.Instance.ExecuteQuery("PROC_TimKiemDauSachTheoDauSach N'%" + tenDauSach + "%'");
         }
         
@@ -35,9 +37,6 @@ namespace TTN_QLTV.BUS
         {
             return DataProvider.Instance.ExecuteQuery("PROC_GetTatCaSach");
         }
-
-        
-
         public DataTable GetTacGia()
         {
             return DataProvider.Instance.ExecuteQuery("select * from TACGIA ");
@@ -126,6 +125,72 @@ namespace TTN_QLTV.BUS
         public void XoaDauSachChoSach(int maSach)
         {
             DataProvider.Instance.ExecuteNonQuery("PROC_XoaDauSachChoSach '" + maSach + "'");
+        }
+        public DataTable GetTenTacGia(int maDauSach)
+        {
+            return DataProvider.Instance.ExecuteQuery("PROC_GetTenTacGia '" + maDauSach + "'");
+        }
+
+        public DataTable GetTenNhaXuatBan(int maDauSach)
+        {
+            return DataProvider.Instance.ExecuteQuery("PROC_GetTenNhaXuatBan '" + maDauSach + "'");
+        }
+
+        public DataTable GetTenTheLoai(int maDauSach)
+        {
+            return DataProvider.Instance.ExecuteQuery("PROC_GetTheLoai '" + maDauSach + "'");
+        }
+        public DataTable GetDanhSachDauSach()
+        {
+            return DataProvider.Instance.ExecuteQuery("select * from DAUSACH");
+        }
+        public DataTable GetSachThuocDauSach(int maDauSach)
+        {
+            return DataProvider.Instance.ExecuteQuery("PROC_GetSachThuocDauSach '" + maDauSach + "'");
+        }
+
+        public DataTable GetDauSachTheoMaDauSach(int maDauSach)
+        {
+            return DataProvider.Instance.ExecuteQuery("PROC_GetDauSachTheoMaDauSach '" + maDauSach + "'");
+        }
+        public DataTable TimKiemDauSachTheoTacGia(string tenTacGia)
+        {
+            return DataProvider.Instance.ExecuteQuery("PROC_TimKiemDauSachTheoTacGia N'%" + tenTacGia + "%'");
+        }
+        public DataTable XemTatCaDauSach()
+        {
+            string query = string.Format("XemTatCaDauSach");
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        public DataTable XemTatCaDauSachTacGia(string i)
+        {
+            string query = string.Format("XemTatCaDauSachTacGia N'{0}'", i);
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        public DataTable XemTatCaDauSachDauSach(string i)
+        {
+            string query = string.Format("XemTatCaDauSachDauSach N'{0}'", i);
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        public DataTable XemTatCaDauSachTheLoai(string i)
+        {
+            string query = string.Format("XemTatCaDauSachTheLoai N'{0}'", i);
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        public DataTable XemTatCaDauSachNXB(string i)
+        {
+            string query = string.Format("XemTatCaDauSachNXB N'{0}'", i);
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        public DataTable XemTatCaDauSachKeSach(string i)
+        {
+            string query = string.Format("XemTatCaDauSachKeSach {0}", i);
+            return DataProvider.Instance.ExecuteQuery(query);
         }
 
     }

@@ -160,3 +160,67 @@ exec XemPhieuMuonCuaDG 1
 exec XemDSSachPhieuMuon 1
 exec XemPhieuMuon 1
 exec XoaSachTrongPhieuMuon 1, 56
+
+create proc XemTatCaDauSach
+as
+begin
+	select * from DAUSACH
+end
+go
+--------------------------------
+create proc XemTacGia(@MaSach int)
+as
+begin
+	select TenTacGia from TACGIA where MaTacGia in (select MaTacGia from DS_TACGIA where MaDauSach = @MaSach)
+end
+go
+-----------------------------------------
+create proc XemTheLoai(@MaSach int)
+as
+begin
+	select TenTheLoai from THELOAI where MaTheLoai in (select MaTheLoai from DS_THELOAI where MaDauSach = @MaSach)
+end
+go
+--------------------------------------
+create proc XemNhaXuatBan(@MaSach int)
+as
+begin
+	select TenNhaXuatBan from NHAXUATBAN where MaNhaXuatBan in (select MaNhaXuatBan from DS_NHAXUATBAN where MaDauSach = @MaSach)
+end
+go
+------------------------------------------------
+create proc XemTatCaDauSachTacGia(@tenTacGia nvarchar(50))
+as
+begin
+	select * from DAUSACH where MaDauSach in (select MaDauSach from DS_TACGIA where MaTacGia = (select MaTacGia from TACGIA where TenTacGia like '%'+@tenTacGia +'%'))
+end
+go
+-------------------------------------------------
+
+create proc XemTatCaDauSachDauSach(@tenDauSach nvarchar(50))
+as
+begin
+	select * from DAUSACH where TenDauSach like '%'+ @tenDauSach +'%'
+end
+go
+-------------------------------------------------------
+create proc XemTatCaDauSachTheLoai(@tenTheLoai nvarchar(50))
+as
+begin
+	select * from DAUSACH where MaDauSach in (select MaDauSach from DS_THELOAI where MaTheLoai = (select MaTheLoai from THELOAI where TenTheLoai like '%'+ @tenTheLoai +'%'))
+end
+go
+----------------------------------------------------------
+create proc XemTatCaDauSachNXB(@tenNXB nvarchar(50))
+as
+begin
+	select * from DAUSACH where MaDauSach in (select MaDauSach from DS_NHAXUATBAN where MaNhaXuatBan = (select MaNhaXuatBan from NHAXUATBAN where TenNhaXuatBan like '%'+@tenNXB +'%'))
+end
+go
+--------------------------------------------------------
+create proc XemTatCaDauSachKeSach(@keSach int)
+as
+begin
+	select * from DAUSACH where MaKeSach = @keSach
+end
+go

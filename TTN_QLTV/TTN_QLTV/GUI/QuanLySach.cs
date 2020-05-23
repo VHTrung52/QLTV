@@ -100,8 +100,9 @@ namespace TTN_QLTV.GUI
             dataGridViewSach_Sach.DataSource = dauSachBUS.GetSachThuocDauSach(maDauSach);
             dataGridViewDauSach_Sach.DataSource = dauSachBUS.GetDauSachTheoMaDauSach(maDauSach);
             dataGridViewSach_Sach.Columns[0].HeaderText = "Mã Sách";
-            dataGridViewSach_Sach.Columns[1].HeaderText = "Tên Sách";
-            dataGridViewSach_Sach.Columns[2].HeaderText = "Tình Trạng";
+            dataGridViewSach_Sach.Columns[1].HeaderText = "Mã Đầu Sách";
+            dataGridViewSach_Sach.Columns[2].HeaderText = "Tên Sách";
+            dataGridViewSach_Sach.Columns[3].HeaderText = "Tình Trạng";
 
             dataGridViewDauSach_Sach.Columns[0].HeaderText = "Mã Đầu Sách";
             dataGridViewDauSach_Sach.Columns[1].HeaderText = "Tên Đầu Sách";
@@ -569,17 +570,17 @@ namespace TTN_QLTV.GUI
 
 
         // BẮT ĐẦU TAB SÁCH //
-        private void tabControlQuanLySach_Enter(object sender, EventArgs e)
+        
+        private void tabPageSach_Enter(object sender, EventArgs e)
         {
             buttonThemVaoPhieuMuon_Sach.Visible = false;
             dataGridViewSach_Sach.DataSource = dauSachBUS.GetTatCaSach();
-
+            //dataGridViewSach_Sach.Refresh();
             dataGridViewSach_Sach.Columns[0].HeaderText = "Mã Sách";
             dataGridViewSach_Sach.Columns[1].HeaderText = "Mã Đầu Sách";
             dataGridViewSach_Sach.Columns[2].HeaderText = "Tên Sách";
             dataGridViewSach_Sach.Columns[3].HeaderText = "Tình Trạng";
         }
-
         private void dataGridViewSach_Sach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = dataGridViewSach_Sach.CurrentRow;
@@ -922,53 +923,6 @@ namespace TTN_QLTV.GUI
             textBoxTenTheLoai_TheLoai.Text = "";
             textBoxThongTinDauSach_TheLoai.Text = "";
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         // KẾT THÚC TAB THỂ LOẠI //
 
