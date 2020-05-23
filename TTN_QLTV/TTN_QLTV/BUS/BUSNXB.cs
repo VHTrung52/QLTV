@@ -40,33 +40,31 @@ namespace TTN_QLTV.BUS
         }
         public DataTable GetDanhSachNXB()
         {
-            return DataProvider.Instance.ExecuteQuery("select * from NHAXUATBAN");
+            return DataProvider.Instance.ExecuteQuery("GetDanhSachNXB");
         }
         public DataTable GetDanhSachDSNXB(int maNXB)
         {
-            return DataProvider.Instance.ExecuteQuery("select * from DAUSACH where MaDauSach in (select MaDauSach from DS_NHAXUATBAN where MaNhaXuatBan = " + maNXB + ")");
+            return DataProvider.Instance.ExecuteQuery("GetDanhSachDSNXB " + maNXB);
         }
         public DataTable GetDanhSachDSNXBfilter(int maNXB, string str)
         {
-            return DataProvider.Instance.ExecuteQuery("select * from DAUSACH where MaDauSach in (select MaDauSach from DS_NHAXUATBAN where MaNhaXuatBan = " + maNXB + ") " +
-                "AND MaDauSach LIKE '%" + str + "%' OR TenDauSach LIKE '%" + str + "%'");
+            return DataProvider.Instance.ExecuteQuery("GetDanhSachDSNXBfilter "+maNXB+", '"+str+"'");
         }
         public DataTable GetDanhSachNXBfilter(string str)
         {
-            return DataProvider.Instance.ExecuteQuery("select * from NhaXuatBan where MaNhaXuatBan LIKE '%" + str + "%' OR TenNhaXuatBan LIKE '%" + str + "%'");
+            return DataProvider.Instance.ExecuteQuery("GetDanhSachNXBfilter '"+str+"'");
         }
         public void AddNXB(string tenTG)
         {
-            int index = (int)DataProvider.Instance.ExecuteScalar("select MAX(MaNhaXuatBan) from NhaXuatBan");
-            DataProvider.Instance.ExecuteNonQuery("");
+            DataProvider.Instance.ExecuteNonQuery("AddNXB '"+tenTG+"'");
         }
         public void EditNXB(int manxb, string tenNXB)
         {
-            DataProvider.Instance.ExecuteNonQuery("");
+            DataProvider.Instance.ExecuteNonQuery("EditNXB "+manxb+", '"+tenNXB+"'");
         }
-        public void DelDauSach_NXB(int ma)
+        public void DelDauSach_NXB(int manxb, int mads)
         {
-            DataProvider.Instance.ExecuteNonQuery("delete from DauSach where MaDauSach = '" + ma + "'");
+            DataProvider.Instance.ExecuteNonQuery("DelDauSach_NXB " + manxb + ", " + mads);
         }
     }
 }
