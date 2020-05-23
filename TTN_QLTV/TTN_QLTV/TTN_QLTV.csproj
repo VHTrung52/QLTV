@@ -53,6 +53,9 @@
     <Compile Include="BUS\SachBUS.cs" />
     <Compile Include="BUS\TacGiaBUS.cs" />
     <Compile Include="BUS\TheLoaiBUS.cs" />
+    <Compile Include="BUS\BUSNXB.cs" />
+    <Compile Include="BUS\BUSTacGia.cs" />
+    <Compile Include="BUS\BUSTheLoai.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DTO\DauSach.cs" />
     <Compile Include="DTO\DocGia.cs" />

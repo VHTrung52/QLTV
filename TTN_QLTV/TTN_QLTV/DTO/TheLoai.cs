@@ -10,7 +10,12 @@ namespace TTN_QLTV.DTO
     {
         private int maTheLoai;
         private string tenTheLoai;
-
+        
+        public TheLoai()
+        {
+            this.maTheLoai = 1;
+            this.tenTheLoai = "";
+        }
         public TheLoai(int maTheLoai, string tenTheLoai)
         {
             this.maTheLoai = maTheLoai;

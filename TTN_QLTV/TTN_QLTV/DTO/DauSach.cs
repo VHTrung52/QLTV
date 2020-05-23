@@ -13,7 +13,14 @@ namespace TTN_QLTV.DTO
         private int maKeSach;
         private int soLuongHienTai;
         private int tongSo;
-
+        public DauSach()
+        {
+            this.maDauSach = 1;
+            this.tenDauSach = "";
+            this.maKeSach = 1;
+            this.soLuongHienTai = 1;
+            this.tongSo = 1;
+        }
         public DauSach(int maDauSach, string tenDauSach, int maKeSach, int soLuongHienTai, int tongSo)
         {
             this.maDauSach = maDauSach;
