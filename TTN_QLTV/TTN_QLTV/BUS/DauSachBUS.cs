@@ -47,5 +47,11 @@ namespace TTN_QLTV.BUS
             string query = string.Format("XemTatCaDauSachKeSach {0}", i);
             return DataProvider.Instance.ExecuteQuery(query);
         }
+
+        public DataTable XemDauSachTheLoai(string i)
+        {
+            string query = string.Format("XemDauSachTheLoai {0}", i);
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
     }
 }

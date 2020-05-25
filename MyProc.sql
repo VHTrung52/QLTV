@@ -112,10 +112,11 @@ begin
 end
 go
 ------------------------------------------------
-create proc XemTatCaDauSachTacGia(@tenTacGia nvarchar(50))
+alter proc XemTatCaDauSachTacGia(@tenTacGia nvarchar(50))
 as
 begin
-	select * from DAUSACH where MaDauSach in (select MaDauSach from DS_TACGIA where MaTacGia = (select MaTacGia from TACGIA where TenTacGia like '%'+@tenTacGia +'%'))
+	select * from DAUSACH where MaDauSach in 
+	(select MaDauSach from DS_TACGIA where MaTacGia = (select MaTacGia from TACGIA where TenTacGia like '%'+@tenTacGia +'%'))
 end
 go
 -------------------------------------------------
@@ -149,6 +150,36 @@ end
 go
 
 
+---------------
+create proc XemKeSach
+as
+begin
+	select * from KeSach
+end
 
-XemTatCaDauSachTacGia N'Od'
-select * from DAUSACH where MaDauSach in (select MaDauSach from DS_TACGIA where MaTacGia = (select MaTacGia from TACGIA where TenTacGia like '%'+N'Fujio' +'%'))
+---------------
+create proc ThemKeSach  @tenKeSach nvarchar(50)
+as
+begin
+	declare @maKeSach int
+	select @maKeSach = max(MaKeSach)+1 
+	From KESACH
+	insert into KESACH(MaKeSach,TenKeSach)
+	values(@maKeSach,@tenKeSach)
+end
+
+
+---------------
+create proc SuaKeSach  @maKeSach int,@tenKeSach nvarchar(50)
+as
+begin
+	Update KESACH
+	Set TenKeSach = @tenKeSach
+	where MaKeSach = @maKeSach
+end
+---------------------
+create proc TimKeSach @query nvarchar(50)
+as
+begin
+select * from KESACH where TenKeSach like '%'+ @query +'%' or MaKeSach = TRY_CAST(@query as int)
+end
