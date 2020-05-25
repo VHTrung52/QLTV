@@ -56,6 +56,7 @@ namespace TTN_QLTV.GUI
             }
 
             dataGridViewPhieuMuon.Columns["MaPhieuMuon"].HeaderText = "Mã phiếu";
+            
             dataGridViewPhieuMuon.Columns["MaNhanVien"].HeaderText = "Mã nhân viên";
             dataGridViewPhieuMuon.Columns["MaDocGia"].HeaderText = "Mã độc giả";
             dataGridViewPhieuMuon.Columns["ThoiGian"].HeaderText = "Số ngày";
@@ -250,8 +251,8 @@ namespace TTN_QLTV.GUI
             textBoxMaNhanVien.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaNhanVien"].Value.ToString();
             textBoxMaDocGia.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaDocGia"].Value.ToString();
             textBoxThoiGian.Text = dataGridViewPhieuMuon.Rows[index].Cells["ThoiGian"].Value.ToString();
-            textBoxNgayMuon.Text = dataGridViewPhieuMuon.Rows[index].Cells["NgayMuon"].Value.ToString();
-            textBoxNgayTra.Text = dataGridViewPhieuMuon.Rows[index].Cells["NgayTra"].Value.ToString();
+            textBoxNgayMuon.Text = Convert.ToDateTime(dataGridViewPhieuMuon.Rows[index].Cells["NgayMuon"].Value.ToString()).ToShortDateString();
+            textBoxNgayTra.Text = Convert.ToDateTime(dataGridViewPhieuMuon.Rows[index].Cells["NgayTra"].Value.ToString()).ToShortDateString();
 
             buttonSuaPhieuMuon.Enabled = true;
             textBoxNgayTra.ReadOnly = false;

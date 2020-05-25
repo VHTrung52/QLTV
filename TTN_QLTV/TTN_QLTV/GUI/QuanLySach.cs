@@ -46,13 +46,8 @@ namespace TTN_QLTV.GUI
                 tabControlQuanLySach.SelectedTab = tabPageSach;
                 buttonThemVaoPhieuMuon_Sach.Visible = true;
             }
-
-            dataGridViewDauSach_DauSach.DataSource = dauSachBUS.GetDanhSachDauSach();
-            dataGridViewDauSach_DauSach.Columns[0].HeaderText = "Mã Đầu Sách";
-            dataGridViewDauSach_DauSach.Columns[1].HeaderText = "Tên Đầu Sách";
-            dataGridViewDauSach_DauSach.Columns[2].HeaderText = "Mã Kệ Sách";
-            dataGridViewDauSach_DauSach.Columns[3].HeaderText = "Số Lượng Hiện Tại";
-            dataGridViewDauSach_DauSach.Columns[4].HeaderText = "Tổng Số";
+            
+            
 
             
 
@@ -161,7 +156,13 @@ namespace TTN_QLTV.GUI
             //datagrid đầu sách hiện tất cả các sách
             //nút thêm vào visible = false;
             buttonThemVao_DauSach.Visible = false;
-
+            dataGridViewDauSach_DauSach.DataSource = dauSachBUS.GetDanhSachDauSach(); 
+            dataGridViewDauSach_DauSach.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewDauSach_DauSach.Columns[0].HeaderText = "Mã Đầu Sách";
+            dataGridViewDauSach_DauSach.Columns[1].HeaderText = "Tên Đầu Sách";
+            dataGridViewDauSach_DauSach.Columns[2].HeaderText = "Mã Kệ Sách";
+            dataGridViewDauSach_DauSach.Columns[3].HeaderText = "Số Lượng Hiện Tại";
+            dataGridViewDauSach_DauSach.Columns[4].HeaderText = "Tổng Số";
         }
 
 
@@ -579,7 +580,12 @@ namespace TTN_QLTV.GUI
             buttonThemVaoPhieuMuon_Sach.Visible = false;
             dataGridViewSach_Sach.DataSource = dauSachBUS.GetTatCaSach();
             //dataGridViewSach_Sach.Refresh();
+            dataGridViewSach_Sach.Columns["MaSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewSach_Sach.Columns["MaDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewSach_Sach.Columns["TenSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewSach_Sach.Columns["TinhTrang"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridViewSach_Sach.Columns[0].HeaderText = "Mã Sách";
+            
             dataGridViewSach_Sach.Columns[1].HeaderText = "Mã Đầu Sách";
             dataGridViewSach_Sach.Columns[2].HeaderText = "Tên Sách";
             dataGridViewSach_Sach.Columns[3].HeaderText = "Tình Trạng";
@@ -771,6 +777,7 @@ namespace TTN_QLTV.GUI
             ltg = busTG.ConvertTG(busTG.GetDanhSachTacGia());
             dataGridViewTacGia_TacGia.DataSource = null;
             dataGridViewTacGia_TacGia.DataSource = ltg;
+            
         }
         private void buttonThemDauSach_TacGia_Click(object sender, EventArgs e)
         {
@@ -812,7 +819,8 @@ namespace TTN_QLTV.GUI
             dataGridViewDauSach_TacGia.DataSource = lds;
             textBoxMaTacGia_TacGia.Text = ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].MaTacGia.ToString();
             textBoxTenTacGia_TacGia.Text = ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].TenTacGia;
-            textBoxNgaySinh_TacGia.Text = ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].NgaySinh.ToString();
+            textBoxNgaySinh_TacGia.Text = ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].NgaySinh.ToShortDateString();
+            dataGridViewDauSach_TacGia.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
         private void buttonHuyTacGia_TacGia_Click(object sender, EventArgs e)
         {
@@ -902,6 +910,7 @@ namespace TTN_QLTV.GUI
             dataGridViewDauSach_NhaXuatBan.DataSource = lds;
             textBoxMaNhaXuatBan_NhaXuatBan.Text = lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].MaNhaXuatBan.ToString();
             textBoxTenNhaXuatBan_NhaXuatBan.Text = lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].TenNhaXuatBan.ToString();
+            dataGridViewDauSach_NhaXuatBan.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
         private void dataGridViewDauSach_NhaXuatBan_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -996,6 +1005,7 @@ namespace TTN_QLTV.GUI
             dataGridViewDauSach_TheLoai.DataSource = lds;
             textBoxMaTheLoai_TheLoai.Text = ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].MaTheLoai.ToString();
             textBoxTenTheLoai_TheLoai.Text = ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].TenTheLoai.ToString();
+            dataGridViewDauSach_TheLoai.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
         private void dataGridViewDauSach_TheLoai_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

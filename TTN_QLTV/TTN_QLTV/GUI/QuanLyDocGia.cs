@@ -49,11 +49,16 @@ namespace TTN_QLTV.GUI
 
             dataGridViewDocGia.DataSource = ctrlDocGia.XemTatCaDocGia();
             dataGridViewDocGia.Refresh();
-            textBoxCMNĐocGia.Text = "fuck";
+            
             dataGridViewDocGia.Columns["MaDocGia"].HeaderText = "Mã";
+            dataGridViewDocGia.Columns["MaDocGia"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridViewDocGia.Columns["HoTen"].HeaderText = "Họ tên";
+            //dataGridViewDocGia.Columns["HoTen"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridViewDocGia.Columns["NgaySinh"].HeaderText = "Ngày sinh";
+            dataGridViewDocGia.Columns["NgaySinh"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridViewDocGia.Columns["SoDienThoai"].HeaderText = "SĐT";
+            dataGridViewDocGia.Columns["SoDienThoai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            dataGridViewDocGia.Columns["CMND"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
             buttonSuaDocGia.Enabled = false;
             buttonChiTietPhieuMuon.Enabled = false;
@@ -146,6 +151,7 @@ namespace TTN_QLTV.GUI
             dataGridViewPhieuMuon.Refresh();
 
             dataGridViewPhieuMuon.Columns["MaPhieuMuon"].HeaderText = "Mã phiếu";
+
             dataGridViewPhieuMuon.Columns["MaNhanVien"].HeaderText = "Mã nhân viên";
             dataGridViewPhieuMuon.Columns["MaDocGia"].HeaderText = "Mã độc giả";
             dataGridViewPhieuMuon.Columns["ThoiGian"].HeaderText = "Số ngày";
@@ -159,7 +165,7 @@ namespace TTN_QLTV.GUI
 
             textBoxMaDocGia.Text = dataGridViewDocGia.Rows[index].Cells["MaDocGia"].Value.ToString();
             textBoxTenDocGia.Text = dataGridViewDocGia.Rows[index].Cells["HoTen"].Value.ToString();
-            textBoxNgaySinh_DocGia.Text = dataGridViewDocGia.Rows[index].Cells["NgaySinh"].Value.ToString();
+            textBoxNgaySinh_DocGia.Text = Convert.ToDateTime(dataGridViewDocGia.Rows[index].Cells["NgaySinh"].Value.ToString()).ToShortDateString();
             textBoxSoDienThoai_DocGia.Text = dataGridViewDocGia.Rows[index].Cells["SoDienThoai"].Value.ToString();
             textBoxCMNĐocGia.Text = dataGridViewDocGia.Rows[index].Cells["CMND"].Value.ToString();
 
