@@ -30,6 +30,7 @@ namespace TTN_QLTV
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridViewDauSach.DataSource = dauSach.XemTatCaDauSach();
+            dataGridViewDauSach.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewTacGia.DataSource = tacGia.XemTacGia(dataGridViewDauSach.CurrentRow.Cells[0].Value.ToString());
             dataGridViewTheLoai.DataSource = theLoai.XemTheLoai(dataGridViewDauSach.CurrentRow.Cells[0].Value.ToString());
             dataGridViewNhaXuatBan.DataSource = nhaXuatBan.XemNhaXuatBan(dataGridViewDauSach.CurrentRow.Cells[0].Value.ToString());

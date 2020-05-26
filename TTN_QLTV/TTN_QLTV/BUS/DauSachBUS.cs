@@ -32,7 +32,87 @@ namespace TTN_QLTV.BUS
         {
             return DataProvider.Instance.ExecuteQuery("PROC_TimKiemDauSachTheoTheLoai N'%" + theLoai + "%'");
         }
+        //////////////////////////// test ///////////////////////////////////////
+        public List<DauSach> TimKiemDauSachTheoNhieuTheLoai(string theLoai)
+        {
 
+            if(theLoai.Contains("+") == true)
+            {
+                List<string> listTheLoai = theLoai.Split('+').ToList();
+                List<DauSach> lds1 = new List<DauSach>();
+                List<DauSach> lds2 = new List<DauSach>();
+                List<DauSach> lds = new List<DauSach>();
+                /*List<string> ls1 = new List<string>();
+                List<string> ls2 = new List<string>();
+                List<string> ls = new List<string>();*/
+                for (int i = 0;i < listTheLoai.Count;i++)
+                {
+                    if (i == 0)
+                    {
+                        lds1 = ConvertToListDauSach(DataProvider.Instance.ExecuteQuery("" +
+                            "select DAUSACH.MaDauSach , TenDauSach, MaKeSach, SoLuongHienTai, TongSo " +
+                            "from DAUSACH , DS_THELOAI, THELOAI " +
+                            $"where DAUSACH.MaDauSach = DS_THELOAI.MaDauSach " +
+                            $"and " +
+                            $"DS_THELOAI.MaTheLoai = THELOAI.MaTheLoai " +
+                            $"and TenTheLoai Like N'%{listTheLoai[i]}%'"));
+                        /*foreach(DauSach ds in lds1)
+                        {
+                            ls1.Add(ds.TenDauSach);
+                        }*/
+                    }
+                    else
+                    {
+                        lds2 = ConvertToListDauSach(DataProvider.Instance.ExecuteQuery("" +
+                            "select DAUSACH.MaDauSach , TenDauSach, MaKeSach, SoLuongHienTai, TongSo " +
+                            "from DAUSACH , DS_THELOAI, THELOAI " +
+                            $"where DAUSACH.MaDauSach = DS_THELOAI.MaDauSach " +
+                            $"and " +
+                            $"DS_THELOAI.MaTheLoai = THELOAI.MaTheLoai " +
+                            $"and TenTheLoai Like N'%{listTheLoai[i]}%'"));
+                        /*foreach (DauSach ds in lds2)
+                        {
+                            ls2.Add(ds.TenDauSach);
+                        }
+                        foreach(string s in ls1)
+                        {
+                            if (ls2.Contains(s) == true)
+                                ls.Add(s);
+                        }
+                        ls1 = ls;*/
+                        foreach (DauSach ds in lds1)
+                        {
+                            if (lds2.Find(x=>x.TenDauSach == ds.TenDauSach) != null)
+                            {
+                                lds.Add(ds);
+                            }
+                        }
+                        lds1 = lds;
+                        lds = new List<DauSach>();
+                    }
+                }
+                return lds1;
+            }    
+            else
+                return ConvertToListDauSach(DataProvider.Instance.ExecuteQuery("PROC_TimKiemDauSachTheoTheLoai N'%" + theLoai + "%'"));
+        }
+
+        public List<DauSach> ConvertToListDauSach(DataTable dt)
+        {
+            List<DauSach> lds = new List<DauSach>();
+            lds = (from DataRow dr in dt.Rows
+                   select new DauSach()
+                   {
+                       MaDauSach = (int)dr["MaDauSach"],
+                       TenDauSach = dr["TenDauSach"].ToString(),
+                       MaKeSach = (int)dr["MaKeSach"],
+                       SoLuongHienTai = (int)dr["SoLuongHienTai"],
+                       TongSo = (int)dr["TongSo"]
+                   }).ToList();
+            return lds;
+        }
+        
+        //////////////////////////// test ///////////////////////////////////////
         public DataTable GetTatCaSach()
         {
             return DataProvider.Instance.ExecuteQuery("PROC_GetTatCaSach");
@@ -192,6 +272,9 @@ namespace TTN_QLTV.BUS
             string query = string.Format("XemTatCaDauSachKeSach {0}", i);
             return DataProvider.Instance.ExecuteQuery(query);
         }
-
+        public DataTable DauSach_Sach(int maDauSach)
+        {
+            return DataProvider.Instance.ExecuteQuery("PROC_DauSach_Sach '" + maDauSach + "'");
+        }
     }
 }

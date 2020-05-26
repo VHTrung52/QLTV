@@ -571,10 +571,12 @@
             // 
             // dataGridViewDauSach_DauSach
             // 
+            this.dataGridViewDauSach_DauSach.AllowUserToResizeRows = false;
             this.dataGridViewDauSach_DauSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDauSach_DauSach.Location = new System.Drawing.Point(5, 26);
             this.dataGridViewDauSach_DauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDauSach_DauSach.Name = "dataGridViewDauSach_DauSach";
+            this.dataGridViewDauSach_DauSach.ReadOnly = true;
             this.dataGridViewDauSach_DauSach.RowHeadersWidth = 51;
             this.dataGridViewDauSach_DauSach.RowTemplate.Height = 24;
             this.dataGridViewDauSach_DauSach.Size = new System.Drawing.Size(517, 299);
@@ -855,7 +857,6 @@
             // 
             // dataGridViewSach_Sach
             // 
-            this.dataGridViewSach_Sach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSach_Sach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSach_Sach.Location = new System.Drawing.Point(5, 26);
             this.dataGridViewSach_Sach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

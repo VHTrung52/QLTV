@@ -71,19 +71,23 @@ namespace TTN_QLTV.GUI
         private void dataGridViewDauSach_DauSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = dataGridViewDauSach_DauSach.CurrentRow;
-            maDauSach = Convert.ToInt32(row.Cells[0].Value);
 
-            dataGridViewTacGia_DauSach.DataSource = dauSachBUS.GetTenTacGia(maDauSach);
+            if (!string.IsNullOrEmpty(row.Cells[0].Value.ToString()))
+            {
+                maDauSach = Convert.ToInt32(row.Cells[0].Value);
 
-            dataGridViewTheLoai_DauSach.DataSource = dauSachBUS.GetTenTheLoai(maDauSach);
+                dataGridViewTacGia_DauSach.DataSource = dauSachBUS.GetTenTacGia(maDauSach);
 
-            dataGridViewNhaXuatBan_DauSach.DataSource = dauSachBUS.GetTenNhaXuatBan(maDauSach);
+                dataGridViewTheLoai_DauSach.DataSource = dauSachBUS.GetTenTheLoai(maDauSach);
 
-            textBoxMaDauSach_DauSach.Text = row.Cells[0].Value.ToString();
-            textBoxTenDauSach_DauSach.Text = row.Cells[1].Value.ToString();
-            textBoxMaKeSach_DauSach.Text = row.Cells[2].Value.ToString();
-            textBoxSoLuongHienTai_DauSach.Text = row.Cells[3].Value.ToString();
-            textBoxTongSo_DauSach.Text = row.Cells[4].Value.ToString();
+                dataGridViewNhaXuatBan_DauSach.DataSource = dauSachBUS.GetTenNhaXuatBan(maDauSach);
+
+                textBoxMaDauSach_DauSach.Text = row.Cells[0].Value.ToString();
+                textBoxTenDauSach_DauSach.Text = row.Cells[1].Value.ToString();
+                textBoxMaKeSach_DauSach.Text = row.Cells[2].Value.ToString();
+                textBoxSoLuongHienTai_DauSach.Text = row.Cells[3].Value.ToString();
+                textBoxTongSo_DauSach.Text = row.Cells[4].Value.ToString();
+            }
         }
 
 
@@ -131,7 +135,8 @@ namespace TTN_QLTV.GUI
             }
             else if (comboBoxLoaiThongTin_DauSach.Text == "Thể Loại")
             {
-                dataGridViewDauSach_DauSach.DataSource = dauSachBUS.TimKiemDauSachTheoTheLoai(textBoxTimKiemDauSach_DauSach.Text);
+                //dataGridViewDauSach_DauSach.DataSource = dauSachBUS.TimKiemDauSachTheoTheLoai(textBoxTimKiemDauSach_DauSach.Text);
+                dataGridViewDauSach_DauSach.DataSource = dauSachBUS.TimKiemDauSachTheoNhieuTheLoai(textBoxTimKiemDauSach_DauSach.Text);
             }
             else if (comboBoxLoaiThongTin_DauSach.Text == "Nhà Xuất Bản")
             {
@@ -157,7 +162,7 @@ namespace TTN_QLTV.GUI
             //nút thêm vào visible = false;
             buttonThemVao_DauSach.Visible = false;
             dataGridViewDauSach_DauSach.DataSource = dauSachBUS.GetDanhSachDauSach(); 
-            dataGridViewDauSach_DauSach.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewDauSach_DauSach.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewDauSach_DauSach.Columns[0].HeaderText = "Mã Đầu Sách";
             dataGridViewDauSach_DauSach.Columns[1].HeaderText = "Tên Đầu Sách";
             dataGridViewDauSach_DauSach.Columns[2].HeaderText = "Mã Kệ Sách";
@@ -580,10 +585,10 @@ namespace TTN_QLTV.GUI
             buttonThemVaoPhieuMuon_Sach.Visible = false;
             dataGridViewSach_Sach.DataSource = dauSachBUS.GetTatCaSach();
             //dataGridViewSach_Sach.Refresh();
-            dataGridViewSach_Sach.Columns["MaSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewSach_Sach.Columns["MaDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewSach_Sach.Columns["TenSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewSach_Sach.Columns["TinhTrang"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+           // dataGridViewSach_Sach.Columns["MaSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //dataGridViewSach_Sach.Columns["MaDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewSach_Sach.Columns["TenSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //dataGridViewSach_Sach.Columns["TinhTrang"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridViewSach_Sach.Columns[0].HeaderText = "Mã Sách";
             
             dataGridViewSach_Sach.Columns[1].HeaderText = "Mã Đầu Sách";
@@ -594,11 +599,22 @@ namespace TTN_QLTV.GUI
         {
             DataGridViewRow row = dataGridViewSach_Sach.CurrentRow;
 
-            textBoxMaSach_Sach.Text = row.Cells[0].Value.ToString();
-            textBoxMaDauSach_Sach.Text = row.Cells[1].Value.ToString();
-            textBoxTenSach_Sach.Text = row.Cells[2].Value.ToString();
-            checkBoxTinhTrang_Sach.Checked = (bool)row.Cells[3].Value;
-            sach_MaSach = Convert.ToInt32(row.Cells[0].Value);
+            if (!string.IsNullOrEmpty(row.Cells[0].Value.ToString()) && !string.IsNullOrEmpty(row.Cells[1].Value.ToString()))
+            {
+                textBoxMaSach_Sach.Text = row.Cells[0].Value.ToString();
+                textBoxMaDauSach_Sach.Text = row.Cells[1].Value.ToString();
+                textBoxTenSach_Sach.Text = row.Cells[2].Value.ToString();
+                checkBoxTinhTrang_Sach.Checked = (bool)row.Cells[3].Value;
+                sach_MaSach = Convert.ToInt32(row.Cells[0].Value);
+
+                dataGridViewDauSach_Sach.DataSource = dauSachBUS.DauSach_Sach(Convert.ToInt32(row.Cells[1].Value));
+                dataGridViewDauSach_Sach.Columns[0].HeaderText = "Mã Đầu Sách";
+                dataGridViewDauSach_Sach.Columns[1].HeaderText = "Tên Đầu Sách";
+                dataGridViewDauSach_Sach.Columns[2].HeaderText = "Mã Kệ Sách";
+                dataGridViewDauSach_Sach.Columns[3].HeaderText = "Số Lượng Hiện Tại";
+                dataGridViewDauSach_Sach.Columns[4].HeaderText = "Tổng Số";
+            }
+
         }
 
         #region Tìm Kiếm , Thêm , Sửa , Xóa , Hủy Sach (tabsach)

@@ -269,6 +269,7 @@ namespace TTN_QLTV.GUI
 
             dataGridViewSach.Columns["MaSach"].HeaderText = "Mã sách";
             dataGridViewSach.Columns["MaDauSach"].HeaderText = "Mã đầu sách";
+            dataGridViewSach.Columns["TenSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewSach.Columns["TenSach"].HeaderText = "Tên sách";
             dataGridViewSach.Columns["TinhTrang"].HeaderText = "Tình trạng";
 

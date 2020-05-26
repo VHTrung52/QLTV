@@ -261,3 +261,8 @@ begin
 	set MaDauSach = 1
 	where MaSach = @maSach
 end
+create proc PROC_DauSach_Sach(@maDauSach int )as
+begin
+    select * from DAUSACH
+    where MaDauSach=@maDauSach
+end
