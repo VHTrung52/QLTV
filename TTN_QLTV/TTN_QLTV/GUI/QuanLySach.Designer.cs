@@ -1901,6 +1901,7 @@
             this.buttonThemDauSach_KeSach.TabIndex = 50;
             this.buttonThemDauSach_KeSach.Text = "Thêm Đầu Sách";
             this.buttonThemDauSach_KeSach.UseVisualStyleBackColor = true;
+            this.buttonThemDauSach_KeSach.Click += new System.EventHandler(this.buttonThemDauSach_KeSach_Click);
             // 
             // buttonXoaDauSach_KeSach
             // 
@@ -1912,6 +1913,7 @@
             this.buttonXoaDauSach_KeSach.TabIndex = 49;
             this.buttonXoaDauSach_KeSach.Text = "Xoá Đầu Sách";
             this.buttonXoaDauSach_KeSach.UseVisualStyleBackColor = true;
+            this.buttonXoaDauSach_KeSach.Click += new System.EventHandler(this.buttonXoaDauSach_KeSach_Click);
             // 
             // groupBox53
             // 

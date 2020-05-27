@@ -224,6 +224,16 @@ namespace TTN_QLTV.GUI
             keSachBus.SuaKeSach(dataGridViewKeSach_KeSach.CurrentRow.Cells[0].Value.ToString(),dataGridViewKeSach_KeSach.CurrentRow.Cells[1].Value.ToString());
         }
 
+        private void buttonThemDauSach_KeSach_Click(object sender, EventArgs e)
+        {
+            tabControlQuanLySach.SelectedTab = tabPageDauSach;
+        }
+
+        private void buttonXoaDauSach_KeSach_Click(object sender, EventArgs e)
+        {
+            keSachBus.BoSach(dataGridViewDauSach_KeSach.CurrentRow.Cells[0].Value.ToString());
+        }
+
 
         // KẾT THÚC TAB KỆ SÁCH //
 

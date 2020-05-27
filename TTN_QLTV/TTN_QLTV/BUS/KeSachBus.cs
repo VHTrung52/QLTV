@@ -19,7 +19,7 @@ namespace TTN_QLTV.BUS
         public bool ThemKeSach(string tenKeSach)
         {
             string query = string.Format("ThemKeSach {0}",tenKeSach);
-            return DataProvider.Instance.ExecuteNonQuery(tenKeSach) > 0;
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
         public bool SuaKeSach(string maKeSach, string tenKeSach)
         {
@@ -31,6 +31,12 @@ namespace TTN_QLTV.BUS
         {
             string query = string.Format("TimKeSach {0}",i);
             return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        public bool BoSach(string maSach)
+        {
+            string query = string.Format("update DAUSACH set MaKeSach = null where MaDauSach = {0}", maSach);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
     }
 }
