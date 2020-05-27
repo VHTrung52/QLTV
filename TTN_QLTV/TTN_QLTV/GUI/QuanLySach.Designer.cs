@@ -1115,16 +1115,20 @@
             // 
             // dataGridViewDauSach_TacGia
             // 
+            this.dataGridViewDauSach_TacGia.AllowUserToAddRows = false;
+            this.dataGridViewDauSach_TacGia.AllowUserToResizeRows = false;
             this.dataGridViewDauSach_TacGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDauSach_TacGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDauSach_TacGia.Location = new System.Drawing.Point(5, 26);
             this.dataGridViewDauSach_TacGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDauSach_TacGia.Name = "dataGridViewDauSach_TacGia";
+            this.dataGridViewDauSach_TacGia.ReadOnly = true;
+            this.dataGridViewDauSach_TacGia.RowHeadersVisible = false;
             this.dataGridViewDauSach_TacGia.RowHeadersWidth = 51;
             this.dataGridViewDauSach_TacGia.RowTemplate.Height = 24;
             this.dataGridViewDauSach_TacGia.Size = new System.Drawing.Size(613, 329);
             this.dataGridViewDauSach_TacGia.TabIndex = 3;
-            this.dataGridViewDauSach_TacGia.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewDauSach_TacGia_RowHeaderMouseClick);
+            this.dataGridViewDauSach_TacGia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDauSach_TacGia_CellClick);
             // 
             // groupBox46
             // 
@@ -1245,17 +1249,20 @@
             // 
             // dataGridViewTacGia_TacGia
             // 
+            this.dataGridViewTacGia_TacGia.AllowUserToAddRows = false;
+            this.dataGridViewTacGia_TacGia.AllowUserToResizeRows = false;
             this.dataGridViewTacGia_TacGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewTacGia_TacGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTacGia_TacGia.Location = new System.Drawing.Point(5, 26);
             this.dataGridViewTacGia_TacGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewTacGia_TacGia.Name = "dataGridViewTacGia_TacGia";
+            this.dataGridViewTacGia_TacGia.ReadOnly = true;
+            this.dataGridViewTacGia_TacGia.RowHeadersVisible = false;
             this.dataGridViewTacGia_TacGia.RowHeadersWidth = 51;
             this.dataGridViewTacGia_TacGia.RowTemplate.Height = 24;
             this.dataGridViewTacGia_TacGia.Size = new System.Drawing.Size(544, 329);
             this.dataGridViewTacGia_TacGia.TabIndex = 3;
             this.dataGridViewTacGia_TacGia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTacGia_TacGia_CellClick);
-            this.dataGridViewTacGia_TacGia.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewTacGia_TacGia_RowHeaderMouseClick);
             // 
             // groupBox3
             // 
@@ -1423,16 +1430,20 @@
             // 
             // dataGridViewDauSach_NhaXuatBan
             // 
+            this.dataGridViewDauSach_NhaXuatBan.AllowUserToAddRows = false;
+            this.dataGridViewDauSach_NhaXuatBan.AllowUserToResizeRows = false;
             this.dataGridViewDauSach_NhaXuatBan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDauSach_NhaXuatBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDauSach_NhaXuatBan.Location = new System.Drawing.Point(5, 26);
             this.dataGridViewDauSach_NhaXuatBan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDauSach_NhaXuatBan.Name = "dataGridViewDauSach_NhaXuatBan";
+            this.dataGridViewDauSach_NhaXuatBan.ReadOnly = true;
+            this.dataGridViewDauSach_NhaXuatBan.RowHeadersVisible = false;
             this.dataGridViewDauSach_NhaXuatBan.RowHeadersWidth = 51;
             this.dataGridViewDauSach_NhaXuatBan.RowTemplate.Height = 24;
             this.dataGridViewDauSach_NhaXuatBan.Size = new System.Drawing.Size(613, 377);
             this.dataGridViewDauSach_NhaXuatBan.TabIndex = 3;
-            this.dataGridViewDauSach_NhaXuatBan.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewDauSach_NhaXuatBan_RowHeaderMouseClick);
+            this.dataGridViewDauSach_NhaXuatBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDauSach_NhaXuatBan_CellClick);
             // 
             // groupBox40
             // 
@@ -1495,17 +1506,20 @@
             // 
             // dataGridViewNhaXuatBan_NhaXuatBan
             // 
+            this.dataGridViewNhaXuatBan_NhaXuatBan.AllowUserToAddRows = false;
+            this.dataGridViewNhaXuatBan_NhaXuatBan.AllowUserToResizeRows = false;
             this.dataGridViewNhaXuatBan_NhaXuatBan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewNhaXuatBan_NhaXuatBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewNhaXuatBan_NhaXuatBan.Location = new System.Drawing.Point(5, 26);
             this.dataGridViewNhaXuatBan_NhaXuatBan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewNhaXuatBan_NhaXuatBan.Name = "dataGridViewNhaXuatBan_NhaXuatBan";
+            this.dataGridViewNhaXuatBan_NhaXuatBan.ReadOnly = true;
+            this.dataGridViewNhaXuatBan_NhaXuatBan.RowHeadersVisible = false;
             this.dataGridViewNhaXuatBan_NhaXuatBan.RowHeadersWidth = 51;
             this.dataGridViewNhaXuatBan_NhaXuatBan.RowTemplate.Height = 24;
             this.dataGridViewNhaXuatBan_NhaXuatBan.Size = new System.Drawing.Size(544, 377);
             this.dataGridViewNhaXuatBan_NhaXuatBan.TabIndex = 3;
             this.dataGridViewNhaXuatBan_NhaXuatBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNhaXuatBan_NhaXuatBan_CellClick);
-            this.dataGridViewNhaXuatBan_NhaXuatBan.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewNhaXuatBan_NhaXuatBan_RowHeaderMouseClick);
             // 
             // buttonHuy_NhaXuatBan
             // 
@@ -1712,16 +1726,20 @@
             // 
             // dataGridViewDauSach_TheLoai
             // 
+            this.dataGridViewDauSach_TheLoai.AllowUserToAddRows = false;
+            this.dataGridViewDauSach_TheLoai.AllowUserToResizeRows = false;
             this.dataGridViewDauSach_TheLoai.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDauSach_TheLoai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDauSach_TheLoai.Location = new System.Drawing.Point(5, 26);
             this.dataGridViewDauSach_TheLoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDauSach_TheLoai.Name = "dataGridViewDauSach_TheLoai";
+            this.dataGridViewDauSach_TheLoai.ReadOnly = true;
+            this.dataGridViewDauSach_TheLoai.RowHeadersVisible = false;
             this.dataGridViewDauSach_TheLoai.RowHeadersWidth = 51;
             this.dataGridViewDauSach_TheLoai.RowTemplate.Height = 24;
             this.dataGridViewDauSach_TheLoai.Size = new System.Drawing.Size(613, 377);
             this.dataGridViewDauSach_TheLoai.TabIndex = 3;
-            this.dataGridViewDauSach_TheLoai.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewDauSach_TheLoai_RowHeaderMouseClick);
+            this.dataGridViewDauSach_TheLoai.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDauSach_TheLoai_CellClick);
             // 
             // groupBox41
             // 
@@ -1820,17 +1838,20 @@
             // 
             // dataGridViewTheLoai_TheLoai
             // 
+            this.dataGridViewTheLoai_TheLoai.AllowUserToAddRows = false;
+            this.dataGridViewTheLoai_TheLoai.AllowUserToResizeRows = false;
             this.dataGridViewTheLoai_TheLoai.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewTheLoai_TheLoai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTheLoai_TheLoai.Location = new System.Drawing.Point(5, 26);
             this.dataGridViewTheLoai_TheLoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewTheLoai_TheLoai.Name = "dataGridViewTheLoai_TheLoai";
+            this.dataGridViewTheLoai_TheLoai.ReadOnly = true;
+            this.dataGridViewTheLoai_TheLoai.RowHeadersVisible = false;
             this.dataGridViewTheLoai_TheLoai.RowHeadersWidth = 51;
             this.dataGridViewTheLoai_TheLoai.RowTemplate.Height = 24;
             this.dataGridViewTheLoai_TheLoai.Size = new System.Drawing.Size(544, 377);
             this.dataGridViewTheLoai_TheLoai.TabIndex = 3;
             this.dataGridViewTheLoai_TheLoai.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTheLoai_TheLoai_CellClick);
-            this.dataGridViewTheLoai_TheLoai.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewTheLoai_TheLoai_RowHeaderMouseClick);
             // 
             // groupBox36
             // 
