@@ -186,11 +186,11 @@ namespace TTN_QLTV.GUI
 
         }
 
-        private void dataGridViewTacGia_TacGia_CellClick(object sender, DataGridViewCellEventArgs e)
+        /*private void dataGridViewTacGia_TacGia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow currentRow = dataGridViewTacGia_TacGia.CurrentRow;
             maTacGia = Convert.ToInt32(currentRow.Cells[0].Value);
-        }
+        }*/
 
         private void buttonThemVaoDauSach_TacGia_Click(object sender, EventArgs e)
         {
@@ -251,11 +251,11 @@ namespace TTN_QLTV.GUI
             dataGridViewTheLoai_TheLoai.DataSource = dauSachBUS.GetTheLoai();
         }
 
-        private void dataGridViewTheLoai_TheLoai_CellClick(object sender, DataGridViewCellEventArgs e)
+        /*private void dataGridViewTheLoai_TheLoai_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow currentRow = dataGridViewTheLoai_TheLoai.CurrentRow;
             maTheLoai = Convert.ToInt32(currentRow.Cells[0].Value);
-        }
+        }*/
 
         private void buttonThemVaoDauSach_TheLoai_Click(object sender, EventArgs e)
         {
@@ -317,11 +317,11 @@ namespace TTN_QLTV.GUI
 
         }
 
-        private void dataGridViewNhaXuatBan_NhaXuatBan_CellClick(object sender, DataGridViewCellEventArgs e)
+        /*private void dataGridViewNhaXuatBan_NhaXuatBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow currentRow = dataGridViewNhaXuatBan_NhaXuatBan.CurrentRow;
             maNhaXuatBan = Convert.ToInt32(currentRow.Cells[0].Value);
-        }
+        }*/
 
 
         private void buttonThemVaoDauSach_NhaXuatBan_Click(object sender, EventArgs e)
