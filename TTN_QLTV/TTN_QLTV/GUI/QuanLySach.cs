@@ -136,6 +136,20 @@ namespace TTN_QLTV.GUI
         // BẮT ĐẦU TAB TÁC GIẢ //
         // 1- chọn 1 tác giả ở datagrid tác giả sẽ hiện các đầu sách của tác giả đó ở 
         // datagrid đầu sách
+        private void SetUpDataGrVTacGia()
+        {
+            dataGridViewTacGia_TacGia.Columns["MaTacGia"].HeaderText = "Mã Tác Giả";
+            dataGridViewTacGia_TacGia.Columns["TenTacGia"].HeaderText = "Tên Tác Giả";
+            dataGridViewTacGia_TacGia.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
+        }
+        private void SetUpDataGrVDauSachTG()
+        {
+            dataGridViewDauSach_TacGia.Columns["MaDauSach"].HeaderText = "Mã Đầu Sách";
+            dataGridViewDauSach_TacGia.Columns["TenDauSach"].HeaderText = "Tên Đầu Sách";
+            dataGridViewDauSach_TacGia.Columns["MaKeSach"].HeaderText = "Mã Kệ Sách";
+            dataGridViewDauSach_TacGia.Columns["SoLuongHienTai"].HeaderText = "Số Lượng Hiện Tại";
+            dataGridViewDauSach_TacGia.Columns["TongSo"].HeaderText = "Tổng Số";
+        }
         
         private void tabPageTacGia_Enter(object sender, EventArgs e)
         {
@@ -143,6 +157,7 @@ namespace TTN_QLTV.GUI
             ltg = busTG.ConvertTG(busTG.GetDanhSachTacGia());
             dataGridViewTacGia_TacGia.DataSource = null;
             dataGridViewTacGia_TacGia.DataSource = ltg;
+            SetUpDataGrVTacGia();
         }
         private void buttonThemDauSach_TacGia_Click(object sender, EventArgs e)
         {
@@ -156,6 +171,10 @@ namespace TTN_QLTV.GUI
         {
             //chọn 1 đầu sách ở datagrid đầu sách và chọn xoá đầu sách để xoá khỏi ds_tacgia
             busTG.DelDauSach_TacGia(ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].MaTacGia,lds[dataGridViewDauSach_TacGia.CurrentCell.RowIndex].MaDauSach);
+            dataGridViewDauSach_TacGia.DataSource = null;
+            lds = busTG.ConvertDSTG(busTG.GetDanhSachDSTacGia(ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].MaTacGia));
+            dataGridViewDauSach_TacGia.DataSource = lds;
+            SetUpDataGrVDauSachTG();
         }
         private void buttonTimKiemDauSach_TacGia_Click(object sender, EventArgs e)
         {
@@ -171,8 +190,9 @@ namespace TTN_QLTV.GUI
             }
             dataGridViewDauSach_TacGia.DataSource = null;
             dataGridViewDauSach_TacGia.DataSource = lds;
+            SetUpDataGrVDauSachTG();
         }
-        private void dataGridViewTacGia_TacGia_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridViewTacGia_TacGia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             buttonSuaTacGia_TacGia.Enabled = true;
             buttonHuyTacGia_TacGia.Enabled = true;
@@ -182,6 +202,7 @@ namespace TTN_QLTV.GUI
             buttonTimKiemTacGia_TacGia.Enabled = false;
             lds = busTG.ConvertDSTG(busTG.GetDanhSachDSTacGia(ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].MaTacGia));
             dataGridViewDauSach_TacGia.DataSource = lds;
+            SetUpDataGrVDauSachTG();
             textBoxMaTacGia_TacGia.Text = ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].MaTacGia.ToString();
             textBoxTenTacGia_TacGia.Text = ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].TenTacGia;
             textBoxNgaySinh_TacGia.Text = ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].NgaySinh.ToString();
@@ -214,6 +235,7 @@ namespace TTN_QLTV.GUI
             }
             dataGridViewTacGia_TacGia.DataSource = null;
             dataGridViewTacGia_TacGia.DataSource = ltg;
+            SetUpDataGrVTacGia();
             textBoxThongTinDauSach_TacGia.Text = "";
         }
         private void buttonThemTacGia_TacGia_Click(object sender, EventArgs e)
@@ -223,6 +245,10 @@ namespace TTN_QLTV.GUI
                 string[] str = textBoxNgaySinh_TacGia.Text.ToString().Split('-');
                 DateTime date = new DateTime(Convert.ToInt32(str[2]), Convert.ToInt32(str[1]), Convert.ToInt32(str[0]));
                 busTG.AddTacGia(textBoxTenTacGia_TacGia.Text.ToString(), textBoxNgaySinh_TacGia.Text.ToString());
+                ltg = busTG.ConvertTG(busTG.GetDanhSachTacGia());
+                dataGridViewTacGia_TacGia.DataSource = null;
+                dataGridViewTacGia_TacGia.DataSource = ltg;
+                SetUpDataGrVTacGia();
                 textBoxMaTacGia_TacGia.Text = "";
                 textBoxTenTacGia_TacGia.Text = "";
                 textBoxNgaySinh_TacGia.Text = "";
@@ -232,7 +258,7 @@ namespace TTN_QLTV.GUI
                 MessageBox.Show("Nhập sai ngày tháng năm!");
             }
         }
-        private void dataGridViewDauSach_TacGia_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridViewDauSach_TacGia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             buttonXoaDauSach_TacGia.Enabled = true;
         }
@@ -250,19 +276,37 @@ namespace TTN_QLTV.GUI
         private void buttonSuaTacGia_TacGia_Click(object sender, EventArgs e)
         {
             busTG.EditTacGia(ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].MaTacGia, textBoxTenTacGia_TacGia.Text.ToString(), textBoxNgaySinh_TacGia.Text.ToString());
+            ltg = busTG.ConvertTG(busTG.GetDanhSachTacGia());
+            dataGridViewTacGia_TacGia.DataSource = null;
+            dataGridViewTacGia_TacGia.DataSource = ltg;
+            SetUpDataGrVTacGia();
         }
         // KẾT THÚC TAB TÁC GIẢ //
 
 
         // BẮT ĐẦU TAB NHÀ XUẤT BẢN //
+        private void SetUpDataGrVNXB()
+        {
+            dataGridViewNhaXuatBan_NhaXuatBan.Columns["MaNhaXuatBan"].HeaderText = "Mã Nhà Xuất Bản";
+            dataGridViewNhaXuatBan_NhaXuatBan.Columns["TenNhaXuatBan"].HeaderText = "Tên Nhà Xuất Bản";
+        }
+        private void SetUpDataGrVDauSachNXB()
+        {
+            dataGridViewDauSach_NhaXuatBan.Columns["MaDauSach"].HeaderText = "Mã Đầu Sách";
+            dataGridViewDauSach_NhaXuatBan.Columns["TenDauSach"].HeaderText = "Tên Đầu Sách";
+            dataGridViewDauSach_NhaXuatBan.Columns["MaKeSach"].HeaderText = "Mã Kệ Sách";
+            dataGridViewDauSach_NhaXuatBan.Columns["SoLuongHienTai"].HeaderText = "Số Lượng Hiện Tại";
+            dataGridViewDauSach_NhaXuatBan.Columns["TongSo"].HeaderText = "Tổng Số";
+        }
         private void tabPageNhaXuatBan_Enter(object sender, EventArgs e)
         {
             buttonThemVaoDauSach_NhaXuatBan.Visible = false;
             lnxb = busNXB.ConvertNXB(busNXB.GetDanhSachNXB());
             dataGridViewNhaXuatBan_NhaXuatBan.DataSource = null;
             dataGridViewNhaXuatBan_NhaXuatBan.DataSource = lnxb;
+            SetUpDataGrVNXB();
         }
-        private void dataGridViewNhaXuatBan_NhaXuatBan_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridViewNhaXuatBan_NhaXuatBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             buttonThemNhaXuatBan_NhaXuatBan.Enabled = true;
             buttonSuaNhaXuatBan_NhaXuatBan.Enabled = false;
@@ -273,14 +317,13 @@ namespace TTN_QLTV.GUI
             buttonTimKiemNhaXuatBan_NhaXuatBan.Enabled = false;
             lds = busNXB.ConvertDSNXB(busNXB.GetDanhSachDSNXB(lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].MaNhaXuatBan));
             dataGridViewDauSach_NhaXuatBan.DataSource = lds;
+            SetUpDataGrVDauSachNXB();
             textBoxMaNhaXuatBan_NhaXuatBan.Text = lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].MaNhaXuatBan.ToString();
             textBoxTenNhaXuatBan_NhaXuatBan.Text = lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].TenNhaXuatBan.ToString();
         }
-
-        private void dataGridViewDauSach_NhaXuatBan_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridViewDauSach_NhaXuatBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             buttonXoaDauSach_NhaXuatBan.Enabled = true;
-
         }
         private void buttonHuy_NhaXuatBan_Click(object sender, EventArgs e)
         {
@@ -311,6 +354,7 @@ namespace TTN_QLTV.GUI
             dataGridViewDauSach_NhaXuatBan.DataSource = null;
             dataGridViewDauSach_NhaXuatBan.DataSource = lds;
             textBoxThongTinDauSach_NhaXuatBan.Text = "";
+            SetUpDataGrVDauSachNXB();
         }
         private void buttonTimKiemNhaXuatBan_NhaXuatBan_Click(object sender, EventArgs e)
         {
@@ -324,41 +368,67 @@ namespace TTN_QLTV.GUI
             }
             dataGridViewNhaXuatBan_NhaXuatBan.DataSource = null;
             dataGridViewNhaXuatBan_NhaXuatBan.DataSource = lnxb;
+            SetUpDataGrVNXB();
         }
         private void buttonThemNhaXuatBan_NhaXuatBan_Click(object sender, EventArgs e)
         {
             busNXB.AddNXB(textBoxTenNhaXuatBan_NhaXuatBan.Text.ToString());
+            lnxb = busNXB.ConvertNXB(busNXB.GetDanhSachNXB());
+            dataGridViewNhaXuatBan_NhaXuatBan.DataSource = null;
+            dataGridViewNhaXuatBan_NhaXuatBan.DataSource = lnxb;
+            SetUpDataGrVNXB();
         }
         private void buttonSuaNhaXuatBan_NhaXuatBan_Click(object sender, EventArgs e)
         {
             busNXB.EditNXB(lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].MaNhaXuatBan, textBoxTenNhaXuatBan_NhaXuatBan.Text.ToString());
+            lnxb = busNXB.ConvertNXB(busNXB.GetDanhSachNXB());
+            dataGridViewNhaXuatBan_NhaXuatBan.DataSource = null;
+            dataGridViewNhaXuatBan_NhaXuatBan.DataSource = lnxb;
+            SetUpDataGrVNXB();
         }
         private void buttonXoaDauSach_NhaXuatBan_Click(object sender, EventArgs e)
         {
             busNXB.DelDauSach_NXB(lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].MaNhaXuatBan,lds[dataGridViewDauSach_NhaXuatBan.CurrentCell.RowIndex].MaDauSach);
+            lnxb = busNXB.ConvertNXB(busNXB.GetDanhSachNXB());
+            dataGridViewNhaXuatBan_NhaXuatBan.DataSource = null;
+            dataGridViewNhaXuatBan_NhaXuatBan.DataSource = lnxb;
+            SetUpDataGrVDauSachNXB();
         }
         private void buttonThemDauSach_NhaXuatBan_Click(object sender, EventArgs e)
         {
-            //
-            //
-            //
-            //
-            //
+            //chuyển sang tab đầu sách 
+            tabControlQuanLySach.SelectedTab = tabPageDauSach;
+            //hiện nút themvao_dausach
+            buttonThemVao_DauSach.Visible = true;
+            //chọn đầu sách ở datagrid đầu sách ấn thêm vào để thêm vào ds_tacgia
         }
 
         // KẾT THÚC TAB NHÀ XUẤT BẢN //
 
 
         // BẮT ĐẦU TAB THỂ LOẠI //
+        private void SetUpDataGrVTheLoai()
+        {
+            dataGridViewTheLoai_TheLoai.Columns["MaTheLoai"].HeaderText = "Mã Thể Loại";
+            dataGridViewTheLoai_TheLoai.Columns["TenTheLoai"].HeaderText = "Tên Thể Loại";
+        }
+        private void SetUpDataGrVDauSachTL()
+        {
+            dataGridViewDauSach_TheLoai.Columns["MaDauSach"].HeaderText = "Mã Đầu Sách";
+            dataGridViewDauSach_TheLoai.Columns["TenDauSach"].HeaderText = "Tên Đầu Sách";
+            dataGridViewDauSach_TheLoai.Columns["MaKeSach"].HeaderText = "Mã Kệ Sách";
+            dataGridViewDauSach_TheLoai.Columns["SoLuongHienTai"].HeaderText = "Số Lượng Hiện Tại";
+            dataGridViewDauSach_TheLoai.Columns["TongSo"].HeaderText = "Tổng Số";
+        }
         private void tabPageTheLoai_Enter(object sender, EventArgs e)
         {
             buttonThemVaoDauSach_TheLoai.Visible = false;
             ltl = busTL.ConvertTL( busTL.GetDanhSachTheLoai());
             dataGridViewTheLoai_TheLoai.DataSource = null;
             dataGridViewTheLoai_TheLoai.DataSource = ltl;
+            SetUpDataGrVTheLoai();
         }
-
-        private void dataGridViewTheLoai_TheLoai_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridViewTheLoai_TheLoai_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             buttonHuy_TheLoai.Enabled = true;
             buttonSuaTheLoai_TheLoai.Enabled = true;
@@ -368,15 +438,14 @@ namespace TTN_QLTV.GUI
             buttonThemTheLoai_TheLoai.Enabled = false;
             lds = busTL.ConvertDSTL(busTL.GetDanhSachDSTheLoai(ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].MaTheLoai));
             dataGridViewDauSach_TheLoai.DataSource = lds;
+            SetUpDataGrVDauSachTL();
             textBoxMaTheLoai_TheLoai.Text = ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].MaTheLoai.ToString();
             textBoxTenTheLoai_TheLoai.Text = ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].TenTheLoai.ToString();
         }
-
-        private void dataGridViewDauSach_TheLoai_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridViewDauSach_TheLoai_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             buttonXoaDauSach_TheLoai.Enabled = true;
         }
-
         private void buttonTimKiemDauSach_TheLoai_Click(object sender, EventArgs e)
         {
             if (textBoxThongTinDauSach_TheLoai.Text.ToString() != "")
@@ -390,6 +459,7 @@ namespace TTN_QLTV.GUI
             dataGridViewDauSach_TheLoai.DataSource = null;
             dataGridViewDauSach_TheLoai.DataSource = lds;
             textBoxThongTinDauSach_TheLoai.Text = "";
+            SetUpDataGrVDauSachTL();
         }
 
         private void buttonHuy_TheLoai_Click(object sender, EventArgs e)
@@ -420,31 +490,52 @@ namespace TTN_QLTV.GUI
             }
             dataGridViewTheLoai_TheLoai.DataSource = null;
             dataGridViewTheLoai_TheLoai.DataSource = ltl;
+            SetUpDataGrVTheLoai();
         }
 
         private void buttonThemTheLoai_TheLoai_Click(object sender, EventArgs e)
         {
             busTL.AddTheLoai(textBoxTenTheLoai_TheLoai.Text.ToString());
+            ltl = busTL.ConvertTL(busTL.GetDanhSachTheLoai());
+            dataGridViewTheLoai_TheLoai.DataSource = null;
+            dataGridViewTheLoai_TheLoai.DataSource = ltl;
+            SetUpDataGrVTheLoai();
         }
 
         private void buttonSuaTheLoai_TheLoai_Click(object sender, EventArgs e)
         {
             busTL.EditTheLoai(ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].MaTheLoai, textBoxTenTheLoai_TheLoai.Text.ToString());
+            ltl = busTL.ConvertTL(busTL.GetDanhSachTheLoai());
+            dataGridViewTheLoai_TheLoai.DataSource = null;
+            dataGridViewTheLoai_TheLoai.DataSource = ltl;
+            SetUpDataGrVTheLoai();
         }
 
         private void buttonXoaDauSach_TheLoai_Click(object sender, EventArgs e)
         {
             busTL.DelDauSach_TheLoai(ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].MaTheLoai,lds[dataGridViewDauSach_TheLoai.CurrentCell.RowIndex].MaDauSach);
+            lds = busTL.ConvertDSTL(busTL.GetDanhSachDSTheLoai(ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].MaTheLoai));
+            dataGridViewDauSach_TheLoai.DataSource = null;
+            dataGridViewDauSach_TheLoai.DataSource = lds;
+            textBoxThongTinDauSach_TheLoai.Text = "";
+            SetUpDataGrVDauSachTL();
         }
 
         private void buttonThemDauSach_TheLoai_Click(object sender, EventArgs e)
         {
-            //
-            //
-            //
-            //
-            //
+            //chuyển sang tab đầu sách 
+            tabControlQuanLySach.SelectedTab = tabPageDauSach;
+            //hiện nút themvao_dausach
+            buttonThemVao_DauSach.Visible = true;
+            //chọn đầu sách ở datagrid đầu sách ấn thêm vào để thêm vào ds_tacgia
         }
+
+
+
+
+
+
+
 
 
 
