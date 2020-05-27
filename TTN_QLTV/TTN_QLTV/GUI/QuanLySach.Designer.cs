@@ -1262,6 +1262,7 @@
             this.textBoxNgaySinh_TacGia.Name = "textBoxNgaySinh_TacGia";
             this.textBoxNgaySinh_TacGia.Size = new System.Drawing.Size(206, 23);
             this.textBoxNgaySinh_TacGia.TabIndex = 1;
+            this.textBoxNgaySinh_TacGia.TextChanged += new System.EventHandler(this.textBoxNgaySinh_TacGia_TextChanged);
             this.textBoxNgaySinh_TacGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNgaySinh_TacGia_KeyPress);
             // 
             // groupBox2
