@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.textBoxThanhTien = new System.Windows.Forms.TextBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.comboBoxLoaiTT = new System.Windows.Forms.ComboBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
@@ -59,9 +61,8 @@
             this.groupBox27 = new System.Windows.Forms.GroupBox();
             this.textBoxThongTinSach = new System.Windows.Forms.TextBox();
             this.buttonTimKiemSach = new System.Windows.Forms.Button();
-            this.textBoxThanhTien = new System.Windows.Forms.TextBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.groupBox5.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -76,7 +77,6 @@
             this.groupBox28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSach)).BeginInit();
             this.groupBox27.SuspendLayout();
-            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox5
@@ -104,6 +104,26 @@
             this.groupBox5.TabIndex = 54;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Phiếu Mượn";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.textBoxThanhTien);
+            this.groupBox11.Location = new System.Drawing.Point(300, 256);
+            this.groupBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox11.Size = new System.Drawing.Size(259, 71);
+            this.groupBox11.TabIndex = 61;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Thành Tiền";
+            // 
+            // textBoxThanhTien
+            // 
+            this.textBoxThanhTien.Location = new System.Drawing.Point(7, 27);
+            this.textBoxThanhTien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxThanhTien.Name = "textBoxThanhTien";
+            this.textBoxThanhTien.Size = new System.Drawing.Size(247, 27);
+            this.textBoxThanhTien.TabIndex = 0;
             // 
             // groupBox10
             // 
@@ -455,26 +475,6 @@
             this.buttonTimKiemSach.UseVisualStyleBackColor = true;
             this.buttonTimKiemSach.Click += new System.EventHandler(this.ButtonTimKiemSach_Click);
             // 
-            // textBoxThanhTien
-            // 
-            this.textBoxThanhTien.Location = new System.Drawing.Point(7, 27);
-            this.textBoxThanhTien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxThanhTien.Name = "textBoxThanhTien";
-            this.textBoxThanhTien.Size = new System.Drawing.Size(247, 27);
-            this.textBoxThanhTien.TabIndex = 0;
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.textBoxThanhTien);
-            this.groupBox11.Location = new System.Drawing.Point(300, 256);
-            this.groupBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox11.Size = new System.Drawing.Size(259, 71);
-            this.groupBox11.TabIndex = 61;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Thành Tiền";
-            // 
             // QuanLyPhieuMuon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -484,9 +484,12 @@
             this.Controls.Add(this.groupBox5);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "QuanLyPhieuMuon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Quản Lý Phiếu Mượn";
             this.Load += new System.EventHandler(this.QuanLyPhieuMuon_Load);
             this.groupBox5.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -509,8 +512,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSach)).EndInit();
             this.groupBox27.ResumeLayout(false);
             this.groupBox27.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
             this.ResumeLayout(false);
 
         }

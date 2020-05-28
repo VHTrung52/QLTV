@@ -275,7 +275,7 @@ namespace TTN_QLTV.BUS
         public DataTable DauSach_Sach(int maDauSach)
         {
             return DataProvider.Instance.ExecuteQuery("PROC_DauSach_Sach '" + maDauSach + "'");
-
+        }
         public DataTable XemDauSachTheLoai(string i)
         {
             string query = string.Format("XemDauSachTheLoai {0}", i);

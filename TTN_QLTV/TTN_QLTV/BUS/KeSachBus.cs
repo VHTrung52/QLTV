@@ -38,5 +38,13 @@ namespace TTN_QLTV.BUS
             string query = string.Format("update DAUSACH set MaKeSach = null where MaDauSach = {0}", maSach);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
+        public string HienTenKeSach(string maKeSach)
+        {
+            string query = "" +
+                "select TenKeSach " +
+                "from KeSach " +
+                $"where MaKeSach = {maKeSach}";
+            return DataProvider.Instance.ExecuteScalar(query).ToString();
+        }
     }
 }

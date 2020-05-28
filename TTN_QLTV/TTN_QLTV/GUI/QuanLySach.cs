@@ -36,7 +36,7 @@ namespace TTN_QLTV.GUI
         private BUSNXB busNXB = new BUSNXB();
         private BUSTheLoai busTL = new BUSTheLoai();
         private TheLoaiBUS theLoaiBUS;
-        private DauSachBUS dauSachBUS;
+        //private DauSachBUS dauSachBUS;
         private KeSachBus keSachBus;
         public QuanLySach()
         {
@@ -73,7 +73,12 @@ namespace TTN_QLTV.GUI
         //1.1-viết 1 hàm tử động tạo mã mới để thêm
         //2 - ấn nút thêm , refresh datagrid view đầu sách
         //3 - chọn đầu sách vừa thêm để thêm tác giả, thể loại , nhà xuất bản bằng các button
-
+        private void changeDataGridViewHeader_tabDauSach()
+        {
+            dataGridViewTheLoai_DauSach.Columns["TenTheLoai"].HeaderText = "Thể Loại";
+            dataGridViewTacGia_DauSach.Columns["TenTacGia"].HeaderText = "Tác Giả";
+            dataGridViewNhaXuatBan_DauSach.Columns["TenNhaXuatBan"].HeaderText = "Nhà Xuất Bản";
+        }
         #region Sách Thuộc Đầu Sách.
         private void dataGridViewDauSach_DauSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -88,7 +93,7 @@ namespace TTN_QLTV.GUI
                 dataGridViewTheLoai_DauSach.DataSource = dauSachBUS.GetTenTheLoai(maDauSach);
 
                 dataGridViewNhaXuatBan_DauSach.DataSource = dauSachBUS.GetTenNhaXuatBan(maDauSach);
-
+                changeDataGridViewHeader_tabDauSach();
                 textBoxMaDauSach_DauSach.Text = row.Cells[0].Value.ToString();
                 textBoxTenDauSach_DauSach.Text = row.Cells[1].Value.ToString();
                 textBoxMaKeSach_DauSach.Text = row.Cells[2].Value.ToString();
@@ -617,6 +622,7 @@ namespace TTN_QLTV.GUI
                 dataGridViewDauSach_Sach.DataSource = dauSachBUS.DauSach_Sach(Convert.ToInt32(row.Cells[1].Value));
                 dataGridViewDauSach_Sach.Columns[0].HeaderText = "Mã Đầu Sách";
                 dataGridViewDauSach_Sach.Columns[1].HeaderText = "Tên Đầu Sách";
+                dataGridViewDauSach_Sach.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dataGridViewDauSach_Sach.Columns[2].HeaderText = "Mã Kệ Sách";
                 dataGridViewDauSach_Sach.Columns[3].HeaderText = "Số Lượng Hiện Tại";
                 dataGridViewDauSach_Sach.Columns[4].HeaderText = "Tổng Số";
@@ -856,7 +862,7 @@ namespace TTN_QLTV.GUI
             buttonTimKiemDauSach_TacGia.Enabled = true;
             buttonThemTacGia_TacGia.Enabled = false;
             buttonThemDauSach_TacGia.Enabled = true;
-            buttonTimKiemTacGia_TacGia.Enabled = false;
+            //buttonTimKiemTacGia_TacGia.Enabled = false;
             lds = busTG.ConvertDSTG(busTG.GetDanhSachDSTacGia(ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].MaTacGia));
             dataGridViewDauSach_TacGia.DataSource = lds;
             SetUpDataGrVDauSachTG();
@@ -972,7 +978,7 @@ namespace TTN_QLTV.GUI
             buttonHuy_NhaXuatBan.Enabled = true;
             buttonThemNhaXuatBan_NhaXuatBan.Enabled = false;
             buttonThemDauSach_NhaXuatBan.Enabled = true;
-            buttonTimKiemNhaXuatBan_NhaXuatBan.Enabled = false;
+            //buttonTimKiemNhaXuatBan_NhaXuatBan.Enabled = false;
             lds = busNXB.ConvertDSNXB(busNXB.GetDanhSachDSNXB(lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].MaNhaXuatBan));
             dataGridViewDauSach_NhaXuatBan.DataSource = lds;
             SetUpDataGrVDauSachNXB();
@@ -1093,7 +1099,7 @@ namespace TTN_QLTV.GUI
             buttonSuaTheLoai_TheLoai.Enabled = true;
             buttonTimKiemDauSach_TheLoai.Enabled = true;
             buttonThemDauSach_TheLoai.Enabled = true;
-            buttonTimKiemTheLoai_TheLoai.Enabled = false;
+            //buttonTimKiemTheLoai_TheLoai.Enabled = false;
             buttonThemTheLoai_TheLoai.Enabled = false;
             lds = busTL.ConvertDSTL(busTL.GetDanhSachDSTheLoai(ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].MaTheLoai));
             dataGridViewDauSach_TheLoai.DataSource = lds;
@@ -1210,14 +1216,13 @@ namespace TTN_QLTV.GUI
             buttonHuy_KeSach.Enabled = true;
             textBoxMaKeSach_KeSach.Text = dataGridViewKeSach_KeSach.CurrentRow.Cells[0].Value.ToString();
             textBoxTenKeSach_KeSach.Text = dataGridViewKeSach_KeSach.CurrentRow.Cells[1].Value.ToString();
+            dataGridViewDauSach_KeSach.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                
         }
 
         private void tabControlQuanLySach_Enter_1(object sender, EventArgs e)
         {
-            dataGridViewKeSach_KeSach.DataSource = keSachBus.XemTatCaKeSach();
-            dataGridViewDauSach_KeSach.DataSource = dauSachBUS.XemTatCaDauSachKeSach(dataGridViewKeSach_KeSach.Rows[0].Cells[0].Value.ToString());
-            buttonSuaKeSach_KeSach.Enabled = false;
-            buttonHuy_KeSach.Enabled = false;
+            
         }
 
         private void buttonTimKiemKeSach_KeSach_Click(object sender, EventArgs e)
@@ -1254,6 +1259,26 @@ namespace TTN_QLTV.GUI
             keSachBus.BoSach(dataGridViewDauSach_KeSach.CurrentRow.Cells[0].Value.ToString());
         }
 
+        private void tabPageKeSach_Enter(object sender, EventArgs e)
+        {
+            dataGridViewKeSach_KeSach.DataSource = keSachBus.XemTatCaKeSach();
+            dataGridViewDauSach_KeSach.DataSource = dauSachBUS.XemTatCaDauSachKeSach(dataGridViewKeSach_KeSach.Rows[0].Cells[0].Value.ToString());
+            buttonSuaKeSach_KeSach.Enabled = false;
+            buttonHuy_KeSach.Enabled = false;
+            changeDataGridViewHeader_tabKeSach();
+
+
+        }
+        private void changeDataGridViewHeader_tabKeSach()
+        {
+            dataGridViewKeSach_KeSach.Columns["TenKeSach"].HeaderText = "Tên Kệ Sách";
+            dataGridViewKeSach_KeSach.Columns["MaKeSach"].HeaderText = "Mã Kệ Sách";
+            dataGridViewDauSach_KeSach.Columns[0].HeaderText = "Mã Đầu Sách";
+            dataGridViewDauSach_KeSach.Columns[1].HeaderText = "Tên Đầu Sách";
+            dataGridViewDauSach_KeSach.Columns[2].HeaderText = "Mã Kệ Sách";
+            dataGridViewDauSach_KeSach.Columns[3].HeaderText = "Số Lượng Hiện Tại";
+            dataGridViewDauSach_KeSach.Columns[4].HeaderText = "Tổng Số";
+        }
 
         // KẾT THÚC TAB KỆ SÁCH //
 

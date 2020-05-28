@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TTN_QLTV.BUS;
+using TTN_QLTV.GUI;
 
 namespace TTN_QLTV
 {
@@ -18,6 +19,7 @@ namespace TTN_QLTV
         TacGiaBUS tacGia;
         TheLoaiBUS theLoai;
         NhaXuatBanBUS nhaXuatBan;
+        KeSachBus keSach;
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace TTN_QLTV
             tacGia = new TacGiaBUS();
             theLoai = new TheLoaiBUS();
             nhaXuatBan = new NhaXuatBanBUS();
+            keSach = new KeSachBus();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,15 +37,28 @@ namespace TTN_QLTV
             dataGridViewTacGia.DataSource = tacGia.XemTacGia(dataGridViewDauSach.CurrentRow.Cells[0].Value.ToString());
             dataGridViewTheLoai.DataSource = theLoai.XemTheLoai(dataGridViewDauSach.CurrentRow.Cells[0].Value.ToString());
             dataGridViewNhaXuatBan.DataSource = nhaXuatBan.XemNhaXuatBan(dataGridViewDauSach.CurrentRow.Cells[0].Value.ToString());
-            textBoxKeSach.Text = dataGridViewDauSach.CurrentRow.Cells[2].Value.ToString();
+            textBoxKeSach.Text = keSach.HienTenKeSach(dataGridViewDauSach.CurrentRow.Cells[2].Value.ToString());
+                //dataGridViewDauSach.CurrentRow.Cells[2].Value.ToString();
             comboBoxLoaiThongTin.SelectedIndex = 0;
+            changeDataGridViewHeader();
         }
 
         private void dataGridViewDauSach_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            UpdateThongTin();
+            UpdateThongTin(); 
         }
+        private void changeDataGridViewHeader()
+        {
+            dataGridViewDauSach.Columns["MaDauSach"].HeaderText = "Mã Đầu Sách";
+            dataGridViewDauSach.Columns["TenDauSach"].HeaderText = "Mã Đầu Sách";
+            dataGridViewDauSach.Columns["MaKeSach"].HeaderText = "Mã Kệ Sách";
+            dataGridViewDauSach.Columns["SoLuongHienTai"].HeaderText = "Số Lượng Hiện Tại";
+            dataGridViewDauSach.Columns["TongSo"].HeaderText = "Tổng Số";
 
+            dataGridViewTheLoai.Columns["TenTheLoai"].HeaderText = "Thể Loại";
+            dataGridViewTacGia.Columns["TenTacGia"].HeaderText = "Tác Giả";
+            dataGridViewNhaXuatBan.Columns["TenNhaXuatBan"].HeaderText = "Nhà Xuất Bản";
+        }
         private void UpdateThongTin()
         {
             if (dataGridViewDauSach.CurrentRow != null)
@@ -50,7 +66,7 @@ namespace TTN_QLTV
                 dataGridViewTacGia.DataSource = tacGia.XemTacGia(dataGridViewDauSach.CurrentRow.Cells[0].Value.ToString());
                 dataGridViewTheLoai.DataSource = theLoai.XemTheLoai(dataGridViewDauSach.CurrentRow.Cells[0].Value.ToString());
                 dataGridViewNhaXuatBan.DataSource = nhaXuatBan.XemNhaXuatBan(dataGridViewDauSach.CurrentRow.Cells[0].Value.ToString());
-                textBoxKeSach.Text = dataGridViewDauSach.CurrentRow.Cells[2].Value.ToString();
+                textBoxKeSach.Text = keSach.HienTenKeSach(dataGridViewDauSach.CurrentRow.Cells[2].Value.ToString());
             }
             else
             {
@@ -68,7 +84,7 @@ namespace TTN_QLTV
             {
                 case "Tên Tác Giả":
                     {
-                        dataGridViewDauSach.DataSource = dauSach.XemTatCaDauSachTacGia(textBoxThongTinTimKiem.Text);
+                        dataGridViewDauSach.DataSource = dauSach.TimKiemDauSachTheoTacGia(textBoxThongTinTimKiem.Text);
                         break;
                     }
                 case "Tên Đầu Sách":
@@ -78,7 +94,7 @@ namespace TTN_QLTV
                     }
                 case "Thể Loại":
                     {
-                        dataGridViewDauSach.DataSource = dauSach.XemTatCaDauSachTheLoai(textBoxThongTinTimKiem.Text);
+                        dataGridViewDauSach.DataSource = dauSach.TimKiemDauSachTheoNhieuTheLoai(textBoxThongTinTimKiem.Text);
                         break;
                     }
                 case "Tên Nhà Xuất Bản":
@@ -105,6 +121,24 @@ namespace TTN_QLTV
                     }
             }
             UpdateThongTin();
+        }
+
+        private void buttonQuanLySach_Click(object sender, EventArgs e)
+        {
+            QuanLySach formQuanLySach = new QuanLySach();
+            formQuanLySach.Show();
+        }
+
+        private void buttonQuanLyDocGia_Click(object sender, EventArgs e)
+        {
+            QuanLyDocGia formQuanLyDocGia = new QuanLyDocGia();
+            formQuanLyDocGia.Show();
+        }
+
+        private void buttonQuanLyPhieuMuon_Click(object sender, EventArgs e)
+        {
+            QuanLyPhieuMuon formQuanLyPhieuMuon = new QuanLyPhieuMuon();
+            formQuanLyPhieuMuon.Show();
         }
     }
 }
