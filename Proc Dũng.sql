@@ -20,7 +20,7 @@ begin
 	select * 
 	from DAUSACH 
 	where MaDauSach in (select MaDauSach from DS_TACGIA where MaTacGia = @matg )
-    AND MaDauSach LIKE @str OR TenDauSach LIKE @str
+    AND MaDauSach LIKE '%'+@str+'%' OR TenDauSach LIKE '%'+@str+'%'
 end
 
 go
@@ -36,7 +36,7 @@ go
 create proc GetDanhSachTacGiafilter @str nvarchar(50)
 as
 begin
-	select * from TacGia where MaTacGia LIKE @str OR TenTacGia LIKE @str
+	select * from TacGia where MaTacGia LIKE '%'+@str+'%' OR TenTacGia LIKE '%'+@str+'%'
 end
 
 go
@@ -84,7 +84,7 @@ begin
 	select * 
 	from DAUSACH 
 	where MaDauSach in (select MaDauSach from DS_NHAXUATBAN where MaNhaXuatBan = @manxb )
-    AND MaDauSach LIKE @str OR TenDauSach LIKE @str
+    AND MaDauSach LIKE '%'+@str+'%' OR TenDauSach LIKE '%'+@str+'%'
 end
 
 go
@@ -92,7 +92,7 @@ go
 create proc GetDanhSachNXBfilter @str nvarchar(50)
 as
 begin
-	select * from NhaXuatBan where MaNhaXuatBan LIKE @str OR TenNhaXuatBan LIKE @str
+	select * from NhaXuatBan where MaNhaXuatBan LIKE '%'+@str+'%' OR TenNhaXuatBan LIKE '%'+@str+'%'
 end
 
 go
@@ -142,7 +142,7 @@ begin
 	select * 
 	from DAUSACH 
 	where MaDauSach in (select MaDauSach from DS_TheLoai where MaTheLoai = @matl )
-    AND MaDauSach LIKE @str OR TenDauSach LIKE @str
+    AND MaDauSach LIKE '%'+@str+'%' OR TenDauSach LIKE '%'+@str+'%'
 end
 
 go
@@ -152,7 +152,7 @@ as
 begin
 	select * 
 	from TheLoai 
-	where MaTheLoai LIKE @str OR TenTheLoai LIKE @str
+	where MaTheLoai LIKE '%'+@str+'%' OR TenTheLoai LIKE '%'+@str+'%'
 end
 
 go 

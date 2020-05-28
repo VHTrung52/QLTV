@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TTN_QLTV.DTO;
 using TTN_QLTV.BUS;
+using System.Text.RegularExpressions;
 
 namespace TTN_QLTV.GUI
 {
@@ -906,8 +907,6 @@ namespace TTN_QLTV.GUI
         {
             try
             {
-                string[] str = textBoxNgaySinh_TacGia.Text.ToString().Split('-');
-                DateTime date = new DateTime(Convert.ToInt32(str[2]), Convert.ToInt32(str[1]), Convert.ToInt32(str[0]));
                 busTG.AddTacGia(textBoxTenTacGia_TacGia.Text.ToString(), textBoxNgaySinh_TacGia.Text.ToString());
                 ltg = busTG.ConvertTG(busTG.GetDanhSachTacGia());
                 dataGridViewTacGia_TacGia.DataSource = null;
@@ -928,13 +927,39 @@ namespace TTN_QLTV.GUI
         }
         private void textBoxNgaySinh_TacGia_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
-            if (e.KeyChar == '-')
+
+
+            if (textBoxNgaySinh_TacGia.Text.Length == 3 && e.KeyChar == '\b')
             {
-                e.Handled = false;
+                textBoxNgaySinh_TacGia.Text = textBoxNgaySinh_TacGia.Text.Remove(1, 1);
+                textBoxNgaySinh_TacGia.SelectionStart = textBoxNgaySinh_TacGia.Text.Length;
+                textBoxNgaySinh_TacGia.SelectionLength = 0;
+            }
+            if (textBoxNgaySinh_TacGia.Text.Length == 6 && e.KeyChar == '\b')
+            {
+                textBoxNgaySinh_TacGia.Text = textBoxNgaySinh_TacGia.Text.Remove(4, 1);
+                textBoxNgaySinh_TacGia.SelectionStart = textBoxNgaySinh_TacGia.Text.Length;
+                textBoxNgaySinh_TacGia.SelectionLength = 0;
+            }
+        }
+        private void textBoxNgaySinh_TacGia_TextChanged(object sender, EventArgs e)
+        {
+            if(textBoxNgaySinh_TacGia.Text.Length == 2 && Regex.IsMatch(textBoxNgaySinh_TacGia.Text.Substring(0, 2), @"^[0-9]$") && textBoxNgaySinh_TacGia.Text.Length < 3)
+            {
+
+                textBoxNgaySinh_TacGia.Text += "/";
+                textBoxNgaySinh_TacGia.SelectionStart = textBoxNgaySinh_TacGia.Text.Length;
+                textBoxNgaySinh_TacGia.SelectionLength = 0;
+            }
+            if (textBoxNgaySinh_TacGia.Text.Length == 5 && Regex.IsMatch(textBoxNgaySinh_TacGia.Text.Substring(3, 2), @"^[0-9]$"))
+            {
+                textBoxNgaySinh_TacGia.Text += "/";
+                textBoxNgaySinh_TacGia.SelectionStart = textBoxNgaySinh_TacGia.Text.Length;
+                textBoxNgaySinh_TacGia.SelectionLength = 0;
             }
         }
         private void buttonSuaTacGia_TacGia_Click(object sender, EventArgs e)
