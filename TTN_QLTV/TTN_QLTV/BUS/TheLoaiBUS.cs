@@ -15,5 +15,11 @@ namespace TTN_QLTV.BUS
             string query = string.Format("XemTheLoai {0} ", idSach);
             return DataProvider.Instance.ExecuteQuery(query);
         }
+
+        public DataTable XemTheLoai()
+        {
+            string query = string.Format("XemTatCaTheLoai");
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
     }
 }

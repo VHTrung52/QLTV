@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BUS\DauSachBUS.cs" />
     <Compile Include="BUS\DocGiaBUS.cs" />
+    <Compile Include="BUS\KeSachBus.cs" />
     <Compile Include="BUS\NhaXuatBanBUS.cs" />
     <Compile Include="BUS\PhieuMuonBUS.cs" />
     <Compile Include="BUS\SachBUS.cs" />
