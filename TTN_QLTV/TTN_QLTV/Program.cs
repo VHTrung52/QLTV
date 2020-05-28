@@ -18,9 +18,9 @@ namespace TTN_QLTV
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new QuanLyPhieuMuon());
-            //Application.Run(new QuanLyDocGia());
+            Application.Run(new QuanLyDocGia());
             //Application.Run(new Form1());
-            Application.Run(new QuanLySach());
+            //Application.Run(new QuanLySach());
         }
     }
 }

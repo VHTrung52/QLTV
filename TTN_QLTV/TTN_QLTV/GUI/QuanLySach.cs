@@ -842,22 +842,6 @@ namespace TTN_QLTV.GUI
             dataGridViewDauSach_TacGia.DataSource = lds;
             SetUpDataGrVDauSachTG();
         }
-        private void dataGridViewTacGia_TacGia_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            buttonSuaTacGia_TacGia.Enabled = true;
-            buttonHuyTacGia_TacGia.Enabled = true;
-            buttonTimKiemDauSach_TacGia.Enabled = true;
-            buttonThemTacGia_TacGia.Enabled = false;
-            buttonThemDauSach_TacGia.Enabled = true;
-            buttonTimKiemTacGia_TacGia.Enabled = false;
-            lds = busTG.ConvertDSTG(busTG.GetDanhSachDSTacGia(ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].MaTacGia));
-            dataGridViewDauSach_TacGia.DataSource = lds;
-            SetUpDataGrVDauSachTG();
-            textBoxMaTacGia_TacGia.Text = ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].MaTacGia.ToString();
-            textBoxTenTacGia_TacGia.Text = ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].TenTacGia;
-            textBoxNgaySinh_TacGia.Text = ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].NgaySinh.ToShortDateString();
-            dataGridViewDauSach_TacGia.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-        }
         private void buttonHuyTacGia_TacGia_Click(object sender, EventArgs e)
         {
             buttonSuaTacGia_TacGia.Enabled = false;
@@ -956,22 +940,6 @@ namespace TTN_QLTV.GUI
             dataGridViewNhaXuatBan_NhaXuatBan.DataSource = null;
             dataGridViewNhaXuatBan_NhaXuatBan.DataSource = lnxb;
             SetUpDataGrVNXB();
-        }
-        private void dataGridViewNhaXuatBan_NhaXuatBan_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            buttonThemNhaXuatBan_NhaXuatBan.Enabled = true;
-            buttonSuaNhaXuatBan_NhaXuatBan.Enabled = false;
-            buttonTimKiemDauSach_NhaXuatBan.Enabled = true;
-            buttonHuy_NhaXuatBan.Enabled = true;
-            buttonThemNhaXuatBan_NhaXuatBan.Enabled = false;
-            buttonThemDauSach_NhaXuatBan.Enabled = true;
-            buttonTimKiemNhaXuatBan_NhaXuatBan.Enabled = false;
-            lds = busNXB.ConvertDSNXB(busNXB.GetDanhSachDSNXB(lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].MaNhaXuatBan));
-            dataGridViewDauSach_NhaXuatBan.DataSource = lds;
-            SetUpDataGrVDauSachNXB();
-            textBoxMaNhaXuatBan_NhaXuatBan.Text = lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].MaNhaXuatBan.ToString();
-            textBoxTenNhaXuatBan_NhaXuatBan.Text = lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].TenNhaXuatBan.ToString();
-            dataGridViewDauSach_NhaXuatBan.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
         private void dataGridViewDauSach_NhaXuatBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1079,21 +1047,6 @@ namespace TTN_QLTV.GUI
             dataGridViewTheLoai_TheLoai.DataSource = null;
             dataGridViewTheLoai_TheLoai.DataSource = ltl;
             SetUpDataGrVTheLoai();
-        }
-        private void dataGridViewTheLoai_TheLoai_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            buttonHuy_TheLoai.Enabled = true;
-            buttonSuaTheLoai_TheLoai.Enabled = true;
-            buttonTimKiemDauSach_TheLoai.Enabled = true;
-            buttonThemDauSach_TheLoai.Enabled = true;
-            buttonTimKiemTheLoai_TheLoai.Enabled = false;
-            buttonThemTheLoai_TheLoai.Enabled = false;
-            lds = busTL.ConvertDSTL(busTL.GetDanhSachDSTheLoai(ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].MaTheLoai));
-            dataGridViewDauSach_TheLoai.DataSource = lds;
-            SetUpDataGrVDauSachTL();
-            textBoxMaTheLoai_TheLoai.Text = ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].MaTheLoai.ToString();
-            textBoxTenTheLoai_TheLoai.Text = ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].TenTheLoai.ToString();
-            dataGridViewDauSach_TheLoai.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
         private void dataGridViewDauSach_TheLoai_CellClick(object sender, DataGridViewCellEventArgs e)
         {

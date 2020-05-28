@@ -14,20 +14,21 @@ namespace TTN_QLTV.DTO
         private int thoiGian;
         private DateTime ngayMuon;
         private DateTime ngayTra;
+        private decimal thanhTien;
 
         public PhieuMuon()
         {
 
         }
-        public PhieuMuon( int maNhanVien, int maDocGia, int thoiGian, DateTime ngayMuon, DateTime ngayTra)
+        public PhieuMuon( int maNhanVien, int maDocGia, int thoiGian, DateTime ngayMuon, decimal thanhTien)
         {
             this.maNhanVien = maNhanVien;
             this.maDocGia = maDocGia;
             this.thoiGian = thoiGian;
             this.ngayMuon = ngayMuon;
-            this.ngayTra = ngayTra;
+            this.thanhTien = thanhTien;
         }
-        public PhieuMuon(int maPhieuMuon, int maNhanVien, int maDocGia, int thoiGian, DateTime ngayMuon, DateTime ngayTra)
+        public PhieuMuon(int maPhieuMuon, int maNhanVien, int maDocGia, int thoiGian, DateTime ngayMuon, DateTime ngayTra, decimal thanhTien)
         {
             this.maPhieuMuon = maPhieuMuon;
             this.maNhanVien = maNhanVien;
@@ -35,6 +36,7 @@ namespace TTN_QLTV.DTO
             this.thoiGian = thoiGian;
             this.ngayMuon = ngayMuon;
             this.ngayTra = ngayTra;
+            this.thanhTien = thanhTien;
         }
 
         public int MaPhieuMuon { get => maPhieuMuon; set => maPhieuMuon = value; }
@@ -43,5 +45,6 @@ namespace TTN_QLTV.DTO
         public int ThoiGian { get => thoiGian; set => thoiGian = value; }
         public DateTime NgayMuon { get => ngayMuon; set => ngayMuon = value; }
         public DateTime NgayTra { get => ngayTra; set => ngayTra = value; }
+        public decimal ThanhTien { get => thanhTien; set => thanhTien = value; }
     }
 }

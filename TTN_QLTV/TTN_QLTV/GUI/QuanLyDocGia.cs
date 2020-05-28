@@ -151,17 +151,11 @@ namespace TTN_QLTV.GUI
             dataGridViewPhieuMuon.Refresh();
 
             dataGridViewPhieuMuon.Columns["MaPhieuMuon"].HeaderText = "Mã phiếu";
-
             dataGridViewPhieuMuon.Columns["MaNhanVien"].HeaderText = "Mã nhân viên";
             dataGridViewPhieuMuon.Columns["MaDocGia"].HeaderText = "Mã độc giả";
             dataGridViewPhieuMuon.Columns["ThoiGian"].HeaderText = "Số ngày";
             dataGridViewPhieuMuon.Columns["NgayMuon"].HeaderText = "Ngày mượn";
             dataGridViewPhieuMuon.Columns["NgayTra"].HeaderText = "Ngày trả";
-        }
-
-        private void DataGridViewDocGia_DoubleClick(object sender, EventArgs e)
-        {
-            int index = dataGridViewDocGia.SelectedRows[0].Index;
 
             textBoxMaDocGia.Text = dataGridViewDocGia.Rows[index].Cells["MaDocGia"].Value.ToString();
             textBoxTenDocGia.Text = dataGridViewDocGia.Rows[index].Cells["HoTen"].Value.ToString();
@@ -170,6 +164,11 @@ namespace TTN_QLTV.GUI
             textBoxCMNĐocGia.Text = dataGridViewDocGia.Rows[index].Cells["CMND"].Value.ToString();
 
             buttonSuaDocGia.Enabled = true; 
+        }
+
+        private void DataGridViewDocGia_DoubleClick(object sender, EventArgs e)
+        {
+            
         }
 
         private void ButtonSuaDocGia_Click(object sender, EventArgs e)
@@ -369,6 +368,46 @@ namespace TTN_QLTV.GUI
         private void TextBoxThongTinPhieuMuon_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+
+        private void TextBoxNgaySinh_DocGia_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxNgaySinh_DocGia.Text.Length == 2 && Regex.IsMatch(textBoxNgaySinh_DocGia.Text.Substring(0, 2), @"^[0-9]$") && textBoxNgaySinh_DocGia.Text.Length < 3)
+            {
+
+                textBoxNgaySinh_DocGia.Text += "/";
+                textBoxNgaySinh_DocGia.SelectionStart = textBoxNgaySinh_DocGia.Text.Length;
+                textBoxNgaySinh_DocGia.SelectionLength = 0;
+            }
+            if (textBoxNgaySinh_DocGia.Text.Length == 5 && Regex.IsMatch(textBoxNgaySinh_DocGia.Text.Substring(3, 2), @"^[0-9]$"))
+            {
+                textBoxNgaySinh_DocGia.Text += "/";
+                textBoxNgaySinh_DocGia.SelectionStart = textBoxNgaySinh_DocGia.Text.Length;
+                textBoxNgaySinh_DocGia.SelectionLength = 0;
+            }
+        }
+
+        private void TextBoxNgaySinh_DocGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+
+            if (textBoxNgaySinh_DocGia.Text.Length == 3 && e.KeyChar == '\b')
+            {
+                textBoxNgaySinh_DocGia.Text = textBoxNgaySinh_DocGia.Text.Remove(1, 1);
+                textBoxNgaySinh_DocGia.SelectionStart = textBoxNgaySinh_DocGia.Text.Length;
+                textBoxNgaySinh_DocGia.SelectionLength = 0;
+            }
+            if (textBoxNgaySinh_DocGia.Text.Length == 6 && e.KeyChar == '\b')
+            {
+                textBoxNgaySinh_DocGia.Text = textBoxNgaySinh_DocGia.Text.Remove(4, 1);
+                textBoxNgaySinh_DocGia.SelectionStart = textBoxNgaySinh_DocGia.Text.Length;
+                textBoxNgaySinh_DocGia.SelectionLength = 0;
+            }
         }
     }
 }

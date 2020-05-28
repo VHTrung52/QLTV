@@ -27,6 +27,7 @@ namespace TTN_QLTV.GUI
 
             comboBoxLoaiTT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             textBoxNgayTra.ReadOnly = true;
+            textBoxThanhTien.ReadOnly = true;
             maPhieuMuon = -1;
 
         }
@@ -36,7 +37,7 @@ namespace TTN_QLTV.GUI
 
             InitializeComponent();
 
-            textBoxNgayTra.ReadOnly = true;
+            textBoxThanhTien.ReadOnly = true;
         }
 
         private void QuanLyPhieuMuon_Load(object sender, EventArgs e)
@@ -130,7 +131,7 @@ namespace TTN_QLTV.GUI
                 }
                 else
                 {
-                    PhieuMuon phieumuon = new PhieuMuon(Int16.Parse(textBoxMaNhanVien.Text), Int16.Parse(textBoxMaDocGia.Text), Int16.Parse(textBoxThoiGian.Text), DateTime.Parse(textBoxNgayMuon.Text), DateTime.Parse(textBoxNgayTra.Text));
+                    PhieuMuon phieumuon = new PhieuMuon(Int16.Parse(textBoxMaNhanVien.Text), Int16.Parse(textBoxMaDocGia.Text), Int16.Parse(textBoxThoiGian.Text), DateTime.Parse(textBoxNgayMuon.Text), 0);
 
                     if (ctrlPhieuMuon.ThemPhieuMuon(phieumuon))
                     {
@@ -245,17 +246,6 @@ namespace TTN_QLTV.GUI
 
         private void DataGridViewPhieuMuon_DoubleClick(object sender, EventArgs e)
         {
-            int index = dataGridViewPhieuMuon.SelectedRows[0].Index;
-
-            textBoxMaPhieuMuon.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaPhieuMuon"].Value.ToString();
-            textBoxMaNhanVien.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaNhanVien"].Value.ToString();
-            textBoxMaDocGia.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaDocGia"].Value.ToString();
-            textBoxThoiGian.Text = dataGridViewPhieuMuon.Rows[index].Cells["ThoiGian"].Value.ToString();
-            textBoxNgayMuon.Text = Convert.ToDateTime(dataGridViewPhieuMuon.Rows[index].Cells["NgayMuon"].Value.ToString()).ToShortDateString();
-            textBoxNgayTra.Text = Convert.ToDateTime(dataGridViewPhieuMuon.Rows[index].Cells["NgayTra"].Value.ToString()).ToShortDateString();
-
-            buttonSuaPhieuMuon.Enabled = true;
-            textBoxNgayTra.ReadOnly = false;
         }
 
         private void DataGridViewPhieuMuon_Click(object sender, EventArgs e)
@@ -281,6 +271,17 @@ namespace TTN_QLTV.GUI
             {
                 buttonXoaSach.Enabled = true;
             }
+
+            textBoxMaPhieuMuon.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaPhieuMuon"].Value.ToString();
+            textBoxMaNhanVien.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaNhanVien"].Value.ToString();
+            textBoxMaDocGia.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaDocGia"].Value.ToString();
+            textBoxThoiGian.Text = dataGridViewPhieuMuon.Rows[index].Cells["ThoiGian"].Value.ToString();
+            textBoxNgayMuon.Text = Convert.ToDateTime(dataGridViewPhieuMuon.Rows[index].Cells["NgayMuon"].Value.ToString()).ToShortDateString();
+            textBoxNgayTra.Text = Convert.ToDateTime(dataGridViewPhieuMuon.Rows[index].Cells["NgayTra"].Value.ToString()).ToShortDateString();
+            textBoxThanhTien.Text = dataGridViewPhieuMuon.Rows[index].Cells["ThanhTien"].Value.ToString();
+
+            buttonSuaPhieuMuon.Enabled = true;
+            textBoxNgayTra.ReadOnly = false;
         }
 
         private void ButtonHuy_Click(object sender, EventArgs e)
@@ -292,6 +293,9 @@ namespace TTN_QLTV.GUI
             textBoxThoiGian.Text = "";
             textBoxNgayMuon.Text = "";
             textBoxNgayTra.Text = "";
+            textBoxThanhTien.Text = "";
+
+            textBoxNgayTra.ReadOnly = true;
         }
 
         private void ButtonTimKiemPhieuMuon_Click(object sender, EventArgs e)
