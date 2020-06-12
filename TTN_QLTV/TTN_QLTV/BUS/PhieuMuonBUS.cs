@@ -37,7 +37,7 @@ namespace TTN_QLTV.BUS
             string query = string.Format("exec XemTatCaPhieuMuon ");
 
             return DataProvider.Instance.ExecuteQuery(query).AsEnumerable().Select(m =>
-           new PhieuMuon(m.Field<int>("MaPhieuMuon"), m.Field<int>("MaNhanVien"), m.Field<int>("MaDocGia"), m.Field<int>("ThoiGian"), m.Field<DateTime>("NgayMuon"), m.Field<DateTime>("NgayTra"))).ToList();
+           new PhieuMuon(m.Field<int>("MaPhieuMuon"), m.Field<int>("MaNhanVien"), m.Field<int>("MaDocGia"), m.Field<int>("ThoiGian"), m.Field<DateTime>("NgayMuon"), m.Field<DateTime>("NgayTra"), m.Field<decimal>("ThanhTien"))).ToList();
         }
 
 

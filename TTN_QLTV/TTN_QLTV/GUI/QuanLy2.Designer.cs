@@ -1323,7 +1323,6 @@
             this.dataGridViewTacGia_TacGia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTacGia_TacGia.Size = new System.Drawing.Size(553, 329);
             this.dataGridViewTacGia_TacGia.TabIndex = 3;
-            this.dataGridViewTacGia_TacGia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTacGia_TacGia_CellClick);
             // 
             // groupBox3
             // 
@@ -1585,7 +1584,6 @@
             this.dataGridViewNhaXuatBan_NhaXuatBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewNhaXuatBan_NhaXuatBan.Size = new System.Drawing.Size(553, 377);
             this.dataGridViewNhaXuatBan_NhaXuatBan.TabIndex = 3;
-            this.dataGridViewNhaXuatBan_NhaXuatBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNhaXuatBan_NhaXuatBan_CellClick);
             // 
             // buttonHuy_NhaXuatBan
             // 
@@ -1921,7 +1919,6 @@
             this.dataGridViewTheLoai_TheLoai.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTheLoai_TheLoai.Size = new System.Drawing.Size(553, 377);
             this.dataGridViewTheLoai_TheLoai.TabIndex = 3;
-            this.dataGridViewTheLoai_TheLoai.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTheLoai_TheLoai_CellClick);
             // 
             // groupBox36
             // 

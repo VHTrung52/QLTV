@@ -56,7 +56,7 @@ namespace TTN_QLTV.BUS
             string query = string.Format("exec XemChiTietPhieuMuon {0} ", maDocGia);
 
             return DataProvider.Instance.ExecuteQuery(query).AsEnumerable().Select(m =>
-           new PhieuMuon(m.Field<int>("MaPhieuMuon"), m.Field<int>("MaNhanVien"), m.Field<int>("MaDocGia"), m.Field<int>("ThoiGian"), m.Field<DateTime>("NgayMuon"), m.Field<DateTime>("NgayTra"))).ToList();
+           new PhieuMuon(m.Field<int>("MaPhieuMuon"), m.Field<int>("MaNhanVien"), m.Field<int>("MaDocGia"), m.Field<int>("ThoiGian"), m.Field<DateTime>("NgayMuon"), m.Field<DateTime>("NgayTra"), m.Field<decimal>("ThanhTien"))).ToList();
         }
 
         public List<PhieuMuon> XemPhieuMuonCuaDG(int maDocGia)
@@ -64,7 +64,7 @@ namespace TTN_QLTV.BUS
             string query = string.Format("exec XemPhieuMuonCuaDG {0} ", maDocGia);
 
             return DataProvider.Instance.ExecuteQuery(query).AsEnumerable().Select(m =>
-           new PhieuMuon(m.Field<int>("MaPhieuMuon"), m.Field<int>("MaNhanVien"), m.Field<int>("MaDocGia"), m.Field<int>("ThoiGian"), m.Field<DateTime>("NgayMuon"), m.Field<DateTime>("NgayTra"))).ToList();
+           new PhieuMuon(m.Field<int>("MaPhieuMuon"), m.Field<int>("MaNhanVien"), m.Field<int>("MaDocGia"), m.Field<int>("ThoiGian"), m.Field<DateTime>("NgayMuon"), m.Field<DateTime>("NgayTra"), m.Field<decimal>("ThanhTien"))).ToList();
         }
 
         public List<PhieuMuon> TimKiemTTPM(int maDG, int maTimKiem)
@@ -72,7 +72,7 @@ namespace TTN_QLTV.BUS
             string query = string.Format("Select * from PHIEUMUON where MaDocGia like {0} and (MaPhieuMuon like {1} or MaNhanVien like {2}) ", maDG, maTimKiem, maTimKiem);
 
             return DataProvider.Instance.ExecuteQuery(query).AsEnumerable().Select(m =>
-           new PhieuMuon(m.Field<int>("MaPhieuMuon"), m.Field<int>("MaNhanVien"), m.Field<int>("MaDocGia"), m.Field<int>("ThoiGian"), m.Field<DateTime>("NgayMuon"), m.Field<DateTime>("NgayTra"))).ToList();
+           new PhieuMuon(m.Field<int>("MaPhieuMuon"), m.Field<int>("MaNhanVien"), m.Field<int>("MaDocGia"), m.Field<int>("ThoiGian"), m.Field<DateTime>("NgayMuon"), m.Field<DateTime>("NgayTra"), m.Field<decimal>("ThanhTien"))).ToList();
         }
     }
 }

@@ -12,7 +12,7 @@ begin
 	select * from PHIEUMUON where MaDocGia = @maDG
 end
 go
-
+exec XemPhieuMuonCuaDG 1
 -------------------------------------------------------------------------------------
 --create proc XemChiTietPhieuMuon(@maPhieu int)
 --as
@@ -65,14 +65,16 @@ go
 create proc ThemPhieuMuon(@MaNV int, @MaDG int ,@ThoiGian int, @NgayMuon datetime )
 as
 begin
-	declare @x int
+	declare @x int, @y int
 	set @x = (select CAST((select MAX(MaPhieuMuon) from PHIEUMUON as MaPM) as int))
 
-	insert into PHIEUMUON(MaPhieuMuon, MaNhanVien, MaDocGia, ThoiGian, NgayMuon ) 
-	values(@x+1, @MaNV, @MaDG, @ThoiGian, @NgayMuon )
+	insert into PHIEUMUON(MaPhieuMuon, MaNhanVien, MaDocGia, ThoiGian, NgayMuon, ThanhTien ) 
+	values(@x+1, @MaNV, @MaDG, @ThoiGian, @NgayMuon, 0 )
+	set @y = @x + 1
+	exec TinhNgayTra @y, @NgayMuon, @ThoiGian
 end
 go
-
+exec ThemPhieuMuon 1, 1, 10, '2020-05-27'
 
 -------------------------------------------------------------------------------------
 create proc SuaPhieuMuon(@MaPhieuMuon int, @MaNhanVien int, @MaDocGia int, @ThoiGian int, @NgayMuon datetime, @NgayTra datetime)
@@ -81,6 +83,8 @@ begin
 	UPDATE PHIEUMUON
 	SET MaNhanVien = @MaNhanVien, MaDocGia = @MaDocGia ,ThoiGian = @ThoiGian, NgayMuon = @NgayMuon, NgayTra = @NgayTra
 	WHERE MaPhieuMuon = @MaPhieuMuon
+
+	exec TinhTienThueSach @MaPhieuMuon
 end
 go
 
@@ -118,6 +122,35 @@ begin
 end
 go
 
+-------------------------------------------------------------------------------------
+create proc TinhNgayTra(@maPM int ,@ngayMuon datetime, @ngay int)
+as
+begin
+	declare @x datetime
+	set @x = (select DATEADD(day, @ngay, @ngayMuon) from PHIEUMUON where MaPhieuMuon = @maPM)
+
+	update PHIEUMUON set NgayTra = @x where MaPhieuMuon = @maPM
+end
+go
+
+-------------------------------------------------------------------------------------
+alter proc TinhTienThueSach(@maPhieuMuon int)
+as
+begin
+	declare @x int
+	set @x = (select DATEDIFF(day, NgayTra, DATEADD(day, ThoiGian, NgayMuon)) from PHIEUMUON where MaPhieuMuon = @maPhieuMuon)
+	
+	if(@x < 0)
+		begin 
+			update PHIEUMUON set ThanhTien = @x * (-10000) where MaPhieuMuon = @maPhieuMuon
+		end
+	else
+		begin
+			update PHIEUMUON set ThanhTien = 0 where MaPhieuMuon = @maPhieuMuon
+		end
+end
+go
+exec TinhTienThueSach 6
 -------------------------------------------------------------------------------------
 --create proc TimKiemTTPM(@keywords nvarchar(100), @loaiTT nvarchar(30))
 --as
