@@ -69,9 +69,9 @@ namespace TTN_QLTV.GUI
 
         private void buttonThemSach_Click(object sender, EventArgs e)
         {
-            QuanLySach qls = new QuanLySach();
+            /*QuanLySach qls = new QuanLySach();
             qls.ShowDialog();
-            QuanLySach.tabName = "sach"; 
+            QuanLySach.tabName = "sach"; */
         }
 
         private void ButtonThemPhieuMuon_Click(object sender, EventArgs e)

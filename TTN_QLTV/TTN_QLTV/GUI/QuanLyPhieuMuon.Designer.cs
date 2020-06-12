@@ -359,11 +359,16 @@
             // 
             // dataGridViewPhieuMuon
             // 
+            this.dataGridViewPhieuMuon.AllowUserToAddRows = false;
+            this.dataGridViewPhieuMuon.AllowUserToDeleteRows = false;
             this.dataGridViewPhieuMuon.AllowUserToResizeColumns = false;
+            this.dataGridViewPhieuMuon.AllowUserToResizeRows = false;
             this.dataGridViewPhieuMuon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewPhieuMuon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPhieuMuon.ColumnHeadersVisible = false;
             this.dataGridViewPhieuMuon.Location = new System.Drawing.Point(8, 26);
             this.dataGridViewPhieuMuon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewPhieuMuon.MultiSelect = false;
             this.dataGridViewPhieuMuon.Name = "dataGridViewPhieuMuon";
             this.dataGridViewPhieuMuon.ReadOnly = true;
             this.dataGridViewPhieuMuon.RowHeadersWidth = 51;
@@ -429,10 +434,16 @@
             // 
             // dataGridViewSach
             // 
+            this.dataGridViewSach.AllowUserToAddRows = false;
+            this.dataGridViewSach.AllowUserToDeleteRows = false;
+            this.dataGridViewSach.AllowUserToResizeColumns = false;
+            this.dataGridViewSach.AllowUserToResizeRows = false;
             this.dataGridViewSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSach.ColumnHeadersVisible = false;
             this.dataGridViewSach.Location = new System.Drawing.Point(5, 26);
             this.dataGridViewSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewSach.MultiSelect = false;
             this.dataGridViewSach.Name = "dataGridViewSach";
             this.dataGridViewSach.ReadOnly = true;
             this.dataGridViewSach.RowHeadersWidth = 51;

@@ -14,11 +14,8 @@ E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLyPhie
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\bin\Debug\TTN_QLTV.exe.config
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\bin\Debug\TTN_QLTV.exe
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\bin\Debug\TTN_QLTV.pdb
-E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.csprojAssemblyReference.cache
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLyDocGia.resources
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLyPhieuMuon.resources
-E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.Form1.resources
-E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLySach.resources
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.Properties.Resources.resources
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.csproj.GenerateResource.cache
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.csproj.CoreCompileInputs.cache
@@ -50,3 +47,13 @@ D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.pdb
 D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\bin\Debug\TTN_QLTV.exe.config
 D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\bin\Debug\TTN_QLTV.exe
 D:\GitHub\QLTV\TTN_QLTV\TTN_QLTV\bin\Debug\TTN_QLTV.pdb
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLy.QuanLyDauSach.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLy.MainQuanLy.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLy2.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLy1.QuanLySach.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.csprojAssemblyReference.cache
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLy1.QuanLyTacGia.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLy1.QuanLyNhaXuatBan.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLy1.QuanLyTheLoai.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLy1.QuanLyKeSach.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.QuanLyThuVien.resources

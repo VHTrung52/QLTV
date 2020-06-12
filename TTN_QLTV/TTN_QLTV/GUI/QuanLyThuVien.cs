@@ -10,17 +10,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TTN_QLTV.BUS;
 using TTN_QLTV.GUI;
+using TTN_QLTV.GUI.QuanLy;
 
 namespace TTN_QLTV
 {
-    public partial class Form1 : Form
+    public partial class QuanLyThuVien : Form
     {
         DauSachBUS dauSach;
         TacGiaBUS tacGia;
         TheLoaiBUS theLoai;
         NhaXuatBanBUS nhaXuatBan;
         KeSachBus keSach;
-        public Form1()
+        public QuanLyThuVien()
         {
             InitializeComponent();
             dauSach = new DauSachBUS();
@@ -33,6 +34,7 @@ namespace TTN_QLTV
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridViewDauSach.DataSource = dauSach.XemTatCaDauSach();
+            dataGridViewDauSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewDauSach.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewTacGia.DataSource = tacGia.XemTacGia(dataGridViewDauSach.CurrentRow.Cells[0].Value.ToString());
             dataGridViewTheLoai.DataSource = theLoai.XemTheLoai(dataGridViewDauSach.CurrentRow.Cells[0].Value.ToString());
@@ -125,8 +127,9 @@ namespace TTN_QLTV
 
         private void buttonQuanLySach_Click(object sender, EventArgs e)
         {
-            QuanLySach formQuanLySach = new QuanLySach();
-            formQuanLySach.Show();
+            //QuanLy2 formQuanLy = new QuanLy2();
+            MainQuanLy formQuanLy = new MainQuanLy();
+            formQuanLy.Show();
         }
 
         private void buttonQuanLyDocGia_Click(object sender, EventArgs e)

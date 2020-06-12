@@ -67,6 +67,36 @@
     <Compile Include="DTO\Sach.cs" />
     <Compile Include="DTO\TacGia.cs" />
     <Compile Include="DTO\TheLoai.cs" />
+    <Compile Include="GUI\QuanLy1\QuanLyKeSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLy1\QuanLyKeSach.Designer.cs">
+      <DependentUpon>QuanLyKeSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLy1\QuanLyNhaXuatBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLy1\QuanLyNhaXuatBan.Designer.cs">
+      <DependentUpon>QuanLyNhaXuatBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLy1\QuanLySach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLy1\QuanLySach.Designer.cs">
+      <DependentUpon>QuanLySach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLy1\QuanLyTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLy1\QuanLyTacGia.Designer.cs">
+      <DependentUpon>QuanLyTacGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLy1\QuanLyTheLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLy1\QuanLyTheLoai.Designer.cs">
+      <DependentUpon>QuanLyTheLoai.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\QuanLyDocGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,14 +115,41 @@
     <Compile Include="GUI\QuanLyThuVien.Designer.cs">
       <DependentUpon>QuanLyThuVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\QuanLySach.cs">
+    <Compile Include="GUI\QuanLy2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\QuanLySach.Designer.cs">
-      <DependentUpon>QuanLySach.cs</DependentUpon>
+    <Compile Include="GUI\QuanLy2.Designer.cs">
+      <DependentUpon>QuanLy2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLy1\MainQuanLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLy1\MainQuanLy.Designer.cs">
+      <DependentUpon>MainQuanLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLy1\QuanLyDauSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLy1\QuanLyDauSach.Designer.cs">
+      <DependentUpon>QuanLyDauSach.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\QuanLy1\QuanLyKeSach.resx">
+      <DependentUpon>QuanLyKeSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLy1\QuanLyNhaXuatBan.resx">
+      <DependentUpon>QuanLyNhaXuatBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLy1\QuanLySach.resx">
+      <DependentUpon>QuanLySach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLy1\QuanLyTacGia.resx">
+      <DependentUpon>QuanLyTacGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLy1\QuanLyTheLoai.resx">
+      <DependentUpon>QuanLyTheLoai.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyDocGia.resx">
       <DependentUpon>QuanLyDocGia.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,8 +159,14 @@
     <EmbeddedResource Include="GUI\QuanLyThuVien.resx">
       <DependentUpon>QuanLyThuVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\QuanLySach.resx">
-      <DependentUpon>QuanLySach.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\QuanLy2.resx">
+      <DependentUpon>QuanLy2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLy1\MainQuanLy.resx">
+      <DependentUpon>MainQuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLy1\QuanLyDauSach.resx">
+      <DependentUpon>QuanLyDauSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

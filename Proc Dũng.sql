@@ -14,7 +14,7 @@ end
 
 go
 
-create proc GetDanhSachDSTacGiafilter @matg int, @str nvarchar(50)
+alter proc GetDanhSachDSTacGiafilter @matg int, @str nvarchar(50)
 as
 begin
 	select * 
@@ -33,7 +33,7 @@ end
 
 go
 
-create proc GetDanhSachTacGiafilter @str nvarchar(50)
+alter proc GetDanhSachTacGiafilter @str nvarchar(50)
 as
 begin
 	select * from TacGia where MaTacGia LIKE '%'+@str+'%' OR TenTacGia LIKE '%'+@str+'%'
@@ -78,7 +78,7 @@ end
 
 go 
 
-create proc GetDanhSachDSNXBfilter @manxb int, @str nvarchar(50)
+alter proc GetDanhSachDSNXBfilter @manxb int, @str nvarchar(50)
 as
 begin
 	select * 
@@ -89,7 +89,7 @@ end
 
 go
 
-create proc GetDanhSachNXBfilter @str nvarchar(50)
+alter proc GetDanhSachNXBfilter @str nvarchar(50)
 as
 begin
 	select * from NhaXuatBan where MaNhaXuatBan LIKE '%'+@str+'%' OR TenNhaXuatBan LIKE '%'+@str+'%'
@@ -136,7 +136,7 @@ end
 
 go
 
-create proc GetDanhSachDSTheLoaifilter @matl int , @str nvarchar(50)
+alter proc GetDanhSachDSTheLoaifilter @matl int , @str nvarchar(50)
 as
 begin
 	select * 
@@ -147,7 +147,7 @@ end
 
 go
 
-create proc GetDanhSachTheLoaifilter @str nvarchar(50)
+alter proc GetDanhSachTheLoaifilter @str nvarchar(50)
 as
 begin
 	select * 

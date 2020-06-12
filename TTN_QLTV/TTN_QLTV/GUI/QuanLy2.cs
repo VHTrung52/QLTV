@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TTN_QLTV.DTO;
 using TTN_QLTV.BUS;
-using System.Text.RegularExpressions;
+
 
 namespace TTN_QLTV.GUI
 {
-    public partial class QuanLySach : Form
+    public partial class QuanLy2 : Form
     {
         private List<DauSach> lds = new List<DauSach>();
         private List<TacGia> ltg = new List<TacGia>();
@@ -39,7 +39,7 @@ namespace TTN_QLTV.GUI
         private TheLoaiBUS theLoaiBUS;
         //private DauSachBUS dauSachBUS;
         private KeSachBus keSachBus;
-        public QuanLySach()
+        public QuanLy2()
         {
             theLoaiBUS = new TheLoaiBUS();
             dauSachBUS = new DauSachBUS();
@@ -174,7 +174,7 @@ namespace TTN_QLTV.GUI
             //datagrid đầu sách hiện tất cả các sách
             //nút thêm vào visible = false;
             buttonThemVao_DauSach.Visible = false;
-            dataGridViewDauSach_DauSach.DataSource = dauSachBUS.GetDanhSachDauSach(); 
+            dataGridViewDauSach_DauSach.DataSource = dauSachBUS.GetDanhSachDauSach();
             dataGridViewDauSach_DauSach.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewDauSach_DauSach.Columns[0].HeaderText = "Mã Đầu Sách";
             dataGridViewDauSach_DauSach.Columns[1].HeaderText = "Tên Đầu Sách";
@@ -222,7 +222,7 @@ namespace TTN_QLTV.GUI
 
         private void dataGridViewTacGia_DauSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow currentRow = dataGridViewTacGia_DauSach.CurrentRow;
+            DataGridViewRow currentRow = dataGridViewTacGia_DauSach.CurrentRow;        
             xoaTacGia = currentRow.Cells[0].Value.ToString();
         }
 
@@ -356,6 +356,7 @@ namespace TTN_QLTV.GUI
         {
             DataGridViewRow currentRow = dataGridViewNhaXuatBan_DauSach.CurrentRow;
             xoaNhaXuatBan = currentRow.Cells[0].Value.ToString();
+            maNhaXuatBan = Convert.ToInt32(currentRow.Cells[0].Value);
         }
 
         private void buttonXoaNhaXuatBan_DauSach_Click(object sender, EventArgs e)
@@ -792,7 +793,23 @@ namespace TTN_QLTV.GUI
         #endregion
 
 
-
+        /// <summary>
+        /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// /// ////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
         // KẾT THÚC TAB SÁCH //
 
 
@@ -871,6 +888,9 @@ namespace TTN_QLTV.GUI
             textBoxTenTacGia_TacGia.Text = ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].TenTacGia;
             textBoxNgaySinh_TacGia.Text = ltg[dataGridViewTacGia_TacGia.CurrentCell.RowIndex].NgaySinh.ToShortDateString();
             dataGridViewDauSach_TacGia.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //Dũng
+            DataGridViewRow currentRow = dataGridViewTacGia_TacGia.CurrentRow;
+            maTacGia = Convert.ToInt32(currentRow.Cells[0].Value);
         }
         private void buttonHuyTacGia_TacGia_Click(object sender, EventArgs e)
         {
@@ -890,7 +910,7 @@ namespace TTN_QLTV.GUI
         }
         private void buttonTimKiemTacGia_TacGia_Click(object sender, EventArgs e)
         {
-            if(textBoxThongTinTacGia_TacGia.Text.ToString() != null)
+            if(textBoxThongTinTacGia_TacGia.Text.ToString() != "")
             {
                 ltg = busTG.ConvertTG(busTG.GetDanhSachTacGiafilter(textBoxThongTinTacGia_TacGia.Text.ToString()));
             }
@@ -1010,6 +1030,9 @@ namespace TTN_QLTV.GUI
             textBoxMaNhaXuatBan_NhaXuatBan.Text = lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].MaNhaXuatBan.ToString();
             textBoxTenNhaXuatBan_NhaXuatBan.Text = lnxb[dataGridViewNhaXuatBan_NhaXuatBan.CurrentCell.RowIndex].TenNhaXuatBan.ToString();
             dataGridViewDauSach_NhaXuatBan.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //dũng
+            DataGridViewRow currentRow = dataGridViewNhaXuatBan_NhaXuatBan.CurrentRow;
+            maNhaXuatBan = Convert.ToInt32(currentRow.Cells[0].Value);
         }
         private void dataGridViewDauSach_NhaXuatBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1132,6 +1155,9 @@ namespace TTN_QLTV.GUI
             textBoxMaTheLoai_TheLoai.Text = ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].MaTheLoai.ToString();
             textBoxTenTheLoai_TheLoai.Text = ltl[dataGridViewTheLoai_TheLoai.CurrentCell.RowIndex].TenTheLoai.ToString();
             dataGridViewDauSach_TheLoai.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //Dũng
+            DataGridViewRow currentRow = dataGridViewTheLoai_TheLoai.CurrentRow;
+            maTheLoai = Convert.ToInt32(currentRow.Cells[0].Value);
         }
         private void dataGridViewDauSach_TheLoai_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1171,7 +1197,7 @@ namespace TTN_QLTV.GUI
 
         private void buttonTimKiemTheLoai_TheLoai_Click(object sender, EventArgs e)
         {
-            if (textBoxThongTinTheLoai_TheLoai.Text.ToString()!=null)
+            if (textBoxThongTinTheLoai_TheLoai.Text.ToString() != "")
             {
                 ltl = busTL.ConvertTL(busTL.GetDanhSachTheLoaifilter(textBoxThongTinTheLoai_TheLoai.Text.ToString()));
             }
@@ -1252,7 +1278,15 @@ namespace TTN_QLTV.GUI
 
         private void buttonTimKiemKeSach_KeSach_Click(object sender, EventArgs e)
         {
-            dataGridViewKeSach_KeSach.DataSource = keSachBus.TimKeSach(textBoxThongTinKeSach_KeSach.Text);
+            if(textBoxThongTinKeSach_KeSach.Text.ToString() != "")
+            {
+                dataGridViewKeSach_KeSach.DataSource = keSachBus.TimKeSach(textBoxThongTinKeSach_KeSach.Text);
+            }    
+            else
+            {
+                dataGridViewKeSach_KeSach.DataSource = keSachBus.XemTatCaKeSach();
+            }    
+            
         }
 
         private void buttonHuy_KeSach_Click(object sender, EventArgs e)
