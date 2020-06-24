@@ -87,7 +87,7 @@
             this.panelQuanLyDauSach.Location = new System.Drawing.Point(3, 4);
             this.panelQuanLyDauSach.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelQuanLyDauSach.Name = "panelQuanLyDauSach";
-            this.panelQuanLyDauSach.Size = new System.Drawing.Size(1272, 692);
+            this.panelQuanLyDauSach.Size = new System.Drawing.Size(1273, 697);
             this.panelQuanLyDauSach.TabIndex = 0;
             // 
             // tabPageQuanLySach
@@ -132,7 +132,7 @@
             this.panelQuanLyTacGia.Location = new System.Drawing.Point(3, 4);
             this.panelQuanLyTacGia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelQuanLyTacGia.Name = "panelQuanLyTacGia";
-            this.panelQuanLyTacGia.Size = new System.Drawing.Size(1272, 692);
+            this.panelQuanLyTacGia.Size = new System.Drawing.Size(1273, 697);
             this.panelQuanLyTacGia.TabIndex = 0;
             // 
             // tabPageQuanLyNhaXuatBan
@@ -176,7 +176,7 @@
             this.panelQuanLyTheLoai.Location = new System.Drawing.Point(3, 4);
             this.panelQuanLyTheLoai.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelQuanLyTheLoai.Name = "panelQuanLyTheLoai";
-            this.panelQuanLyTheLoai.Size = new System.Drawing.Size(1272, 692);
+            this.panelQuanLyTheLoai.Size = new System.Drawing.Size(1273, 697);
             this.panelQuanLyTheLoai.TabIndex = 0;
             // 
             // tabPageQuanLyKeSach
@@ -207,6 +207,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1287, 737);
             this.Controls.Add(this.tabControlQuanLy);
             this.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -214,6 +215,7 @@
             this.Name = "MainQuanLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Dữ Liệu";
+            this.Load += new System.EventHandler(this.MainQuanLy_Load);
             this.tabControlQuanLy.ResumeLayout(false);
             this.tabPageQuanLyDauSach.ResumeLayout(false);
             this.tabPageQuanLySach.ResumeLayout(false);

@@ -29,17 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox30 = new System.Windows.Forms.GroupBox();
-            this.buttonThemDauSach = new System.Windows.Forms.Button();
-            this.buttonXoaDauSach = new System.Windows.Forms.Button();
             this.groupBox56 = new System.Windows.Forms.GroupBox();
             this.dataGridViewDauSach = new System.Windows.Forms.DataGridView();
             this.groupBox29 = new System.Windows.Forms.GroupBox();
             this.buttonThemVaoPhieuMuon = new System.Windows.Forms.Button();
             this.buttonTimKiemSach = new System.Windows.Forms.Button();
             this.buttonXoa = new System.Windows.Forms.Button();
+            this.buttonHuy = new System.Windows.Forms.Button();
             this.groupBox28 = new System.Windows.Forms.GroupBox();
             this.dataGridViewSach = new System.Windows.Forms.DataGridView();
-            this.buttonHuy = new System.Windows.Forms.Button();
             this.buttonSua = new System.Windows.Forms.Button();
             this.buttonThem = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -67,8 +65,6 @@
             // 
             // groupBox30
             // 
-            this.groupBox30.Controls.Add(this.buttonThemDauSach);
-            this.groupBox30.Controls.Add(this.buttonXoaDauSach);
             this.groupBox30.Controls.Add(this.groupBox56);
             this.groupBox30.Location = new System.Drawing.Point(608, 6);
             this.groupBox30.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -78,30 +74,6 @@
             this.groupBox30.TabIndex = 48;
             this.groupBox30.TabStop = false;
             this.groupBox30.Text = "Đầu Sách";
-            // 
-            // buttonThemDauSach
-            // 
-            this.buttonThemDauSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThemDauSach.Location = new System.Drawing.Point(492, 168);
-            this.buttonThemDauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonThemDauSach.Name = "buttonThemDauSach";
-            this.buttonThemDauSach.Size = new System.Drawing.Size(139, 55);
-            this.buttonThemDauSach.TabIndex = 54;
-            this.buttonThemDauSach.Text = "Thêm Đầu Sách";
-            this.buttonThemDauSach.UseVisualStyleBackColor = true;
-            this.buttonThemDauSach.Click += new System.EventHandler(this.buttonThemDauSach_Click);
-            // 
-            // buttonXoaDauSach
-            // 
-            this.buttonXoaDauSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonXoaDauSach.Location = new System.Drawing.Point(492, 230);
-            this.buttonXoaDauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonXoaDauSach.Name = "buttonXoaDauSach";
-            this.buttonXoaDauSach.Size = new System.Drawing.Size(139, 55);
-            this.buttonXoaDauSach.TabIndex = 53;
-            this.buttonXoaDauSach.Text = "Xoá Đầu Sách";
-            this.buttonXoaDauSach.UseVisualStyleBackColor = true;
-            this.buttonXoaDauSach.Click += new System.EventHandler(this.buttonXoaDauSach_Click);
             // 
             // groupBox56
             // 
@@ -134,14 +106,15 @@
             this.dataGridViewDauSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDauSach.Size = new System.Drawing.Size(620, 351);
             this.dataGridViewDauSach.TabIndex = 3;
+            this.dataGridViewDauSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDauSach_CellClick);
             // 
             // groupBox29
             // 
             this.groupBox29.Controls.Add(this.buttonThemVaoPhieuMuon);
             this.groupBox29.Controls.Add(this.buttonTimKiemSach);
             this.groupBox29.Controls.Add(this.buttonXoa);
-            this.groupBox29.Controls.Add(this.groupBox28);
             this.groupBox29.Controls.Add(this.buttonHuy);
+            this.groupBox29.Controls.Add(this.groupBox28);
             this.groupBox29.Controls.Add(this.buttonSua);
             this.groupBox29.Controls.Add(this.buttonThem);
             this.groupBox29.Controls.Add(this.groupBox8);
@@ -168,6 +141,7 @@
             this.buttonThemVaoPhieuMuon.TabIndex = 56;
             this.buttonThemVaoPhieuMuon.Text = "Thêm Vâo Phiếu Mượn";
             this.buttonThemVaoPhieuMuon.UseVisualStyleBackColor = true;
+            this.buttonThemVaoPhieuMuon.Click += new System.EventHandler(this.buttonThemVaoPhieuMuon_Click);
             // 
             // buttonTimKiemSach
             // 
@@ -184,7 +158,7 @@
             // buttonXoa
             // 
             this.buttonXoa.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonXoa.Location = new System.Drawing.Point(466, 173);
+            this.buttonXoa.Location = new System.Drawing.Point(466, 122);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.Size = new System.Drawing.Size(104, 43);
@@ -192,6 +166,18 @@
             this.buttonXoa.Text = "Xoá";
             this.buttonXoa.UseVisualStyleBackColor = true;
             this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
+            // 
+            // buttonHuy
+            // 
+            this.buttonHuy.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHuy.Location = new System.Drawing.Point(467, 168);
+            this.buttonHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonHuy.Name = "buttonHuy";
+            this.buttonHuy.Size = new System.Drawing.Size(104, 43);
+            this.buttonHuy.TabIndex = 52;
+            this.buttonHuy.Text = "Huỷ";
+            this.buttonHuy.UseVisualStyleBackColor = true;
+            this.buttonHuy.Click += new System.EventHandler(this.buttonHuy_Click);
             // 
             // groupBox28
             // 
@@ -225,18 +211,6 @@
             this.dataGridViewSach.Size = new System.Drawing.Size(553, 351);
             this.dataGridViewSach.TabIndex = 3;
             this.dataGridViewSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSach_CellClick);
-            // 
-            // buttonHuy
-            // 
-            this.buttonHuy.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHuy.Location = new System.Drawing.Point(466, 124);
-            this.buttonHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonHuy.Name = "buttonHuy";
-            this.buttonHuy.Size = new System.Drawing.Size(104, 43);
-            this.buttonHuy.TabIndex = 52;
-            this.buttonHuy.Text = "Huỷ";
-            this.buttonHuy.UseVisualStyleBackColor = true;
-            this.buttonHuy.Click += new System.EventHandler(this.buttonHuy_Click);
             // 
             // buttonSua
             // 
@@ -403,8 +377,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox30;
-        private System.Windows.Forms.Button buttonThemDauSach;
-        private System.Windows.Forms.Button buttonXoaDauSach;
         private System.Windows.Forms.GroupBox groupBox56;
         private System.Windows.Forms.DataGridView dataGridViewDauSach;
         private System.Windows.Forms.GroupBox groupBox29;

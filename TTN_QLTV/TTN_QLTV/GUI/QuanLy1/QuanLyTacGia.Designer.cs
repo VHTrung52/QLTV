@@ -83,9 +83,8 @@
             // 
             // buttonTimKiemDauSach
             // 
-            this.buttonTimKiemDauSach.Enabled = false;
             this.buttonTimKiemDauSach.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTimKiemDauSach.Location = new System.Drawing.Point(493, 28);
+            this.buttonTimKiemDauSach.Location = new System.Drawing.Point(500, 31);
             this.buttonTimKiemDauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTimKiemDauSach.Name = "buttonTimKiemDauSach";
             this.buttonTimKiemDauSach.Size = new System.Drawing.Size(139, 58);
@@ -117,7 +116,6 @@
             // 
             // buttonThemDauSach
             // 
-            this.buttonThemDauSach.Enabled = false;
             this.buttonThemDauSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThemDauSach.Location = new System.Drawing.Point(500, 185);
             this.buttonThemDauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -126,10 +124,10 @@
             this.buttonThemDauSach.TabIndex = 50;
             this.buttonThemDauSach.Text = "Thêm Đầu Sách";
             this.buttonThemDauSach.UseVisualStyleBackColor = true;
+            this.buttonThemDauSach.Click += new System.EventHandler(this.buttonThemDauSach_Click);
             // 
             // buttonXoaDauSach
             // 
-            this.buttonXoaDauSach.Enabled = false;
             this.buttonXoaDauSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXoaDauSach.Location = new System.Drawing.Point(500, 246);
             this.buttonXoaDauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -204,10 +202,10 @@
             this.buttonThemVaoDauSach.TabIndex = 52;
             this.buttonThemVaoDauSach.Text = "Thêm Vào Đầu Sách";
             this.buttonThemVaoDauSach.UseVisualStyleBackColor = true;
+            this.buttonThemVaoDauSach.Click += new System.EventHandler(this.buttonThemVaoDauSach_Click);
             // 
             // buttonHuy
             // 
-            this.buttonHuy.Enabled = false;
             this.buttonHuy.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHuy.Location = new System.Drawing.Point(466, 124);
             this.buttonHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -220,7 +218,6 @@
             // 
             // buttonSua
             // 
-            this.buttonSua.Enabled = false;
             this.buttonSua.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSua.Location = new System.Drawing.Point(466, 75);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -320,7 +317,7 @@
             this.groupBox3.Size = new System.Drawing.Size(287, 63);
             this.groupBox3.TabIndex = 44;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Ngày Sinh";
+            this.groupBox3.Text = "Ngày Sinh (DD/MM/YYYY)";
             // 
             // textBoxNgaySinh
             // 

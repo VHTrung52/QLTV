@@ -84,12 +84,12 @@ namespace TTN_QLTV
             
             switch (comboBoxLoaiThongTin.Text)
             {
-                case "Tên Tác Giả":
+                case "Tác Giả":
                     {
                         dataGridViewDauSach.DataSource = dauSach.TimKiemDauSachTheoTacGia(textBoxThongTinTimKiem.Text);
                         break;
                     }
-                case "Tên Đầu Sách":
+                case "Đầu Sách":
                     {
                         dataGridViewDauSach.DataSource = dauSach.XemTatCaDauSachDauSach(textBoxThongTinTimKiem.Text);
                         break;
@@ -99,7 +99,7 @@ namespace TTN_QLTV
                         dataGridViewDauSach.DataSource = dauSach.TimKiemDauSachTheoNhieuTheLoai(textBoxThongTinTimKiem.Text);
                         break;
                     }
-                case "Tên Nhà Xuất Bản":
+                case "Nhà Xuất Bản":
                     {
                         dataGridViewDauSach.DataSource = dauSach.XemTatCaDauSachNXB(textBoxThongTinTimKiem.Text);
                         break;
@@ -128,20 +128,21 @@ namespace TTN_QLTV
         private void buttonQuanLySach_Click(object sender, EventArgs e)
         {
             //QuanLy2 formQuanLy = new QuanLy2();
-            MainQuanLy formQuanLy = new MainQuanLy();
-            formQuanLy.Show();
+            GUI.MainMenu.Static_OpenChildForm(new MainQuanLy());
         }
 
         private void buttonQuanLyDocGia_Click(object sender, EventArgs e)
         {
-            QuanLyDocGia formQuanLyDocGia = new QuanLyDocGia();
-            formQuanLyDocGia.Show();
+            GUI.MainMenu.Static_OpenChildForm(new QuanLyDocGia());
+            /*QuanLyDocGia formQuanLyDocGia = new QuanLyDocGia();
+            formQuanLyDocGia.Show();*/
         }
 
         private void buttonQuanLyPhieuMuon_Click(object sender, EventArgs e)
         {
-            QuanLyPhieuMuon formQuanLyPhieuMuon = new QuanLyPhieuMuon();
-            formQuanLyPhieuMuon.Show();
+            GUI.MainMenu.Static_OpenChildForm(new QuanLyPhieuMuon());
+            /*QuanLyPhieuMuon formQuanLyPhieuMuon = new QuanLyPhieuMuon();
+            formQuanLyPhieuMuon.Show();*/
         }
     }
 }

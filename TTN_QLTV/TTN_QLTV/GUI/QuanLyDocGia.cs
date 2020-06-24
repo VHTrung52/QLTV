@@ -32,10 +32,16 @@ namespace TTN_QLTV.GUI
             //hiện ra form phiếu mượn
             //datagird phiếu mượn chỉ có 1 phiếu mượn vừa chọn ở trên
             //datagrid sách là sách thuộc phiếu mượn
-            this.Hide();
-            QuanLyPhieuMuon formQLPM = new QuanLyPhieuMuon(maPM);
-            formQLPM.FormClosed += FormQLPM_FormClosed;
-            formQLPM.Show();
+            //this.Hide();
+            //QuanLyPhieuMuon.maDocGia = Convert.ToInt32(dataGridViewDocGia.CurrentRow.Cells[0].Value.ToString());
+            maPM = Convert.ToInt32(dataGridViewPhieuMuon.CurrentRow.Cells[0].Value.ToString());
+
+            //QuanLyPhieuMuon formQLPM = new QuanLyPhieuMuon(maPM);
+            //MainMenu.Static_OpenChildForm(formQLPM);
+            MainMenu.Static_OpenChildForm(new QuanLyPhieuMuon(maPM));
+            QuanLyPhieuMuon.fuck(maPM);
+            //formQLPM.FormClosed += FormQLPM_FormClosed;
+            //formQLPM.Show();
         }
 
         private void FormQLPM_FormClosed(object sender, FormClosedEventArgs e)
@@ -46,22 +52,19 @@ namespace TTN_QLTV.GUI
         private void QuanLyDocGia_Load(object sender, EventArgs e)
         {
             maDG = -1;
+            buttonThemDocGia.Enabled = false;
 
             dataGridViewDocGia.DataSource = ctrlDocGia.XemTatCaDocGia();
             dataGridViewDocGia.Refresh();
-            
+            dataGridViewDocGia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewDocGia.Columns["MaDocGia"].HeaderText = "Mã";
-            dataGridViewDocGia.Columns["MaDocGia"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewDocGia.Columns["HoTen"].HeaderText = "Họ tên";
-            //dataGridViewDocGia.Columns["HoTen"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewDocGia.Columns["NgaySinh"].HeaderText = "Ngày sinh";
-            dataGridViewDocGia.Columns["NgaySinh"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewDocGia.Columns["SoDienThoai"].HeaderText = "SĐT";
-            dataGridViewDocGia.Columns["SoDienThoai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            dataGridViewDocGia.Columns["CMND"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
-            buttonSuaDocGia.Enabled = false;
-            buttonChiTietPhieuMuon.Enabled = false;
+            dataGridViewDocGia.Columns["HoTen"].HeaderText = "Họ tên";
+            dataGridViewDocGia.Columns["HoTen"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewDocGia.Columns["NgaySinh"].HeaderText = "Ngày sinh";
+
+            dataGridViewDocGia.Columns["SoDienThoai"].HeaderText = "SĐT";
+            LoadData();
         }
 
         private void ButtonThemDocGia_Click(object sender, EventArgs e)
@@ -121,6 +124,7 @@ namespace TTN_QLTV.GUI
                 else
                 {
 
+
                     DocGia docgia = new DocGia(textBoxTenDocGia.Text, DateTime.Parse(textBoxNgaySinh_DocGia.Text), textBoxSoDienThoai_DocGia.Text, textBoxCMNĐocGia.Text);
 
                     if (ctrlDocGia.ThemDocGia(docgia))
@@ -143,32 +147,12 @@ namespace TTN_QLTV.GUI
 
         private void DataGridViewDocGia_Click(object sender, EventArgs e)
         {
-            int index = dataGridViewDocGia.SelectedRows[0].Index;
 
-            maDG = Int16.Parse(dataGridViewDocGia.Rows[index].Cells["MaDocGia"].Value.ToString());
-            
-            dataGridViewPhieuMuon.DataSource = ctrlDocGia.XemPhieuMuonCuaDG(maDG);
-            dataGridViewPhieuMuon.Refresh();
-
-            dataGridViewPhieuMuon.Columns["MaPhieuMuon"].HeaderText = "Mã phiếu";
-            dataGridViewPhieuMuon.Columns["MaNhanVien"].HeaderText = "Mã nhân viên";
-            dataGridViewPhieuMuon.Columns["MaDocGia"].HeaderText = "Mã độc giả";
-            dataGridViewPhieuMuon.Columns["ThoiGian"].HeaderText = "Số ngày";
-            dataGridViewPhieuMuon.Columns["NgayMuon"].HeaderText = "Ngày mượn";
-            dataGridViewPhieuMuon.Columns["NgayTra"].HeaderText = "Ngày trả";
-
-            textBoxMaDocGia.Text = dataGridViewDocGia.Rows[index].Cells["MaDocGia"].Value.ToString();
-            textBoxTenDocGia.Text = dataGridViewDocGia.Rows[index].Cells["HoTen"].Value.ToString();
-            textBoxNgaySinh_DocGia.Text = Convert.ToDateTime(dataGridViewDocGia.Rows[index].Cells["NgaySinh"].Value.ToString()).ToShortDateString();
-            textBoxSoDienThoai_DocGia.Text = dataGridViewDocGia.Rows[index].Cells["SoDienThoai"].Value.ToString();
-            textBoxCMNĐocGia.Text = dataGridViewDocGia.Rows[index].Cells["CMND"].Value.ToString();
-
-            buttonSuaDocGia.Enabled = true; 
         }
 
         private void DataGridViewDocGia_DoubleClick(object sender, EventArgs e)
         {
-            
+
         }
 
         private void ButtonSuaDocGia_Click(object sender, EventArgs e)
@@ -254,7 +238,7 @@ namespace TTN_QLTV.GUI
                 }
             }
 
-            
+
         }
 
         private void DataGridViewPhieuMuon_DoubleClick(object sender, EventArgs e)
@@ -264,10 +248,13 @@ namespace TTN_QLTV.GUI
 
         private void ButtonPhieuMuonMoi_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            QuanLyPhieuMuon formQLPM = new QuanLyPhieuMuon();
-            formQLPM.FormClosed += FormQLPM_FormClosed;
-            formQLPM.Show();
+            //this.Hide();
+            //QuanLyPhieuMuon
+            QuanLyPhieuMuon.maDocGia = Convert.ToInt32(dataGridViewDocGia.CurrentRow.Cells[0].Value.ToString());
+            MainMenu.Static_OpenChildForm(new QuanLyPhieuMuon(0));
+            //QuanLyPhieuMuon formQLPM = new QuanLyPhieuMuon(0);
+            //formQLPM.FormClosed += FormQLPM_FormClosed;
+            //formQLPM.Show();
         }
 
         private void DataGridViewPhieuMuon_Click(object sender, EventArgs e)
@@ -289,6 +276,8 @@ namespace TTN_QLTV.GUI
             textBoxCMNĐocGia.Text = "";
             textBoxThongTinDocGia.Text = "";
             comboBoxLoaiThongTin_DocGia.Text = "";
+            buttonThemDocGia.Enabled = true;
+            buttonSuaDocGia.Enabled = false;
         }
 
         private void ButtonTimKiemDocGia_Click(object sender, EventArgs e)
@@ -302,7 +291,7 @@ namespace TTN_QLTV.GUI
             else
             {
                 loaiTT = comboBoxLoaiThongTin_DocGia.SelectedItem.ToString();
-
+                loaiTT = comboBoxLoaiThongTin_DocGia.Text;
                 //get ra list
                 //get kiểu search từ combo box -> gán vào 1 biến
                 //switch case
@@ -367,7 +356,7 @@ namespace TTN_QLTV.GUI
 
         private void TextBoxThongTinPhieuMuon_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
         }
 
 
@@ -408,6 +397,43 @@ namespace TTN_QLTV.GUI
                 textBoxNgaySinh_DocGia.SelectionStart = textBoxNgaySinh_DocGia.Text.Length;
                 textBoxNgaySinh_DocGia.SelectionLength = 0;
             }
+        }
+
+        private void dataGridViewDocGia_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            LoadData();
+        }
+        private void LoadData()
+        {
+            int index = dataGridViewDocGia.SelectedRows[0].Index;
+
+            maDG = Int16.Parse(dataGridViewDocGia.Rows[index].Cells["MaDocGia"].Value.ToString());
+
+            dataGridViewPhieuMuon.DataSource = ctrlDocGia.XemPhieuMuonCuaDG(maDG);
+            dataGridViewPhieuMuon.Refresh();
+
+            dataGridViewPhieuMuon.Columns["MaPhieuMuon"].HeaderText = "Mã phiếu";
+            dataGridViewPhieuMuon.Columns["MaNhanVien"].HeaderText = "Mã nhân viên";
+            dataGridViewPhieuMuon.Columns["MaDocGia"].HeaderText = "Mã độc giả";
+            dataGridViewPhieuMuon.Columns["ThoiGian"].HeaderText = "Số ngày";
+            dataGridViewPhieuMuon.Columns["NgayMuon"].HeaderText = "Ngày mượn";
+            dataGridViewPhieuMuon.Columns["NgayTra"].HeaderText = "Ngày trả";
+            dataGridViewPhieuMuon.Columns["ThanhTien"].HeaderText = "Thành Tiền";
+            textBoxMaDocGia.Text = dataGridViewDocGia.Rows[index].Cells["MaDocGia"].Value.ToString();
+            textBoxTenDocGia.Text = dataGridViewDocGia.Rows[index].Cells["HoTen"].Value.ToString();
+            textBoxNgaySinh_DocGia.Text = Convert.ToDateTime(dataGridViewDocGia.Rows[index].Cells["NgaySinh"].Value.ToString()).ToShortDateString();
+            textBoxSoDienThoai_DocGia.Text = dataGridViewDocGia.Rows[index].Cells["SoDienThoai"].Value.ToString();
+            textBoxCMNĐocGia.Text = dataGridViewDocGia.Rows[index].Cells["CMND"].Value.ToString();
+            buttonThemDocGia.Enabled = false;
+            buttonSuaDocGia.Enabled = true;
+        }
+
+        private void dataGridViewPhieuMuon_DataSourceChanged(object sender, EventArgs e)
+        {
+            buttonChiTietPhieuMuon.Enabled = true;
+            if (dataGridViewPhieuMuon.Rows.Count == 0)
+                buttonChiTietPhieuMuon.Enabled = false;
         }
     }
 }

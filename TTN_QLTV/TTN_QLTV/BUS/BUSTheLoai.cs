@@ -48,11 +48,23 @@ namespace TTN_QLTV.BUS
         }
         public DataTable GetDanhSachDSTheLoaifilter(int matl, string str)
         {
-            return DataProvider.Instance.ExecuteQuery("GetDanhSachDSTheLoaifilter "+matl+", '"+str+"'");
+            return DataProvider.Instance.ExecuteQuery("select * " +
+                "from DAUSACH " +
+                "where " +
+                $"MaDauSach in (select MaDauSach from DS_THELOAI where MaTheLoai = {matl} ) " +
+                "AND " +
+                $"( MaDauSach LIKE '%{str}%' " +
+                "OR " +
+                $"TenDauSach LIKE N'%{str}%')");
         }
         public DataTable GetDanhSachTheLoaifilter(string str)
         {
-            return DataProvider.Instance.ExecuteQuery("GetDanhSachTheLoaifilter "+str);
+            return DataProvider.Instance.ExecuteQuery("" +
+                "select * " +
+                "from TheLoai " +
+                $"where MaTheLoai LIKE '%{str}%' " +
+                $"OR " +
+                $"TenTheLoai LIKE N'%{str}%'");
         }
         public void AddTheLoai(string tenTL)
         {

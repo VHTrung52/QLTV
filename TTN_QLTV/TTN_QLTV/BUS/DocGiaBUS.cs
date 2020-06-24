@@ -13,7 +13,10 @@ namespace TTN_QLTV.BUS
     {
         public bool ThemDocGia(DocGia docgia)
         {
-            string query = string.Format("exec ThemDocGia N'{0}', '{1}', '{2}', '{3}' ", docgia.HoTen, docgia.NgaySinh, docgia.CMND, docgia.SoDienThoai);
+            string ngaySinh = docgia.NgaySinh.Month.ToString() +
+                            "/" + docgia.NgaySinh.Day.ToString() +
+                            "/" + docgia.NgaySinh.Year.ToString();
+            string query = string.Format("exec ThemDocGia N'{0}', '{1}', '{2}', '{3}' ", docgia.HoTen, ngaySinh, docgia.CMND, docgia.SoDienThoai);
 
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
@@ -69,7 +72,7 @@ namespace TTN_QLTV.BUS
 
         public List<PhieuMuon> TimKiemTTPM(int maDG, int maTimKiem)
         {
-            string query = string.Format("Select * from PHIEUMUON where MaDocGia like {0} and (MaPhieuMuon like {1} or MaNhanVien like {2}) ", maDG, maTimKiem, maTimKiem);
+            string query = string.Format("Select * from PHIEUMUON where MaDocGia = {0} and (MaPhieuMuon like {1} or MaNhanVien like {2}) ", maDG, maTimKiem, maTimKiem);
 
             return DataProvider.Instance.ExecuteQuery(query).AsEnumerable().Select(m =>
            new PhieuMuon(m.Field<int>("MaPhieuMuon"), m.Field<int>("MaNhanVien"), m.Field<int>("MaDocGia"), m.Field<int>("ThoiGian"), m.Field<DateTime>("NgayMuon"), m.Field<DateTime>("NgayTra"), m.Field<decimal>("ThanhTien"))).ToList();

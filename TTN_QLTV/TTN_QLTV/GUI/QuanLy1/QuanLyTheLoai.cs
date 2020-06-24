@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TTN_QLTV.BUS;
 using TTN_QLTV.DTO;
+using TTN_QLTV.GUI.QuanLy;
 
 namespace TTN_QLTV.GUI.QuanLy1
 {
@@ -17,10 +18,21 @@ namespace TTN_QLTV.GUI.QuanLy1
         private List<TheLoai> ltl = new List<TheLoai>();
         private List<DauSach> lds = new List<DauSach>();
         private BUSTheLoai busTL = new BUSTheLoai();
-        private int maTheLoai;
+        public static int maTheLoai;
+        private static QuanLyTheLoai formQuanLyTheLoai = null;
         public QuanLyTheLoai()
         {
             InitializeComponent();
+            formQuanLyTheLoai = this;
+        }
+        public static void Static_EnableButtonThemVaoDauSach()
+        {
+            if (formQuanLyTheLoai != null)
+                formQuanLyTheLoai.EnableButtonThemVaoDauSach();
+        }
+        private void EnableButtonThemVaoDauSach()
+        {
+            buttonThemVaoDauSach.Enabled = true;
         }
         private void SetUpDataGrVTheLoai()
         {
@@ -38,21 +50,33 @@ namespace TTN_QLTV.GUI.QuanLy1
 
         private void QuanLyTheLoai_Load(object sender, EventArgs e)
         {
-            buttonThemVaoDauSach.Visible = false;
+            buttonThemVaoDauSach.Enabled = false;
+            buttonThem.Enabled = false;
             ltl = busTL.ConvertTL(busTL.GetDanhSachTheLoai());
             dataGridViewTheLoai.DataSource = null;
             dataGridViewTheLoai.DataSource = ltl;
             SetUpDataGrVTheLoai();
-            buttonXoaDauSach.Enabled = true;
+            lds = busTL.ConvertDSTL(busTL.GetDanhSachDSTheLoai(ltl[dataGridViewTheLoai.CurrentCell.RowIndex].MaTheLoai));
+            dataGridViewDauSach.DataSource = lds;
+            SetUpDataGrVDauSachTL();
+            textBoxMaTheLoai.Text = ltl[dataGridViewTheLoai.CurrentCell.RowIndex].MaTheLoai.ToString();
+            textBoxTenTheLoai.Text = ltl[dataGridViewTheLoai.CurrentCell.RowIndex].TenTheLoai.ToString();
+            dataGridViewDauSach.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            lds = busTL.ConvertDSTL(busTL.GetDanhSachDSTheLoai(ltl[dataGridViewTheLoai.CurrentCell.RowIndex].MaTheLoai));
+            dataGridViewDauSach.DataSource = lds;
+            SetUpDataGrVDauSachTL();
+            textBoxMaTheLoai.Text = ltl[dataGridViewTheLoai.CurrentCell.RowIndex].MaTheLoai.ToString();
+            textBoxTenTheLoai.Text = ltl[dataGridViewTheLoai.CurrentCell.RowIndex].TenTheLoai.ToString();
+            dataGridViewDauSach.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //Dũng
+            DataGridViewRow currentRow = dataGridViewTheLoai.CurrentRow;
+            maTheLoai = Convert.ToInt32(currentRow.Cells[0].Value);
+
         }
 
         private void dataGridViewTheLoai_TheLoai_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            buttonHuy.Enabled = true;
             buttonSua.Enabled = true;
-            buttonTimKiemDauSach.Enabled = true;
-            buttonThemDauSach.Enabled = true;
-            //buttonTimKiemTheLoai_TheLoai.Enabled = false;
             buttonThem.Enabled = false;
             lds = busTL.ConvertDSTL(busTL.GetDanhSachDSTheLoai(ltl[dataGridViewTheLoai.CurrentCell.RowIndex].MaTheLoai));
             dataGridViewDauSach.DataSource = lds;
@@ -77,20 +101,13 @@ namespace TTN_QLTV.GUI.QuanLy1
             }
             dataGridViewDauSach.DataSource = null;
             dataGridViewDauSach.DataSource = lds;
-            textBoxThongTinDauSach.Text = "";
             SetUpDataGrVDauSachTL();
         }
 
         private void buttonHuy_TheLoai_Click(object sender, EventArgs e)
         {
-            buttonHuy.Enabled = false;
             buttonSua.Enabled = false;
-            buttonTimKiemDauSach.Enabled = false;
-            buttonThemDauSach.Enabled = false;
             buttonThem.Enabled = true;
-            buttonTimKiem.Enabled = true;
-            buttonXoaDauSach.Enabled = false;
-            
             textBoxThongTin.Text = "";
             textBoxMaTheLoai.Text = "";
             textBoxTenTheLoai.Text = "";
@@ -138,6 +155,28 @@ namespace TTN_QLTV.GUI.QuanLy1
             dataGridViewDauSach.DataSource = lds;
             textBoxThongTinDauSach.Text = "";
             SetUpDataGrVDauSachTL();
+        }
+
+        private void buttonThemVaoDauSach_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DauSachBUS dauSachBUS = new DauSachBUS();
+                dauSachBUS.ThemTheLoaiChoDauSach(QuanLyDauSach.maDauSach, maTheLoai);
+                MessageBox.Show("---Thành Công---");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Thể Loại Này Đã Có Trong Đầu Sách");
+            }
+        }
+
+        private void buttonThemDauSach_Click(object sender, EventArgs e)
+        {
+            MainQuanLy.StaticChangeTab(0);
+            QuanLyDauSach.Static_VisiableButtonThemVao();
+            QuanLyDauSach.Static_ChangeButtonThemVaoText("Thêm Vào Thể Loại");
         }
     }
 }

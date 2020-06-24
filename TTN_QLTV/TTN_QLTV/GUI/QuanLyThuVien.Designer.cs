@@ -46,7 +46,6 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.textBoxKeSach = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDauSach)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTacGia)).BeginInit();
@@ -62,8 +61,8 @@
             // 
             // buttonTimKiem
             // 
-            this.buttonTimKiem.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTimKiem.Location = new System.Drawing.Point(810, 127);
+            this.buttonTimKiem.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTimKiem.Location = new System.Drawing.Point(811, 12);
             this.buttonTimKiem.Name = "buttonTimKiem";
             this.buttonTimKiem.Size = new System.Drawing.Size(213, 87);
             this.buttonTimKiem.TabIndex = 0;
@@ -94,7 +93,7 @@
             // 
             this.groupBox1.Controls.Add(this.dataGridViewDauSach);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(29, 246);
+            this.groupBox1.Location = new System.Drawing.Point(30, 130);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(536, 377);
             this.groupBox1.TabIndex = 4;
@@ -124,7 +123,7 @@
             // 
             this.groupBox2.Controls.Add(this.dataGridViewTacGia);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(572, 246);
+            this.groupBox2.Location = new System.Drawing.Point(573, 130);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(227, 377);
             this.groupBox2.TabIndex = 5;
@@ -154,7 +153,7 @@
             // 
             this.groupBox4.Controls.Add(this.dataGridViewTheLoai);
             this.groupBox4.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(804, 246);
+            this.groupBox4.Location = new System.Drawing.Point(805, 130);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(227, 377);
             this.groupBox4.TabIndex = 7;
@@ -184,7 +183,7 @@
             // 
             this.groupBox3.Controls.Add(this.dataGridViewNhaXuatBan);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(1037, 246);
+            this.groupBox3.Location = new System.Drawing.Point(1038, 130);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(228, 377);
             this.groupBox3.TabIndex = 8;
@@ -194,7 +193,7 @@
             // buttonQuanLySach
             // 
             this.buttonQuanLySach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonQuanLySach.Location = new System.Drawing.Point(577, 629);
+            this.buttonQuanLySach.Location = new System.Drawing.Point(578, 514);
             this.buttonQuanLySach.Name = "buttonQuanLySach";
             this.buttonQuanLySach.Size = new System.Drawing.Size(213, 82);
             this.buttonQuanLySach.TabIndex = 9;
@@ -205,7 +204,7 @@
             // buttonQuanLyPhieuMuon
             // 
             this.buttonQuanLyPhieuMuon.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonQuanLyPhieuMuon.Location = new System.Drawing.Point(1044, 629);
+            this.buttonQuanLyPhieuMuon.Location = new System.Drawing.Point(1045, 514);
             this.buttonQuanLyPhieuMuon.Name = "buttonQuanLyPhieuMuon";
             this.buttonQuanLyPhieuMuon.Size = new System.Drawing.Size(213, 82);
             this.buttonQuanLyPhieuMuon.TabIndex = 10;
@@ -216,7 +215,7 @@
             // buttonQuanLyDocGia
             // 
             this.buttonQuanLyDocGia.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonQuanLyDocGia.Location = new System.Drawing.Point(810, 629);
+            this.buttonQuanLyDocGia.Location = new System.Drawing.Point(811, 514);
             this.buttonQuanLyDocGia.Name = "buttonQuanLyDocGia";
             this.buttonQuanLyDocGia.Size = new System.Drawing.Size(213, 82);
             this.buttonQuanLyDocGia.TabIndex = 11;
@@ -235,7 +234,8 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.textBoxThongTinTimKiem);
-            this.groupBox5.Location = new System.Drawing.Point(29, 127);
+            this.groupBox5.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(30, 12);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(536, 87);
             this.groupBox5.TabIndex = 12;
@@ -248,10 +248,10 @@
             this.comboBoxLoaiThongTin.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxLoaiThongTin.FormattingEnabled = true;
             this.comboBoxLoaiThongTin.Items.AddRange(new object[] {
-            "Tên Tác Giả",
-            "Tên Đầu Sách",
+            "Đầu Sách",
+            "Tác Giả",
             "Thể Loại",
-            "Tên Nhà Xuất Bản",
+            "Nhà Xuất Bản",
             "Kệ Sách"});
             this.comboBoxLoaiThongTin.Location = new System.Drawing.Point(5, 29);
             this.comboBoxLoaiThongTin.Name = "comboBoxLoaiThongTin";
@@ -261,7 +261,8 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.comboBoxLoaiThongTin);
-            this.groupBox6.Location = new System.Drawing.Point(572, 127);
+            this.groupBox6.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(573, 12);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(227, 87);
             this.groupBox6.TabIndex = 13;
@@ -279,29 +280,19 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.textBoxKeSach);
-            this.groupBox7.Location = new System.Drawing.Point(29, 629);
+            this.groupBox7.Location = new System.Drawing.Point(30, 514);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(536, 82);
             this.groupBox7.TabIndex = 14;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Kệ Sách";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(365, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(680, 78);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "QUẢN LÝ THƯ VIỆN";
-            // 
             // QuanLyThuVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1287, 737);
-            this.Controls.Add(this.label1);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1287, 738);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -334,7 +325,6 @@
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -358,7 +348,6 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox textBoxKeSach;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Label label1;
     }
 }
 

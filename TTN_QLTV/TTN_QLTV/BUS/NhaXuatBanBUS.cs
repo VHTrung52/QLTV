@@ -15,5 +15,11 @@ namespace TTN_QLTV.BUS
             string query = string.Format("XemNhaXuatBan {0} ", idSach);
             return DataProvider.Instance.ExecuteQuery(query);
         }
+        public void  InsertDSNhaXuatBan(int maDauSach,int maNhaXuatBan)
+        {
+            DataProvider.Instance.ExecuteNonQuery("" +
+                "insert into DS_NhaXuatBan(MaDauSach,MaNhaXuatBan) " +
+                $"values({maDauSach},{maNhaXuatBan})");
+        }
     }
 }

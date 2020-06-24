@@ -67,6 +67,12 @@
     <Compile Include="DTO\Sach.cs" />
     <Compile Include="DTO\TacGia.cs" />
     <Compile Include="DTO\TheLoai.cs" />
+    <Compile Include="GUI\MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\QuanLy1\QuanLyKeSach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,8 +139,41 @@
     <Compile Include="GUI\QuanLy1\QuanLyDauSach.Designer.cs">
       <DependentUpon>QuanLyDauSach.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\TroGiup\MainTroGiup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TroGiup\MainTroGiup.Designer.cs">
+      <DependentUpon>MainTroGiup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TroGiup\TroGiupQuanLyDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TroGiup\TroGiupQuanLyDocGia.Designer.cs">
+      <DependentUpon>TroGiupQuanLyDocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TroGiup\TroGiupQuanLyPhieuMuon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TroGiup\TroGiupQuanLyPhieuMuon.Designer.cs">
+      <DependentUpon>TroGiupQuanLyPhieuMuon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TroGiup\TroGiupQuanLySachVaDuLieuSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TroGiup\TroGiupQuanLySachVaDuLieuSach.Designer.cs">
+      <DependentUpon>TroGiupQuanLySachVaDuLieuSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TroGiup\TroGiupQuanLyThuVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TroGiup\TroGiupQuanLyThuVien.Designer.cs">
+      <DependentUpon>TroGiupQuanLyThuVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLy1\QuanLyKeSach.resx">
       <DependentUpon>QuanLyKeSach.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +206,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLy1\QuanLyDauSach.resx">
       <DependentUpon>QuanLyDauSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TroGiup\MainTroGiup.resx">
+      <DependentUpon>MainTroGiup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TroGiup\TroGiupQuanLyDocGia.resx">
+      <DependentUpon>TroGiupQuanLyDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TroGiup\TroGiupQuanLyPhieuMuon.resx">
+      <DependentUpon>TroGiupQuanLyPhieuMuon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TroGiup\TroGiupQuanLySachVaDuLieuSach.resx">
+      <DependentUpon>TroGiupQuanLySachVaDuLieuSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TroGiup\TroGiupQuanLyThuVien.resx">
+      <DependentUpon>TroGiupQuanLyThuVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

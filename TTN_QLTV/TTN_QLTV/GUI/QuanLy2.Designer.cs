@@ -863,6 +863,7 @@
             this.buttonThemVaoPhieuMuon_Sach.TabIndex = 56;
             this.buttonThemVaoPhieuMuon_Sach.Text = "Thêm Vâo Phiếu Mượn";
             this.buttonThemVaoPhieuMuon_Sach.UseVisualStyleBackColor = true;
+            this.buttonThemVaoPhieuMuon_Sach.Click += new System.EventHandler(this.buttonThemVaoPhieuMuon_Sach_Click);
             // 
             // buttonTimKiemSach_Sach
             // 
@@ -2022,6 +2023,7 @@
             this.buttonTimKiemDauSach_KeSach.TabIndex = 52;
             this.buttonTimKiemDauSach_KeSach.Text = "Tìm Kiếm";
             this.buttonTimKiemDauSach_KeSach.UseVisualStyleBackColor = true;
+            this.buttonTimKiemDauSach_KeSach.Click += new System.EventHandler(this.buttonTimKiemDauSach_KeSach_Click);
             // 
             // groupBox52
             // 

@@ -28,6 +28,16 @@ namespace TTN_QLTV.DTO
             this.ngayMuon = ngayMuon;
             this.thanhTien = thanhTien;
         }
+        public PhieuMuon(int maNhanVien, int maDocGia, int thoiGian, DateTime ngayMuon, DateTime ngayTra, decimal thanhTien)
+        {
+            
+            this.maNhanVien = maNhanVien;
+            this.maDocGia = maDocGia;
+            this.thoiGian = thoiGian;
+            this.ngayMuon = ngayMuon;
+            this.ngayTra = ngayTra;
+            this.thanhTien = thanhTien;
+        }
         public PhieuMuon(int maPhieuMuon, int maNhanVien, int maDocGia, int thoiGian, DateTime ngayMuon, DateTime ngayTra, decimal thanhTien)
         {
             this.maPhieuMuon = maPhieuMuon;

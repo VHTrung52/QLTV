@@ -10,21 +10,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TTN_QLTV.BUS;
 using TTN_QLTV.DTO;
+using TTN_QLTV.GUI.QuanLy;
+using TTN_QLTV.GUI.QuanLy1;
 
 namespace TTN_QLTV.GUI
 {
     public partial class QuanLyPhieuMuon : Form
     {
-        private int maPhieuMuon;
+        public static int maPhieuMuon;
         DocGiaBUS ctrlDocGia = new DocGiaBUS();
         PhieuMuonBUS ctrlPhieuMuon = new PhieuMuonBUS();
         int maPM;
         int maSach;
-
+        public static int maDocGia = -1;
+        private static QuanLyPhieuMuon formQuanLyPhieuMuon = null;
         public QuanLyPhieuMuon()
         {
             InitializeComponent();
-
+            formQuanLyPhieuMuon = this;
             comboBoxLoaiTT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             textBoxNgayTra.ReadOnly = true;
             textBoxThanhTien.ReadOnly = true;
@@ -34,26 +37,74 @@ namespace TTN_QLTV.GUI
         public QuanLyPhieuMuon(int maPM)
         {
             maPhieuMuon = maPM;
-
+            formQuanLyPhieuMuon = this;
             InitializeComponent();
 
             textBoxThanhTien.ReadOnly = true;
         }
-
+        public static void fuck(int ma)
+        {
+            foreach (DataGridViewRow dataRow in formQuanLyPhieuMuon.dataGridViewPhieuMuon.Rows)
+            {
+                if (dataRow.Cells[0].Value.ToString() == ma.ToString())
+                {
+                    dataRow.Selected = true;
+                    break;
+                }
+            }
+            formQuanLyPhieuMuon.LoadData();
+        }
         private void QuanLyPhieuMuon_Load(object sender, EventArgs e)
         {
+            textBoxThongTinSach.Enabled = true;
+            textBoxThongTinSach.ReadOnly = false;
             if (maPhieuMuon == -1)
             {
                 dataGridViewPhieuMuon.DataSource = ctrlPhieuMuon.XemTatCaPhieuMuon();
                 dataGridViewPhieuMuon.Refresh();
+                LoadData();
+                buttonThemPhieuMuon.Enabled = false;
+                buttonSuaPhieuMuon.Enabled = true;
             }
-            else
+            else if(maPhieuMuon == 0)
             {
-                dataGridViewPhieuMuon.DataSource = ctrlDocGia.XemChiTietPhieuMuon(maPhieuMuon);
+                dataGridViewPhieuMuon.DataSource = ctrlPhieuMuon.XemTatCaPhieuMuon();
+                dataGridViewPhieuMuon.Refresh();
+                textBoxMaDocGia.Text = maDocGia.ToString();
+                int index = dataGridViewPhieuMuon.SelectedRows[0].Index;
+
+                maPM = Int16.Parse(dataGridViewPhieuMuon.Rows[index].Cells["MaPhieuMuon"].Value.ToString());
+
+                dataGridViewSach.DataSource = ctrlPhieuMuon.XemDSSachPhieuMuon(maPM); ;
                 dataGridViewPhieuMuon.Refresh();
 
-                textBoxMaNhanVien.Enabled = false;
-                textBoxMaDocGia.Enabled = false;
+                dataGridViewSach.Columns["MaSach"].HeaderText = "Mã sách";
+                dataGridViewSach.Columns["MaDauSach"].HeaderText = "Mã đầu sách";
+                dataGridViewSach.Columns["TenSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridViewSach.Columns["TenSach"].HeaderText = "Tên sách";
+                dataGridViewSach.Columns["TinhTrang"].HeaderText = "Tình trạng";
+
+                maPhieuMuon = maPM;
+                buttonThemPhieuMuon.Enabled = true;
+                buttonSuaPhieuMuon.Enabled = false;
+            }    
+            else
+            {
+                dataGridViewPhieuMuon.DataSource = ctrlPhieuMuon.XemTatCaPhieuMuon();
+                dataGridViewPhieuMuon.Refresh();
+                
+                foreach (DataGridViewRow dataRow in dataGridViewPhieuMuon.Rows)
+                {
+                    if(dataRow.Cells[0].Value.ToString() == maPhieuMuon.ToString())
+                    {
+                        dataRow.Selected = true;
+                        break;
+                    }
+                }
+                LoadData();
+
+                buttonThemPhieuMuon.Enabled = false;
+                buttonSuaPhieuMuon.Enabled = true;
             }
 
             dataGridViewPhieuMuon.Columns["MaPhieuMuon"].HeaderText = "Mã phiếu";
@@ -63,16 +114,44 @@ namespace TTN_QLTV.GUI
             dataGridViewPhieuMuon.Columns["ThoiGian"].HeaderText = "Số ngày";
             dataGridViewPhieuMuon.Columns["NgayMuon"].HeaderText = "Ngày mượn";
             dataGridViewPhieuMuon.Columns["NgayTra"].HeaderText = "Ngày trả";
+            dataGridViewPhieuMuon.Columns["ThanhTien"].HeaderText = "Thành Tiền";
 
-            buttonSuaPhieuMuon.Enabled = false;
-            buttonXoaSach.Enabled = false;
+
         }
+        private void LoadData()
+        {
+            int index = dataGridViewPhieuMuon.SelectedRows[0].Index;
 
+            maPM = Int16.Parse(dataGridViewPhieuMuon.Rows[index].Cells["MaPhieuMuon"].Value.ToString());
+
+            dataGridViewSach.DataSource = ctrlPhieuMuon.XemDSSachPhieuMuon(maPM); ;
+            
+
+            dataGridViewSach.Columns["MaSach"].HeaderText = "Mã sách";
+            dataGridViewSach.Columns["MaDauSach"].HeaderText = "Mã đầu sách";
+            dataGridViewSach.Columns["TenSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewSach.Columns["TenSach"].HeaderText = "Tên sách";
+            dataGridViewSach.Columns["TinhTrang"].HeaderText = "Tình trạng";
+
+            maPhieuMuon = maPM;
+
+            textBoxMaPhieuMuon.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaPhieuMuon"].Value.ToString();
+            textBoxMaNhanVien.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaNhanVien"].Value.ToString();
+            textBoxMaDocGia.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaDocGia"].Value.ToString();
+            textBoxThoiGian.Text = dataGridViewPhieuMuon.Rows[index].Cells["ThoiGian"].Value.ToString();
+            textBoxNgayMuon.Text = Convert.ToDateTime(dataGridViewPhieuMuon.Rows[index].Cells["NgayMuon"].Value.ToString()).ToShortDateString();
+            textBoxNgayTra.Text = Convert.ToDateTime(dataGridViewPhieuMuon.Rows[index].Cells["NgayTra"].Value.ToString()).ToShortDateString();
+            textBoxThanhTien.Text = dataGridViewPhieuMuon.Rows[index].Cells["ThanhTien"].Value.ToString();
+
+            buttonSuaPhieuMuon.Enabled = true;
+            textBoxNgayTra.ReadOnly = false;
+        }
         private void buttonThemSach_Click(object sender, EventArgs e)
         {
-            /*QuanLySach qls = new QuanLySach();
-            qls.ShowDialog();
-            QuanLySach.tabName = "sach"; */
+            maPhieuMuon = Convert.ToInt32(dataGridViewPhieuMuon.CurrentRow.Cells[0].Value.ToString());
+            MainMenu.Static_OpenChildForm(new MainQuanLy());
+            MainQuanLy.StaticChangeTab(1);
+            QuanLySach.Static_EnableButtonThemVaoPhieuMuon();
         }
 
         private void ButtonThemPhieuMuon_Click(object sender, EventArgs e)
@@ -131,7 +210,13 @@ namespace TTN_QLTV.GUI
                 }
                 else
                 {
-                    PhieuMuon phieumuon = new PhieuMuon(Int16.Parse(textBoxMaNhanVien.Text), Int16.Parse(textBoxMaDocGia.Text), Int16.Parse(textBoxThoiGian.Text), DateTime.Parse(textBoxNgayMuon.Text), 0);
+                    PhieuMuon phieumuon = new PhieuMuon(
+                        Int16.Parse(textBoxMaNhanVien.Text), 
+                        Int16.Parse(textBoxMaDocGia.Text), 
+                        Int16.Parse(textBoxThoiGian.Text), 
+                        DateTime.Parse(textBoxNgayMuon.Text),
+                        DateTime.Parse(textBoxNgayTra.Text),
+                        Convert.ToDecimal(0));
 
                     if (ctrlPhieuMuon.ThemPhieuMuon(phieumuon))
                     {
@@ -250,38 +335,7 @@ namespace TTN_QLTV.GUI
 
         private void DataGridViewPhieuMuon_Click(object sender, EventArgs e)
         {
-            int index = dataGridViewPhieuMuon.SelectedRows[0].Index;
-
-            maPM = Int16.Parse(dataGridViewPhieuMuon.Rows[index].Cells["MaPhieuMuon"].Value.ToString());
-
-            dataGridViewSach.DataSource = ctrlPhieuMuon.XemDSSachPhieuMuon(maPM); ;
-            dataGridViewPhieuMuon.Refresh();
-
-            dataGridViewSach.Columns["MaSach"].HeaderText = "Mã sách";
-            dataGridViewSach.Columns["MaDauSach"].HeaderText = "Mã đầu sách";
-            dataGridViewSach.Columns["TenSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewSach.Columns["TenSach"].HeaderText = "Tên sách";
-            dataGridViewSach.Columns["TinhTrang"].HeaderText = "Tình trạng";
-
-            if (maPhieuMuon == -1)
-            {
-                buttonXoaSach.Enabled = false;
-            }
-            else
-            {
-                buttonXoaSach.Enabled = true;
-            }
-
-            textBoxMaPhieuMuon.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaPhieuMuon"].Value.ToString();
-            textBoxMaNhanVien.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaNhanVien"].Value.ToString();
-            textBoxMaDocGia.Text = dataGridViewPhieuMuon.Rows[index].Cells["MaDocGia"].Value.ToString();
-            textBoxThoiGian.Text = dataGridViewPhieuMuon.Rows[index].Cells["ThoiGian"].Value.ToString();
-            textBoxNgayMuon.Text = Convert.ToDateTime(dataGridViewPhieuMuon.Rows[index].Cells["NgayMuon"].Value.ToString()).ToShortDateString();
-            textBoxNgayTra.Text = Convert.ToDateTime(dataGridViewPhieuMuon.Rows[index].Cells["NgayTra"].Value.ToString()).ToShortDateString();
-            textBoxThanhTien.Text = dataGridViewPhieuMuon.Rows[index].Cells["ThanhTien"].Value.ToString();
-
-            buttonSuaPhieuMuon.Enabled = true;
-            textBoxNgayTra.ReadOnly = false;
+            
         }
 
         private void ButtonHuy_Click(object sender, EventArgs e)
@@ -293,60 +347,71 @@ namespace TTN_QLTV.GUI
             textBoxThoiGian.Text = "";
             textBoxNgayMuon.Text = "";
             textBoxNgayTra.Text = "";
-            textBoxThanhTien.Text = "";
+            textBoxThanhTien.Text = "0.0000";
 
             textBoxNgayTra.ReadOnly = true;
+            buttonThemPhieuMuon.Enabled = true;
+            buttonSuaPhieuMuon.Enabled = false;
         }
 
         private void ButtonTimKiemPhieuMuon_Click(object sender, EventArgs e)
         {
             string keywords = textBoxThongTinPhieuMuon.Text;
             string loaiTT;
-            if (comboBoxLoaiTT.SelectedItem == null)
+            if (keywords == "")
             {
-                MessageBox.Show("Chọn thông tin cần tìm kiếm");
+                dataGridViewPhieuMuon.DataSource = ctrlPhieuMuon.XemTatCaPhieuMuon();
+                dataGridViewPhieuMuon.Refresh();
+                LoadData();
             }
             else
             {
-                loaiTT = comboBoxLoaiTT.SelectedItem.ToString();
-                List<PhieuMuon> dsPhieuMuon;
-                List<PhieuMuon> items;
-
-                if (maPhieuMuon == -1)
+                if (comboBoxLoaiTT.SelectedItem == null)
                 {
-                    dsPhieuMuon = ctrlPhieuMuon.XemTatCaPhieuMuon();
-                    items = dsPhieuMuon;
+                    MessageBox.Show("Chọn thông tin cần tìm kiếm");
                 }
                 else
                 {
-                    dsPhieuMuon = ctrlDocGia.XemChiTietPhieuMuon(maPhieuMuon);
-                    items = dsPhieuMuon;
-                }
+                    loaiTT = comboBoxLoaiTT.SelectedItem.ToString();
+                    List<PhieuMuon> dsPhieuMuon;
+                    List<PhieuMuon> items;
 
-                switch (loaiTT)
-                {
-                    case "Mã Phiếu Mượn":
-                        items = dsPhieuMuon.FindAll(item => item.MaPhieuMuon.ToString().Contains(keywords));
-                        break;
-                    case "Mã Nhân Viên":
-                        items = dsPhieuMuon.FindAll(item => item.MaNhanVien.ToString().Contains(keywords));
-                        break;
-                    case "Mã Độc Giả":
-                        items = dsPhieuMuon.FindAll(item => item.MaDocGia.ToString().Contains(keywords));
-                        break;
-                    case "Ngày Mượn":
-                        items = dsPhieuMuon.FindAll(item => item.NgayMuon.ToString().Contains(keywords));
-                        break;
-                    case "Ngày Trả":
-                        items = dsPhieuMuon.FindAll(item => item.NgayTra.ToString().Contains(keywords));
-                        break;
-                    default:
-                        MessageBox.Show("Tìm kiếm không hợp lệ");
-                        break;
-                }
+                    if (maPhieuMuon == -1)
+                    {
+                        dsPhieuMuon = ctrlPhieuMuon.XemTatCaPhieuMuon();
+                        items = dsPhieuMuon;
+                    }
+                    else
+                    {
+                        dsPhieuMuon = ctrlDocGia.XemChiTietPhieuMuon(maPhieuMuon);
+                        items = dsPhieuMuon;
+                    }
 
-                dataGridViewPhieuMuon.DataSource = items;
-                dataGridViewPhieuMuon.Refresh();
+                    switch (loaiTT)
+                    {
+                        case "Mã Phiếu Mượn":
+                            items = dsPhieuMuon.FindAll(item => item.MaPhieuMuon.ToString().Contains(keywords));
+                            break;
+                        case "Mã Nhân Viên":
+                            items = dsPhieuMuon.FindAll(item => item.MaNhanVien.ToString().Contains(keywords));
+                            break;
+                        case "Mã Độc Giả":
+                            items = dsPhieuMuon.FindAll(item => item.MaDocGia.ToString().Contains(keywords));
+                            break;
+                        case "Ngày Mượn":
+                            items = dsPhieuMuon.FindAll(item => item.NgayMuon.ToString().Contains(keywords));
+                            break;
+                        case "Ngày Trả":
+                            items = dsPhieuMuon.FindAll(item => item.NgayTra.ToString().Contains(keywords));
+                            break;
+                        default:
+                            MessageBox.Show("Tìm kiếm không hợp lệ");
+                            break;
+                    }
+
+                    dataGridViewPhieuMuon.DataSource = items;
+                    dataGridViewPhieuMuon.Refresh();
+                }
             }
             
         }
@@ -400,6 +465,67 @@ namespace TTN_QLTV.GUI
         private void TextBoxThongTinSach_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void dataGridViewPhieuMuon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            buttonSuaPhieuMuon.Enabled = true;
+            buttonThemPhieuMuon.Enabled = false;
+            LoadData();
+        }
+
+        private void textBoxThoiGian_TextChanged(object sender, EventArgs e)
+        {
+            if(textBoxNgayMuon.Text != "" && textBoxThoiGian.Text != "")
+            {
+                DateTime tempdt;
+                int tempI;
+                if(DateTime.TryParse(textBoxNgayMuon.Text,out tempdt) == true && int.TryParse(textBoxThoiGian.Text,out tempI) == true)
+                {
+                    textBoxNgayTra.Text = Convert.ToDateTime(textBoxNgayMuon.Text).AddDays(Int16.Parse(textBoxThoiGian.Text)).ToShortDateString();
+                }
+            }
+                
+        }
+
+        private void textBoxNgayMuon_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxNgayMuon.Text != "" && textBoxThoiGian.Text != "")
+            {
+                DateTime tempdt;
+                int tempI;
+                if (DateTime.TryParse(textBoxNgayMuon.Text, out tempdt) == true && int.TryParse(textBoxThoiGian.Text, out tempI) == true)
+                {
+                    textBoxNgayTra.Text = Convert.ToDateTime(textBoxNgayMuon.Text).AddDays(Int16.Parse(textBoxThoiGian.Text)).ToShortDateString();
+                }
+            }
+        }
+
+        private void dataGridViewSach_DataSourceChanged(object sender, EventArgs e)
+        {
+            buttonXoaSach.Enabled = true;
+            buttonTraSach.Enabled = true;
+            if (dataGridViewSach.Rows.Count == 0)
+            {
+                buttonTraSach.Enabled = false;
+                buttonXoaSach.Enabled = false;
+            }    
+                
+        }
+
+        private void buttonTraSach_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ctrlPhieuMuon.TraSach(maPM);
+                LoadData();
+                MessageBox.Show("Thành Công");
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Error");
+            }    
+            
         }
     }
 }

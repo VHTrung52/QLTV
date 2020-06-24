@@ -21,5 +21,11 @@ namespace TTN_QLTV.BUS
             string query = string.Format("XemTatCaTheLoai");
             return DataProvider.Instance.ExecuteQuery(query);
         }
+        public void InsertDSTheLoai(int maDauSach,int maTheLoai)
+        {
+            DataProvider.Instance.ExecuteNonQuery("" +
+                "insert into DS_TheLoai(MaDauSach,MaTheLoai) " +
+                $"values({maDauSach},{maTheLoai})");
+        }
     }
 }

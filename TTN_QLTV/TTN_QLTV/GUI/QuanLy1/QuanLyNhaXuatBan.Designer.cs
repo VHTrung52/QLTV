@@ -113,7 +113,6 @@
             // 
             // buttonThemDauSach
             // 
-            this.buttonThemDauSach.Enabled = false;
             this.buttonThemDauSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThemDauSach.Location = new System.Drawing.Point(493, 145);
             this.buttonThemDauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -122,10 +121,10 @@
             this.buttonThemDauSach.TabIndex = 50;
             this.buttonThemDauSach.Text = "Thêm Đầu Sách";
             this.buttonThemDauSach.UseVisualStyleBackColor = true;
+            this.buttonThemDauSach.Click += new System.EventHandler(this.buttonThemDauSach_Click);
             // 
             // buttonXoaDauSach
             // 
-            this.buttonXoaDauSach.Enabled = false;
             this.buttonXoaDauSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXoaDauSach.Location = new System.Drawing.Point(493, 206);
             this.buttonXoaDauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -199,6 +198,7 @@
             this.buttonThemVaoDauSach.TabIndex = 55;
             this.buttonThemVaoDauSach.Text = "Thêm Vào Đầu Sách";
             this.buttonThemVaoDauSach.UseVisualStyleBackColor = true;
+            this.buttonThemVaoDauSach.Click += new System.EventHandler(this.buttonThemVaoDauSach_Click);
             // 
             // buttonTimKiem
             // 
@@ -246,7 +246,6 @@
             // 
             // buttonHuy
             // 
-            this.buttonHuy.Enabled = false;
             this.buttonHuy.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHuy.Location = new System.Drawing.Point(466, 124);
             this.buttonHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -259,7 +258,6 @@
             // 
             // buttonSua
             // 
-            this.buttonSua.Enabled = false;
             this.buttonSua.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSua.Location = new System.Drawing.Point(466, 75);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

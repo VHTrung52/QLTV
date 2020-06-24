@@ -15,5 +15,11 @@ namespace TTN_QLTV.BUS
             string query = string.Format("XemTacGia {0} ",idSach);             
             return DataProvider.Instance.ExecuteQuery(query);
         }
+        public void InsertDSTacGia(int maDauSach,int maTacGia)
+        {
+            DataProvider.Instance.ExecuteNonQuery("" +
+                "insert into DS_TacGia(MaDauSach,MaTacGia) " +
+                $"values({maDauSach},{maTacGia})");
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TTN_QLTV.GUI;
 using TTN_QLTV.GUI.QuanLy;
+using TTN_QLTV.GUI.TroGiup;
 
 namespace TTN_QLTV
 {
@@ -18,11 +19,10 @@ namespace TTN_QLTV
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new QuanLyPhieuMuon());
-            //Application.Run(new QuanLyDocGia());
-            Application.Run(new QuanLyThuVien());
-            //Application.Run(new QuanLy2());
-            //Application.Run(new GUI.QuanLy.MainQuanLy());
+            
+            Application.Run(new GUI.MainMenu());
+            //Application.Run(new TroGiupQuanLyThuVien());
+
         }
     }
 }

@@ -33,11 +33,11 @@
             this.buttonXoaTheLoai = new System.Windows.Forms.Button();
             this.buttonXoaTacGia = new System.Windows.Forms.Button();
             this.buttonThemTheLoai = new System.Windows.Forms.Button();
-            this.buttonHuyDauSach = new System.Windows.Forms.Button();
+            this.buttonHuy = new System.Windows.Forms.Button();
             this.buttonThemTacGia = new System.Windows.Forms.Button();
             this.buttonXoaNhaXuatBan = new System.Windows.Forms.Button();
             this.buttonThemNhaXuatBan = new System.Windows.Forms.Button();
-            this.buttonSuaDauSach = new System.Windows.Forms.Button();
+            this.buttonSua = new System.Windows.Forms.Button();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.comboBoxLoaiThongTin = new System.Windows.Forms.ComboBox();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
@@ -53,7 +53,7 @@
             this.buttonTimKiem = new System.Windows.Forms.Button();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.textBoxTongSo = new System.Windows.Forms.TextBox();
-            this.buttonThemDauSach = new System.Windows.Forms.Button();
+            this.buttonThem = new System.Windows.Forms.Button();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.textBoxSoLuongHienTai = new System.Windows.Forms.TextBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
@@ -101,6 +101,7 @@
             this.buttonThemVao.TabIndex = 107;
             this.buttonThemVao.Text = "Thêm Vào";
             this.buttonThemVao.UseVisualStyleBackColor = true;
+            this.buttonThemVao.Click += new System.EventHandler(this.buttonThemVao_Click);
             // 
             // buttonXoaTheLoai
             // 
@@ -136,18 +137,19 @@
             this.buttonThemTheLoai.TabIndex = 102;
             this.buttonThemTheLoai.Text = "Thêm Thể Loại";
             this.buttonThemTheLoai.UseVisualStyleBackColor = true;
+            this.buttonThemTheLoai.Click += new System.EventHandler(this.buttonThemTheLoai_Click);
             // 
-            // buttonHuyDauSach
+            // buttonHuy
             // 
-            this.buttonHuyDauSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHuyDauSach.Location = new System.Drawing.Point(1146, 141);
-            this.buttonHuyDauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonHuyDauSach.Name = "buttonHuyDauSach";
-            this.buttonHuyDauSach.Size = new System.Drawing.Size(104, 43);
-            this.buttonHuyDauSach.TabIndex = 106;
-            this.buttonHuyDauSach.Text = "Huỷ";
-            this.buttonHuyDauSach.UseVisualStyleBackColor = true;
-            this.buttonHuyDauSach.Click += new System.EventHandler(this.buttonHuyDauSach_Click);
+            this.buttonHuy.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHuy.Location = new System.Drawing.Point(1146, 141);
+            this.buttonHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonHuy.Name = "buttonHuy";
+            this.buttonHuy.Size = new System.Drawing.Size(104, 43);
+            this.buttonHuy.TabIndex = 106;
+            this.buttonHuy.Text = "Huỷ";
+            this.buttonHuy.UseVisualStyleBackColor = true;
+            this.buttonHuy.Click += new System.EventHandler(this.buttonHuyDauSach_Click);
             // 
             // buttonThemTacGia
             // 
@@ -159,6 +161,7 @@
             this.buttonThemTacGia.TabIndex = 97;
             this.buttonThemTacGia.Text = "Thêm Tác Giả";
             this.buttonThemTacGia.UseVisualStyleBackColor = true;
+            this.buttonThemTacGia.Click += new System.EventHandler(this.buttonThemTacGia_Click);
             // 
             // buttonXoaNhaXuatBan
             // 
@@ -182,18 +185,19 @@
             this.buttonThemNhaXuatBan.TabIndex = 104;
             this.buttonThemNhaXuatBan.Text = "    Thêm      Nhà Xuất Bản";
             this.buttonThemNhaXuatBan.UseVisualStyleBackColor = true;
+            this.buttonThemNhaXuatBan.Click += new System.EventHandler(this.buttonThemNhaXuatBan_Click);
             // 
-            // buttonSuaDauSach
+            // buttonSua
             // 
-            this.buttonSuaDauSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSuaDauSach.Location = new System.Drawing.Point(1146, 92);
-            this.buttonSuaDauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSuaDauSach.Name = "buttonSuaDauSach";
-            this.buttonSuaDauSach.Size = new System.Drawing.Size(104, 43);
-            this.buttonSuaDauSach.TabIndex = 100;
-            this.buttonSuaDauSach.Text = "Sửa";
-            this.buttonSuaDauSach.UseVisualStyleBackColor = true;
-            this.buttonSuaDauSach.Click += new System.EventHandler(this.buttonSuaDauSach_Click);
+            this.buttonSua.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSua.Location = new System.Drawing.Point(1146, 92);
+            this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSua.Name = "buttonSua";
+            this.buttonSua.Size = new System.Drawing.Size(104, 43);
+            this.buttonSua.TabIndex = 100;
+            this.buttonSua.Text = "Sửa";
+            this.buttonSua.UseVisualStyleBackColor = true;
+            this.buttonSua.Click += new System.EventHandler(this.buttonSuaDauSach_Click);
             // 
             // groupBox19
             // 
@@ -214,8 +218,8 @@
             this.comboBoxLoaiThongTin.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxLoaiThongTin.FormattingEnabled = true;
             this.comboBoxLoaiThongTin.Items.AddRange(new object[] {
-            "Tác Giả",
             "Đầu Sách",
+            "Tác Giả",
             "Thể Loại",
             "Nhà Xuất Bản",
             "Kệ Sách"});
@@ -360,7 +364,7 @@
             this.groupBox24.Size = new System.Drawing.Size(536, 340);
             this.groupBox24.TabIndex = 93;
             this.groupBox24.TabStop = false;
-            this.groupBox24.Text = "Đầu Sách";
+            this.groupBox24.Text = "Danh Sách Đầu Sách";
             // 
             // dataGridViewDauSach
             // 
@@ -415,17 +419,17 @@
             this.textBoxTongSo.Size = new System.Drawing.Size(273, 27);
             this.textBoxTongSo.TabIndex = 1;
             // 
-            // buttonThemDauSach
+            // buttonThem
             // 
-            this.buttonThemDauSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThemDauSach.Location = new System.Drawing.Point(1146, 43);
-            this.buttonThemDauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonThemDauSach.Name = "buttonThemDauSach";
-            this.buttonThemDauSach.Size = new System.Drawing.Size(104, 43);
-            this.buttonThemDauSach.TabIndex = 91;
-            this.buttonThemDauSach.Text = "Thêm";
-            this.buttonThemDauSach.UseVisualStyleBackColor = true;
-            this.buttonThemDauSach.Click += new System.EventHandler(this.buttonThemDauSach_Click);
+            this.buttonThem.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonThem.Location = new System.Drawing.Point(1146, 43);
+            this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonThem.Name = "buttonThem";
+            this.buttonThem.Size = new System.Drawing.Size(104, 43);
+            this.buttonThem.TabIndex = 91;
+            this.buttonThem.Text = "Thêm";
+            this.buttonThem.UseVisualStyleBackColor = true;
+            this.buttonThem.Click += new System.EventHandler(this.buttonThemDauSach_Click);
             // 
             // groupBox12
             // 
@@ -523,11 +527,11 @@
             this.Controls.Add(this.buttonXoaTheLoai);
             this.Controls.Add(this.buttonXoaTacGia);
             this.Controls.Add(this.buttonThemTheLoai);
-            this.Controls.Add(this.buttonHuyDauSach);
+            this.Controls.Add(this.buttonHuy);
             this.Controls.Add(this.buttonThemTacGia);
             this.Controls.Add(this.buttonXoaNhaXuatBan);
             this.Controls.Add(this.buttonThemNhaXuatBan);
-            this.Controls.Add(this.buttonSuaDauSach);
+            this.Controls.Add(this.buttonSua);
             this.Controls.Add(this.groupBox19);
             this.Controls.Add(this.groupBox20);
             this.Controls.Add(this.groupBox21);
@@ -536,7 +540,7 @@
             this.Controls.Add(this.groupBox24);
             this.Controls.Add(this.buttonTimKiem);
             this.Controls.Add(this.groupBox16);
-            this.Controls.Add(this.buttonThemDauSach);
+            this.Controls.Add(this.buttonThem);
             this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.groupBox14);
@@ -579,11 +583,11 @@
         private System.Windows.Forms.Button buttonXoaTheLoai;
         private System.Windows.Forms.Button buttonXoaTacGia;
         private System.Windows.Forms.Button buttonThemTheLoai;
-        private System.Windows.Forms.Button buttonHuyDauSach;
+        private System.Windows.Forms.Button buttonHuy;
         private System.Windows.Forms.Button buttonThemTacGia;
         private System.Windows.Forms.Button buttonXoaNhaXuatBan;
         private System.Windows.Forms.Button buttonThemNhaXuatBan;
-        private System.Windows.Forms.Button buttonSuaDauSach;
+        private System.Windows.Forms.Button buttonSua;
         private System.Windows.Forms.GroupBox groupBox19;
         private System.Windows.Forms.ComboBox comboBoxLoaiThongTin;
         private System.Windows.Forms.GroupBox groupBox20;
@@ -599,7 +603,7 @@
         private System.Windows.Forms.Button buttonTimKiem;
         private System.Windows.Forms.GroupBox groupBox16;
         private System.Windows.Forms.TextBox textBoxTongSo;
-        private System.Windows.Forms.Button buttonThemDauSach;
+        private System.Windows.Forms.Button buttonThem;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.TextBox textBoxSoLuongHienTai;
         private System.Windows.Forms.GroupBox groupBox13;

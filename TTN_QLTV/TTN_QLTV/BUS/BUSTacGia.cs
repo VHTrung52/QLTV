@@ -49,7 +49,15 @@ namespace TTN_QLTV.BUS
         }
         public DataTable GetDanhSachDSTacGiafilter(int matg, string str)
         {
-            return DataProvider.Instance.ExecuteQuery("GetDanhSachDSTacGiafilter "+matg+", '"+str+"'");
+            return DataProvider.Instance.ExecuteQuery("" +
+                "select * " +
+                "from DAUSACH " +
+                "where " +
+                $"MaDauSach in (select MaDauSach from DS_TACGIA where MaTacGia = {matg} ) " +
+                "AND " +
+                $"( MaDauSach LIKE '%{str}%' " +
+                "OR " +
+                $"TenDauSach LIKE N'%{str}%')");
         }
         public void DelDauSach_TacGia(int matg, int mads)
         {
@@ -57,6 +65,7 @@ namespace TTN_QLTV.BUS
         }
         public DataTable GetDanhSachTacGiafilter(string str)
         {
+            str = "'" + str + "'";
             return DataProvider.Instance.ExecuteQuery("GetDanhSachTacGiafilter "+ str);
         }
         public void AddTacGia(string tenTG, string ngaysinh) {

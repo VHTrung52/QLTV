@@ -57,3 +57,9 @@ E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLy1.QuanLyTheLoai.resources
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.QuanLy1.QuanLyKeSach.resources
 E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.QuanLyThuVien.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.MainMenu.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.TroGiup.MainTroGiup.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.TroGiup.TroGiupQuanLyThuVien.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.TroGiup.TroGiupQuanLyDocGia.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.TroGiup.TroGiupQuanLyPhieuMuon.resources
+E:\$_SchPj\3_2\Thuc Tap Nhom\TTN_QLTV1\QLTV\TTN_QLTV\TTN_QLTV\obj\Debug\TTN_QLTV.GUI.TroGiup.TroGiupQuanLySachVaDuLieuSach.resources

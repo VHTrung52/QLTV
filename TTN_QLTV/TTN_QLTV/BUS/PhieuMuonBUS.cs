@@ -13,11 +13,15 @@ namespace TTN_QLTV.BUS
     {
         public bool ThemPhieuMuon(PhieuMuon phieumon)
         {
-            string query = string.Format("exec ThemPhieuMuon {0}, {1}, {2}, '{3}' ", phieumon.MaNhanVien, phieumon.MaDocGia, phieumon.ThoiGian ,phieumon.NgayMuon);
+            string query = "" +
+                "insert intp PHIEUMUON(MaPhieuMuon,MaNhanVien,MaDocGia,NgayMuon,NgayTra,ThoiGian,ThanhTien) " +
+                $"values({phieumon.MaPhieuMuon},{phieumon.MaNhanVien},{phieumon.MaDocGia}," +
+                $"'{phieumon.NgayMuon.Month}/{phieumon.NgayMuon.Date}/{phieumon.NgayMuon.Year}'," +
+                $"'{phieumon.NgayTra.Month}/{phieumon.NgayTra.Date}/{phieumon.NgayTra.Year}',0)";
 
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
-
+        
         public bool SuaPhieuMuon(PhieuMuon phieumon)
         {
             string query = string.Format("exec SuaPhieuMuon  {0}, {1}, {2}, {3}, '{4}', '{5}' ", phieumon.MaPhieuMuon, phieumon.MaNhanVien, phieumon.MaDocGia, phieumon.ThoiGian, phieumon.NgayMuon, phieumon.NgayTra);
@@ -55,6 +59,12 @@ namespace TTN_QLTV.BUS
 
             return DataProvider.Instance.ExecuteQuery(query).AsEnumerable().Select(m =>
            new Sach(m.Field<int>("MaSach"), m.Field<int>("MaDauSach"), m.Field<string>("TenSach"), m.Field<bool>("TinhTrang"))).ToList();
+        }
+        public void TraSach(int maPhieuMuon)
+        {
+            DataProvider.Instance.ExecuteNonQuery("" +
+                "update SACH set TinhTrang = 0 where MaSach in " +
+                $"(select MaSach from CHITIETPHIEUMUON where MaPhieuMuon = {maPhieuMuon})");
         }
     }
 }

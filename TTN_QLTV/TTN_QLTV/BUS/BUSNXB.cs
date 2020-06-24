@@ -48,11 +48,25 @@ namespace TTN_QLTV.BUS
         }
         public DataTable GetDanhSachDSNXBfilter(int maNXB, string str)
         {
-            return DataProvider.Instance.ExecuteQuery("GetDanhSachDSNXBfilter "+maNXB+", '"+str+"'");
+            return DataProvider.Instance.ExecuteQuery("" +
+                "select * " +
+                "from DAUSACH " +
+                "where " +
+                $"MaDauSach in (select MaDauSach from DS_NHAXUATBAN where MaNhaXuatBan = {maNXB} ) " +
+                "AND " +
+                $"( MaDauSach LIKE '%{str}%' " +
+                "OR " +
+                $"TenDauSach LIKE N'%{str}%')");
         }
         public DataTable GetDanhSachNXBfilter(string str)
         {
-            return DataProvider.Instance.ExecuteQuery("GetDanhSachNXBfilter '"+str+"'");
+            return DataProvider.Instance.ExecuteQuery("" +
+                "select * " +
+                "from NHAXUATBAN " +
+                "where " +
+                $"TenNhaXuatBan like N'%{str}%' " +
+                $"or " +
+                $"MaNhaXuatBan like '%{str}%'");
         }
         public void AddNXB(string tenTG)
         {

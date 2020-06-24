@@ -1339,6 +1339,16 @@ namespace TTN_QLTV.GUI
             dataGridViewDauSach_KeSach.Columns[4].HeaderText = "Tổng Số";
         }
 
+        private void buttonTimKiemDauSach_KeSach_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonThemVaoPhieuMuon_Sach_Click(object sender, EventArgs e)
+        {
+
+        }
+
         // KẾT THÚC TAB KỆ SÁCH //
 
     }

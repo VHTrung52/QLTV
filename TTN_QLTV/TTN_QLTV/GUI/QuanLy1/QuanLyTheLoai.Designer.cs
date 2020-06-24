@@ -80,7 +80,6 @@
             // 
             // buttonTimKiemDauSach
             // 
-            this.buttonTimKiemDauSach.Enabled = false;
             this.buttonTimKiemDauSach.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTimKiemDauSach.Location = new System.Drawing.Point(493, 28);
             this.buttonTimKiemDauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -114,7 +113,6 @@
             // 
             // buttonThemDauSach
             // 
-            this.buttonThemDauSach.Enabled = false;
             this.buttonThemDauSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThemDauSach.Location = new System.Drawing.Point(493, 145);
             this.buttonThemDauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -123,10 +121,10 @@
             this.buttonThemDauSach.TabIndex = 50;
             this.buttonThemDauSach.Text = "Thêm Đầu Sách";
             this.buttonThemDauSach.UseVisualStyleBackColor = true;
+            this.buttonThemDauSach.Click += new System.EventHandler(this.buttonThemDauSach_Click);
             // 
             // buttonXoaDauSach
             // 
-            this.buttonXoaDauSach.Enabled = false;
             this.buttonXoaDauSach.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXoaDauSach.Location = new System.Drawing.Point(493, 206);
             this.buttonXoaDauSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -141,14 +139,14 @@
             // 
             this.groupBox50.Controls.Add(this.dataGridViewDauSach);
             this.groupBox50.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox50.Location = new System.Drawing.Point(13, 267);
+            this.groupBox50.Location = new System.Drawing.Point(5, 271);
             this.groupBox50.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox50.Name = "groupBox50";
             this.groupBox50.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox50.Size = new System.Drawing.Size(631, 416);
+            this.groupBox50.Size = new System.Drawing.Size(640, 409);
             this.groupBox50.TabIndex = 41;
             this.groupBox50.TabStop = false;
-            this.groupBox50.Text = "Đầu Sách";
+            this.groupBox50.Text = "Danh Sách Đầu Sách";
             // 
             // dataGridViewDauSach
             // 
@@ -165,7 +163,7 @@
             this.dataGridViewDauSach.RowHeadersWidth = 51;
             this.dataGridViewDauSach.RowTemplate.Height = 24;
             this.dataGridViewDauSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDauSach.Size = new System.Drawing.Size(613, 377);
+            this.dataGridViewDauSach.Size = new System.Drawing.Size(629, 377);
             this.dataGridViewDauSach.TabIndex = 3;
             // 
             // groupBox41
@@ -198,10 +196,10 @@
             this.buttonThemVaoDauSach.TabIndex = 67;
             this.buttonThemVaoDauSach.Text = "Thêm Vào Đầu Sách";
             this.buttonThemVaoDauSach.UseVisualStyleBackColor = true;
+            this.buttonThemVaoDauSach.Click += new System.EventHandler(this.buttonThemVaoDauSach_Click);
             // 
             // buttonHuy
             // 
-            this.buttonHuy.Enabled = false;
             this.buttonHuy.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHuy.Location = new System.Drawing.Point(466, 124);
             this.buttonHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -214,7 +212,6 @@
             // 
             // buttonSua
             // 
-            this.buttonSua.Enabled = false;
             this.buttonSua.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSua.Location = new System.Drawing.Point(466, 75);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

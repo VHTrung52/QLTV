@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TTN_QLTV.DAL;
 using TTN_QLTV.DTO;
 
 namespace TTN_QLTV.BUS
 {
     class SachBUS
     {
-        public List<DauSach> XemTatCaDauSach()
+        public void ThemSachVaoPhieuMuon(int maSach,int maPhieuMuon)
         {
-            return new List<DauSach>();
+            int row = DataProvider.Instance.ExecuteNonQuery("" +
+                "insert into CHITIETPHIEUMUON(MaPhieuMuon,MaSach) " +
+                $"values({maPhieuMuon},{maSach})");
+            if (row > 0)
+            {
+                DataProvider.Instance.ExecuteNonQuery("" +
+                    $"update Sach set TinhTrang = 1 where MaSach = {maSach}");
+            }
+            
         }
     }
 }

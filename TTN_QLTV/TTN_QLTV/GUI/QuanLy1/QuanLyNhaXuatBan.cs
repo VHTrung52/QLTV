@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TTN_QLTV.BUS;
 using TTN_QLTV.DTO;
+using TTN_QLTV.GUI.QuanLy;
 
 namespace TTN_QLTV.GUI.QuanLy1
 {
@@ -17,10 +18,21 @@ namespace TTN_QLTV.GUI.QuanLy1
         private List<DauSach> lds = new List<DauSach>();
         private List<NhaXuatBan> lnxb = new List<NhaXuatBan>();
         private BUSNXB busNXB = new BUSNXB();
-        private int maNhaXuatBan;
+        public static int maNhaXuatBan;
+        private static QuanLyNhaXuatBan formQuanLyNhaXuatBan = null;
         public QuanLyNhaXuatBan()
         {
             InitializeComponent();
+            formQuanLyNhaXuatBan = this;
+        }
+        public static void Static_EnableButtonThemVaoDauSach()
+        {
+            if (formQuanLyNhaXuatBan != null)
+                formQuanLyNhaXuatBan.EnableButtonThemVaoDauSach();
+        }
+        private void EnableButtonThemVaoDauSach()
+        {
+            buttonThemVaoDauSach.Enabled = true;
         }
         private void SetUpDataGrVNXB()
         {
@@ -38,13 +50,8 @@ namespace TTN_QLTV.GUI.QuanLy1
 
         private void dataGridViewNhaXuatBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            buttonThem.Enabled = true;
-            buttonSua.Enabled = false;
-            buttonTimKiemDauSach.Enabled = true;
-            buttonHuy.Enabled = true;
-            
-            buttonThemDauSach.Enabled = true;
-            //buttonTimKiemNhaXuatBan.Enabled = false;
+            buttonThem.Enabled = false;
+            buttonSua.Enabled = true;
             lds = busNXB.ConvertDSNXB(busNXB.GetDanhSachDSNXB(lnxb[dataGridViewNhaXuatBan.CurrentCell.RowIndex].MaNhaXuatBan));
             dataGridViewDauSach.DataSource = lds;
             SetUpDataGrVDauSachNXB();
@@ -58,25 +65,27 @@ namespace TTN_QLTV.GUI.QuanLy1
 
         private void QuanLyNhaXuatBan_Load(object sender, EventArgs e)
         {
-            buttonXoaDauSach.Enabled = true;
-            buttonThemVaoDauSach.Visible = false;
+            buttonThem.Enabled = false;
+            buttonThemVaoDauSach.Enabled = false;
             lnxb = busNXB.ConvertNXB(busNXB.GetDanhSachNXB());
             dataGridViewNhaXuatBan.DataSource = null;
             dataGridViewNhaXuatBan.DataSource = lnxb;
             SetUpDataGrVNXB();
+            lds = busNXB.ConvertDSNXB(busNXB.GetDanhSachDSNXB(lnxb[dataGridViewNhaXuatBan.CurrentCell.RowIndex].MaNhaXuatBan));
+            dataGridViewDauSach.DataSource = lds;
+            SetUpDataGrVDauSachNXB();
+            textBoxMaNhaXuatBan.Text = lnxb[dataGridViewNhaXuatBan.CurrentCell.RowIndex].MaNhaXuatBan.ToString();
+            textBoxTenNhaXuatBan.Text = lnxb[dataGridViewNhaXuatBan.CurrentCell.RowIndex].TenNhaXuatBan.ToString();
+            dataGridViewDauSach.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //dũng
+            DataGridViewRow currentRow = dataGridViewNhaXuatBan.CurrentRow;
+            maNhaXuatBan = Convert.ToInt32(currentRow.Cells[0].Value);
         }
 
         private void buttonHuy_Click(object sender, EventArgs e)
-        {
-            
-            buttonSua.Enabled = true;
-            buttonTimKiemDauSach.Enabled = false;
+        {  
+            buttonSua.Enabled = false;
             buttonThem.Enabled = true;
-            buttonHuy.Enabled = false;
-            buttonThemDauSach.Enabled = false;
-            buttonXoaDauSach.Enabled = false;
-            buttonTimKiem.Enabled = true;
-            dataGridViewDauSach.DataSource = null;
             textBoxThongTin.Text = "";
             textBoxMaNhaXuatBan.Text = "";
             textBoxTenNhaXuatBan.Text = "";
@@ -95,7 +104,7 @@ namespace TTN_QLTV.GUI.QuanLy1
             }
             dataGridViewDauSach.DataSource = null;
             dataGridViewDauSach.DataSource = lds;
-            textBoxThongTinDauSach.Text = "";
+             
             SetUpDataGrVDauSachNXB();
         }
 
@@ -139,6 +148,28 @@ namespace TTN_QLTV.GUI.QuanLy1
             dataGridViewNhaXuatBan.DataSource = null;
             dataGridViewNhaXuatBan.DataSource = lnxb;
             SetUpDataGrVDauSachNXB();
+        }
+
+        private void buttonThemVaoDauSach_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DauSachBUS dauSachBUS = new DauSachBUS();
+                dauSachBUS.ThemNhaXuatBanChoDauSach(QuanLyDauSach.maDauSach, maNhaXuatBan);
+                MessageBox.Show("---Thành Công---");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Nhà xuất Bản Này Đã Có Trong Đầu Sách");
+            }
+        }
+
+        private void buttonThemDauSach_Click(object sender, EventArgs e)
+        {
+            MainQuanLy.StaticChangeTab(0);
+            QuanLyDauSach.Static_VisiableButtonThemVao();
+            QuanLyDauSach.Static_ChangeButtonThemVaoText("Thêm Vào Nhà Xuất Bản");
         }
     }
 }

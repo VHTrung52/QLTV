@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TTN_QLTV.BUS;
+using TTN_QLTV.GUI.QuanLy;
 
 namespace TTN_QLTV.GUI.QuanLy1
 {
@@ -15,6 +16,7 @@ namespace TTN_QLTV.GUI.QuanLy1
     {
         private KeSachBus keSachBUS = new KeSachBus();
         private DauSachBUS dauSachBUS = new DauSachBUS();
+        public static int MaKeSach;
         public QuanLyKeSach()
         {
             InitializeComponent();
@@ -32,11 +34,13 @@ namespace TTN_QLTV.GUI.QuanLy1
 
         private void QuanLyKeSach_Load(object sender, EventArgs e)
         {
+            buttonThem.Enabled = false;
             dataGridViewKeSach.DataSource = keSachBUS.XemTatCaKeSach();
             dataGridViewDauSach.DataSource = dauSachBUS.XemTatCaDauSachKeSach(dataGridViewKeSach.Rows[0].Cells[0].Value.ToString());
-            buttonSua.Enabled = false;
-            buttonHuy.Enabled = false;
             changeDataGridViewHeader_tabKeSach();
+            MaKeSach = Convert.ToInt32(dataGridViewKeSach.Rows[0].Cells[0].Value);
+            textBoxMaKeSach.Text = dataGridViewKeSach.CurrentRow.Cells[0].Value.ToString();
+            textBoxTenKeSach.Text = dataGridViewKeSach.CurrentRow.Cells[1].Value.ToString();
         }
 
         private void buttonXoaDauSach_Click(object sender, EventArgs e)
@@ -52,12 +56,12 @@ namespace TTN_QLTV.GUI.QuanLy1
         private void buttonThem_Click(object sender, EventArgs e)
         {
             keSachBUS.ThemKeSach(textBoxTenKeSach.Text = dataGridViewKeSach.CurrentRow.Cells[1].Value.ToString());
+            dataGridViewKeSach.DataSource = keSachBUS.XemTatCaKeSach();
         }
 
         private void buttonHuy_Click(object sender, EventArgs e)
         {
             buttonSua.Enabled = false;
-            buttonHuy.Enabled = false;
             buttonThem.Enabled = true;
             textBoxMaKeSach.Text = "";
             textBoxTenKeSach.Text = "";
@@ -80,10 +84,27 @@ namespace TTN_QLTV.GUI.QuanLy1
             dataGridViewDauSach.DataSource = dauSachBUS.XemTatCaDauSachKeSach(dataGridViewKeSach.CurrentRow.Cells[0].Value.ToString());
             buttonThem.Enabled = false;
             buttonSua.Enabled = true;
-            buttonHuy.Enabled = true;
             textBoxMaKeSach.Text = dataGridViewKeSach.CurrentRow.Cells[0].Value.ToString();
             textBoxTenKeSach.Text = dataGridViewKeSach.CurrentRow.Cells[1].Value.ToString();
             dataGridViewDauSach.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //Nam
+            MaKeSach = Convert.ToInt32(dataGridViewKeSach.CurrentRow.Cells[0].Value.ToString());
+            //Trung
+        }
+
+        private void buttonThemDauSach_Click(object sender, EventArgs e)
+        {
+            MainQuanLy.StaticChangeTab(0);
+            QuanLyDauSach.Static_VisiableButtonThemVao();
+            QuanLyDauSach.Static_ChangeButtonThemVaoText("Thêm Vào Kệ Sách");
+        }
+
+        private void buttonTimKiemDauSach_Click(object sender, EventArgs e)
+        {
+            if(textBoxThongTinDauSach.Text != "")
+                dataGridViewDauSach.DataSource = keSachBUS.TimKiemDauSachThuocKeSach(MaKeSach, textBoxThongTinDauSach.Text);
+            else
+                dataGridViewDauSach.DataSource = dauSachBUS.XemTatCaDauSachKeSach(dataGridViewKeSach.CurrentRow.Cells[0].Value.ToString());
         }
     }
 }

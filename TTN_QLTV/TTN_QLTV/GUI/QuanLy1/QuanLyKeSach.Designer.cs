@@ -87,6 +87,7 @@
             this.buttonTimKiemDauSach.TabIndex = 52;
             this.buttonTimKiemDauSach.Text = "Tìm Kiếm";
             this.buttonTimKiemDauSach.UseVisualStyleBackColor = true;
+            this.buttonTimKiemDauSach.Click += new System.EventHandler(this.buttonTimKiemDauSach_Click);
             // 
             // groupBox52
             // 
@@ -119,6 +120,7 @@
             this.buttonThemDauSach.TabIndex = 50;
             this.buttonThemDauSach.Text = "Thêm Đầu Sách";
             this.buttonThemDauSach.UseVisualStyleBackColor = true;
+            this.buttonThemDauSach.Click += new System.EventHandler(this.buttonThemDauSach_Click);
             // 
             // buttonXoaDauSach
             // 
@@ -136,14 +138,14 @@
             // 
             this.groupBox53.Controls.Add(this.dataGridViewDauSach);
             this.groupBox53.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox53.Location = new System.Drawing.Point(13, 271);
+            this.groupBox53.Location = new System.Drawing.Point(5, 271);
             this.groupBox53.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox53.Name = "groupBox53";
             this.groupBox53.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox53.Size = new System.Drawing.Size(631, 412);
+            this.groupBox53.Size = new System.Drawing.Size(640, 409);
             this.groupBox53.TabIndex = 41;
             this.groupBox53.TabStop = false;
-            this.groupBox53.Text = "Đầu Sách";
+            this.groupBox53.Text = "Danh Sách Đầu Sách";
             // 
             // dataGridViewDauSach
             // 
@@ -162,7 +164,7 @@
             this.dataGridViewDauSach.RowHeadersWidth = 51;
             this.dataGridViewDauSach.RowTemplate.Height = 24;
             this.dataGridViewDauSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDauSach.Size = new System.Drawing.Size(613, 377);
+            this.dataGridViewDauSach.Size = new System.Drawing.Size(629, 377);
             this.dataGridViewDauSach.TabIndex = 3;
             // 
             // groupBox42

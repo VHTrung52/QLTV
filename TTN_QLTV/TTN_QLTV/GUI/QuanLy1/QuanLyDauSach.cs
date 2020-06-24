@@ -23,12 +23,8 @@ namespace TTN_QLTV.GUI.QuanLy
         private List<TheLoai> ltl = new List<TheLoai>();
 
         DauSachBUS dauSachBUS = new DauSachBUS();
-        private int maDauSach;
-        private int maTacGia;
-        private int maTheLoai;
-        private int maNhaXuatBan;
-        private int sach_MaDauSach;
-        private int sach_MaSach;
+        public static int maDauSach;
+        
 
         private string xoaTacGia;
         private string xoaTheLoai;
@@ -36,18 +32,42 @@ namespace TTN_QLTV.GUI.QuanLy
         private BUSTacGia busTG = new BUSTacGia();
         private BUSNXB busNXB = new BUSNXB();
         private BUSTheLoai busTL = new BUSTheLoai();
-        private TheLoaiBUS theLoaiBUS;
-        private KeSachBus keSachBus;
+        private TheLoaiBUS theLoaiBUS = new TheLoaiBUS();
+        private KeSachBus keSachBus = new KeSachBus();
+
+        private static QuanLyDauSach formQuanLyDauSach = null;
         public QuanLyDauSach()
         {
-            theLoaiBUS = new TheLoaiBUS();
-            dauSachBUS = new DauSachBUS();
-            keSachBus = new KeSachBus();
+            
             InitializeComponent();
+            formQuanLyDauSach = this;
         }
-        public static string fuck;
+        public static void Static_VisiableButtonThemVao()
+        {
+            if (formQuanLyDauSach != null)
+            {
+                formQuanLyDauSach.EnableButtonThemVao();
+            }
+        }
+        private void EnableButtonThemVao()
+        {
+            buttonThemVao.Visible = true;
+        }
+        public static void Static_ChangeButtonThemVaoText(string text)
+        {
+            if(formQuanLyDauSach != null)
+            {
+                formQuanLyDauSach.ChangeButtonThemVaoText(text);
+            }
+        }
+        private void ChangeButtonThemVaoText(string text)
+        {
+            buttonThemVao.Text = text;
+        }
         private void dataGridViewDauSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            buttonSua.Enabled = true;
+            buttonThem.Enabled = false;
             DataGridViewRow row = dataGridViewDauSach.CurrentRow;
 
             if (!string.IsNullOrEmpty(row.Cells[0].Value.ToString()))
@@ -108,6 +128,8 @@ namespace TTN_QLTV.GUI.QuanLy
         private void QuanLyDauSach_Load(object sender, EventArgs e)
         {
             buttonThemVao.Visible = false;
+            buttonThem.Enabled = false;
+            
             dataGridViewDauSach.DataSource = dauSachBUS.GetDanhSachDauSach();
             dataGridViewDauSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewDauSach.Columns["TenDauSach"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -116,6 +138,30 @@ namespace TTN_QLTV.GUI.QuanLy
             dataGridViewDauSach.Columns[2].HeaderText = "Mã Kệ Sách";
             dataGridViewDauSach.Columns[3].HeaderText = "Số Lượng Hiện Tại";
             dataGridViewDauSach.Columns[4].HeaderText = "Tổng Số";
+
+            DataGridViewRow currentRow = dataGridViewDauSach.CurrentRow;
+            if (!string.IsNullOrEmpty(currentRow.Cells[0].Value.ToString()))
+            {
+                maDauSach = Convert.ToInt32(currentRow.Cells[0].Value);
+
+                dataGridViewTacGia.DataSource = dauSachBUS.GetTenTacGia(maDauSach);
+
+                dataGridViewTheLoai.DataSource = dauSachBUS.GetTenTheLoai(maDauSach);
+
+                dataGridViewNhaXuatBan.DataSource = dauSachBUS.GetTenNhaXuatBan(maDauSach);
+                changeDataGridViewHeader_tabDauSach();
+                textBoxMaDauSach.Text = currentRow.Cells[0].Value.ToString();
+                textBoxTenDauSach.Text = currentRow.Cells[1].Value.ToString();
+                textBoxMaKeSach.Text = currentRow.Cells[2].Value.ToString();
+                textBoxSoLuongHienTai.Text = currentRow.Cells[3].Value.ToString();
+                textBoxTongSo.Text = currentRow.Cells[4].Value.ToString();
+            }
+            currentRow = dataGridViewTacGia.CurrentRow;
+            xoaTacGia = currentRow.Cells[0].Value.ToString();
+            currentRow = dataGridViewTheLoai.CurrentRow;
+            xoaTheLoai = currentRow.Cells[0].Value.ToString();
+            currentRow = dataGridViewNhaXuatBan.CurrentRow;
+            xoaNhaXuatBan = currentRow.Cells[0].Value.ToString();
         }
 
         private void dataGridViewTacGia_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -278,6 +324,8 @@ namespace TTN_QLTV.GUI.QuanLy
             textBoxSoLuongHienTai.Text = "";
             textBoxTongSo.Text = "";
             textBoxMaKeSach.Text = "";
+            buttonThem.Enabled = true;
+            buttonSua.Enabled = false;
             
         }
 
@@ -364,11 +412,74 @@ namespace TTN_QLTV.GUI.QuanLy
         {
             MainQuanLy.StaticChangeTab(1);
             QuanLySach.StaticChangeDataSouce(dauSachBUS.GetSachThuocDauSach(maDauSach));
-            /*buttonThemVaoPhieuMuon_Sach.Visible = false;
+        }
 
-            dataGridViewSach_Sach.DataSource = dauSachBUS.GetSachThuocDauSach(maDauSach);
-            dataGridViewDauSach_Sach.DataSource = dauSachBUS.GetDauSachTheoMaDauSach(maDauSach);*/
-            
+        private void buttonThemTacGia_Click(object sender, EventArgs e)
+        {
+            MainQuanLy.StaticChangeTab(2);
+            QuanLyTacGia.Static_EnableButtonThemVaoDauSach();
+        }
+
+        private void buttonThemTheLoai_Click(object sender, EventArgs e)
+        {
+            MainQuanLy.StaticChangeTab(4);
+            QuanLyTheLoai.Static_EnableButtonThemVaoDauSach();
+        }
+
+        private void buttonThemNhaXuatBan_Click(object sender, EventArgs e)
+        {
+            MainQuanLy.StaticChangeTab(3);
+            QuanLyTheLoai.Static_EnableButtonThemVaoDauSach();
+        }
+
+        private void buttonThemVao_Click(object sender, EventArgs e)
+        {
+            if(buttonThemVao.Text == "Thêm Vào Kệ Sách")
+            {
+                //if()
+            } 
+            else if(buttonThemVao.Text == "Thêm Vào Thể Loại")
+            {
+                try
+                {
+                    TheLoaiBUS theLoaiBUS = new TheLoaiBUS();
+                    theLoaiBUS.InsertDSTheLoai(maDauSach, QuanLyTheLoai.maTheLoai);
+                    dataGridViewDauSach.DataSource = dauSachBUS.GetDanhSachDauSach();
+                    MessageBox.Show("Thành Công");
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("Thất Bại");
+                }
+            }
+            else if (buttonThemVao.Text == "Thêm Vào Nhà Xuất Bản")
+            {
+                try
+                {
+                    NhaXuatBanBUS nhaXuatBanBUS = new NhaXuatBanBUS();
+                    nhaXuatBanBUS.InsertDSNhaXuatBan(maDauSach, QuanLyNhaXuatBan.maNhaXuatBan);
+                    dataGridViewDauSach.DataSource = dauSachBUS.GetDanhSachDauSach();
+                    MessageBox.Show("Thành Công");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Thất Bại");
+                }
+            }
+            else if (buttonThemVao.Text == "Thêm Vào Tác Giả")
+            {
+                try
+                {
+                    TacGiaBUS tacGiaBUS = new TacGiaBUS();
+                    tacGiaBUS.InsertDSTacGia(maDauSach, QuanLyTacGia.maTacGia);
+                    dataGridViewDauSach.DataSource = dauSachBUS.GetDanhSachDauSach();
+                    MessageBox.Show("Thành Công");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Thất Bại");
+                }
+            }
         }
     }
 }

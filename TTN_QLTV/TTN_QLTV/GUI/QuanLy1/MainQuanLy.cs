@@ -14,6 +14,7 @@ namespace TTN_QLTV.GUI.QuanLy
     public partial class MainQuanLy : Form
     {
         private static MainQuanLy formMainQuanLy = null;
+        private bool first = true;
         public MainQuanLy()
         {
             InitializeComponent();
@@ -79,32 +80,44 @@ namespace TTN_QLTV.GUI.QuanLy
 
         private void tabPageQuanLyDauSach_Enter(object sender, EventArgs e)
         {
+            if (first == true)
             OpenChildForm(new QuanLyDauSach());
         }
 
         private void tabPageQuanLySach_Enter(object sender, EventArgs e)
         {
             OpenChildForm(new QuanLySach());
+            first = true;
         }
 
         private void tabPageQuanLyTacGia_Enter(object sender, EventArgs e)
         {
             OpenChildForm(new QuanLyTacGia());
+            first = true;
         }
 
         private void tabPageQuanLyNhaXuatBan_Enter(object sender, EventArgs e)
         {
             OpenChildForm(new QuanLyNhaXuatBan());
+            first = true;
         }
 
         private void tabPageQuanLyTheLoai_Enter(object sender, EventArgs e)
         {
             OpenChildForm(new QuanLyTheLoai());
+            first = true;
         }
 
         private void tabPageQuanLyKeSach_Enter(object sender, EventArgs e)
         {
             OpenChildForm(new QuanLyKeSach());
+            first = true;
+        }
+
+        private void MainQuanLy_Load(object sender, EventArgs e)
+        {
+            OpenChildForm(new QuanLyDauSach());
+            first = false;
         }
     }
 }
